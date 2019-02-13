@@ -1,0 +1,5 @@
+- Análise dos requisitos da aplicação.
+- Especificação geral detalhada do software a desenvolver. 
+- Método RUP.
+- Use Cases, Diagramas de Sequência e Diagramas de Classes. 
+- Geração de documentação.

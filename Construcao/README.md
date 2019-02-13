@@ -1,0 +1,6 @@
+- Apresentação e caracterização geral da arquitectura do sistema. 
+- Descrição dos diversos módulos.
+- Plano de desenvolvimento. 
+- Distribuição do trabalho. 
+- Ferramentas utilizadas. 
+- Validação do software desenvolvido.

@@ -1,0 +1,4 @@
+- Identificação e caracterização geral da aplicação a desenvolver. 
+- Fundamentação do seu desenvolvimento e justificação em termos de modelo de negócio. 
+- Medidas de Sucesso. 
+- Diagrama de desenvolvimento.   

@@ -1,0 +1,4 @@
+- Apresentação do trabalho realizado. 
+- Análise dos principais pontos do trabalho. 
+- Discussão técnica sobre as opções de desenvolvimento.
+- Avaliação.
