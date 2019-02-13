@@ -1,4 +1,4 @@
 # MyChef
 Project for Software Engineering class
 
-Hi!
+Hi! How you doin'?
