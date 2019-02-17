@@ -4,13 +4,13 @@
 - Diagrama de desenvolvimento.
 
 Etapas desta fase: (possivelmente +)
-- Contextualização
-- Motivação e Objetivos
-- Justificação do sistema
-- Utilidade do sistema
-- Estabelecimento da identidade do projeto
-- Identificação dos recursos necessários
-- Maquete do sistema
-- Definição de medidas de sucesso
-- Plano de desenvolvimento
-- Descrição da estrutura do relatório
+- Braga  - Contextualização
+- João   - Motivação e Objetivos
+- Braga  - Justificação do sistema
+- Milhas - Utilidade do sistema
+- Richie - Estabelecimento da identidade do projeto
+- Richie - Identificação dos recursos necessários
+- Caça   - Maquete do sistema
+- Caça   - Definição de medidas de sucesso
+- João   - Plano de desenvolvimento
+- Milhas - Descrição da estrutura do relatório
