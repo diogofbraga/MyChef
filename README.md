@@ -9,3 +9,6 @@ Repositórios de referência:
 Links de possível interesse:
 - http://comidas-tipicas.info/comidas-do-mundo/comida-italiana.html
 - https://www.pingodoce.pt/coleccoes/receitas-italianas/
+
+Link do repo do stor de ASP:
+- https://github.com/brunobmo/ASP.NET-Training
