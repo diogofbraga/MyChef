@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{E00C8D75-B78C-4C7B-A32B-CF7B45B803F6}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Workshop1/Models/User.cs">
+    <Files>
+      <File FileName="Workshop1/Program.cs" Line="20" Column="47" />
+      <File FileName="Workshop1/Startup.cs" Line="16" Column="20" />
+      <File FileName="Workshop1/Models/User.cs" Line="9" Column="1" />
+      <File FileName="Workshop1/Controllers/UserController.cs" Line="32" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Workshop1" expanded="True">
+            <Node name="Workshop1" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="User.cs" selected="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Workshop1 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

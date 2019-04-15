@@ -1,0 +1,14 @@
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/obj/Debug/netcoreapp2.2/Workshop1.csproj.CoreCompileInputs.cache
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/obj/Debug/netcoreapp2.2/Workshop1.RazorAssemblyInfo.cache
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/obj/Debug/netcoreapp2.2/Workshop1.RazorAssemblyInfo.cs
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/obj/Debug/netcoreapp2.2/Workshop1.AssemblyInfoInputs.cache
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/obj/Debug/netcoreapp2.2/Workshop1.AssemblyInfo.cs
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/bin/Debug/netcoreapp2.2/Workshop1.deps.json
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/bin/Debug/netcoreapp2.2/Workshop1.runtimeconfig.json
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/bin/Debug/netcoreapp2.2/Workshop1.runtimeconfig.dev.json
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/bin/Debug/netcoreapp2.2/Workshop1.dll
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/bin/Debug/netcoreapp2.2/Workshop1.pdb
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/obj/Debug/netcoreapp2.2/Workshop1.RazorTargetAssemblyInfo.cache
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/obj/Debug/netcoreapp2.2/Workshop1.dll
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/obj/Debug/netcoreapp2.2/Workshop1.pdb
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/obj/Debug/netcoreapp2.2/Workshop1.csprojAssemblyReference.cache
