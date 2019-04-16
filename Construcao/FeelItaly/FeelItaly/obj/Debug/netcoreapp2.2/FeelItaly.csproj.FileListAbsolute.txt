@@ -20,3 +20,17 @@
 /Users/diogobraga/Desktop/MyChef/Construcao/FeelItaly/FeelItaly/obj/Debug/netcoreapp2.2/FeelItaly.AssemblyInfo.cs
 /Users/diogobraga/Desktop/MyChef/Construcao/FeelItaly/FeelItaly/obj/Debug/netcoreapp2.2/FeelItaly.dll
 /Users/diogobraga/Desktop/MyChef/Construcao/FeelItaly/FeelItaly/obj/Debug/netcoreapp2.2/FeelItaly.pdb
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/obj/Debug/netcoreapp2.2/FeelItaly.dll
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/obj/Debug/netcoreapp2.2/FeelItaly.pdb
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/bin/Debug/netcoreapp2.2/FeelItaly.deps.json
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/bin/Debug/netcoreapp2.2/FeelItaly.runtimeconfig.json
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/bin/Debug/netcoreapp2.2/FeelItaly.runtimeconfig.dev.json
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/bin/Debug/netcoreapp2.2/FeelItaly.dll
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/bin/Debug/netcoreapp2.2/FeelItaly.pdb
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/obj/Debug/netcoreapp2.2/FeelItaly.csprojAssemblyReference.cache
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/obj/Debug/netcoreapp2.2/FeelItaly.csproj.CoreCompileInputs.cache
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/obj/Debug/netcoreapp2.2/FeelItaly.RazorAssemblyInfo.cache
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/obj/Debug/netcoreapp2.2/FeelItaly.RazorAssemblyInfo.cs
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/obj/Debug/netcoreapp2.2/FeelItaly.AssemblyInfoInputs.cache
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/obj/Debug/netcoreapp2.2/FeelItaly.AssemblyInfo.cs
+/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/FeelItaly/FeelItaly/obj/Debug/netcoreapp2.2/FeelItaly.RazorTargetAssemblyInfo.cache

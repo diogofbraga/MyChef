@@ -6,10 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FeelItaly.Models{
 
-    public class AppDbContext{
+    public class AppDbContext : DbContext{
 
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options){
         }
 
         public DbSet<Acao> Acoes { get; set; }

@@ -16,8 +16,9 @@ namespace FeelItaly{
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services){
 
+            var connection = @""; 
             services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(connection));
 
             services.AddMvc();
         }
