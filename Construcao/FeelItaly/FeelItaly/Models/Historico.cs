@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,12 +8,26 @@ namespace FeelItaly.Models{
 
     public class Historico{
 
-        public Receita receita { set; get; }
-        public Utilizador utilizador { set; get; }
-        public Passo passo { set; get; }
-        public float tempoPasso { set; get; }
-        public DateTime data { set; get; }
-        public int nrPasso { set; get; }
+        [Key]
+        [Required]
+        public Receita Receita { set; get; }
+
+        [Key]
+        [Required]
+        public Utilizador Utilizador { set; get; }
+
+        [Key]
+        [Required]
+        public Passo Passo { set; get; }
+
+        [Required]
+        public float TempoPasso { set; get; }
+
+        [Required]
+        public DateTime Data { set; get; }
+
+        [Required]
+        public int NrPasso { set; get; }
 
     }
 }
