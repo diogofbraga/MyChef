@@ -11,13 +11,20 @@ namespace FeelItaly.Models{
 
         [Key]
         [Required]
-        [Display(Name = "idReceita")]
-        public int idReceita { set; get; }
+        public int IdReceita { set; get; }
 
-        public string nome { set; get; }
-        public float nutricional { set; get; }
-        public int tempoTotal { set; get; }
-        public float avaliacao { set; get; }
+        [Required]
+        [StringLength(100)]
+        public string Nome { set; get; }
+
+        [Required]
+        public float Nutricional { set; get; }
+
+        [Required]
+        public int TempoTotal { set; get; }
+
+        [Required]
+        public float Avaliacao { set; get; }
 
     }
 }
