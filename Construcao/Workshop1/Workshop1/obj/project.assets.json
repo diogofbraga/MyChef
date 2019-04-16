@@ -12087,23 +12087,23 @@
     ]
   },
   "packageFolders": {
-    "/Users/joao/.nuget/packages/": {},
+    "/Users/diogobraga/.nuget/packages/": {},
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/Workshop1.csproj",
+      "projectUniqueName": "/Users/diogobraga/Desktop/MyChef/Construcao/Workshop1/Workshop1/Workshop1.csproj",
       "projectName": "Workshop1",
-      "projectPath": "/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/Workshop1.csproj",
-      "packagesPath": "/Users/joao/.nuget/packages/",
-      "outputPath": "/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/Workshop1/Workshop1/obj/",
+      "projectPath": "/Users/diogobraga/Desktop/MyChef/Construcao/Workshop1/Workshop1/Workshop1.csproj",
+      "packagesPath": "/Users/diogobraga/.nuget/packages/",
+      "outputPath": "/Users/diogobraga/Desktop/MyChef/Construcao/Workshop1/Workshop1/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/joao/.config/NuGet/NuGet.Config"
+        "/Users/diogobraga/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
