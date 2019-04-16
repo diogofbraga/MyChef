@@ -6,10 +6,19 @@ namespace FeelItaly.Models{
 
     public class Comentario{
 
-        public int idComentario { set; get; }
-        public string descricao { set; get; }
-        public DateTime data { set; get; }
-        public Receita receita { set; get; }
+        [Key]
+        [Required]
+        public int IdComentario { set; get; }
+
+        [Required]
+        [StringLength(32)]
+        public string Descricao { set; get; }
+
+        [Required]
+        public DateTime Data { set; get; }
+
+        [Required]
+        public Receita Receita { set; get; }
 
     }
 }

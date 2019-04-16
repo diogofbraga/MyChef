@@ -6,7 +6,12 @@ namespace FeelItaly.Models{
 
     public class CategoriaReceita{
 
+        [Key]
+        [Required]
         public Categoria categoria { set; get; }
+
+        [Key]
+        [Required]
         public Receita receita { set; get; }
 
     }
