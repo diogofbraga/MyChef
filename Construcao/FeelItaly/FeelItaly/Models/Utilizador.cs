@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace FeelItaly.Models{
 
@@ -25,5 +26,12 @@ namespace FeelItaly.Models{
         [StringLength(225)]
         public string Nome { set; get; }
 
+    }
+
+    public class UtilizadorContext : DbContext {
+         
+        public UtilizadorContext(DbContextOptions<UtilizadorContext> options) : base(options){}
+
+        public DbSet<Utilizador> Utilizadores { get; set; }
     }
 }

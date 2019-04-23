@@ -8,12 +8,18 @@ using FeelItaly.Models;
 namespace FeelItaly.Controllers{
 
     [Route("api/[controller]")]
-    public class UtilizadorController : Controller
-    {
+    public class UtilizadorController : Controller{
+
+        private readonly UtilizadorContext _context;
+
+        public UtilizadorController(UtilizadorContext context) {
+            _context = context;
+        }
+
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get(){
-            return new string[] { "value1", "value2" };
+        public Utilizador[] Get(){
+            return _context.Utilizadores.ToArray();
         }
 
         // GET api/values/5

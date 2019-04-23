@@ -24,7 +24,6 @@ namespace FeelItaly.Models{
         public DbSet<Tutorial> Turoriais { get; set; }
         public DbSet<Utensilio> Utensilios { get; set; }
         public DbSet<UtensilioPasso> UtensiliosPassos { get; set; }
-        public DbSet<Utilizador> Utilizadores { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
 
