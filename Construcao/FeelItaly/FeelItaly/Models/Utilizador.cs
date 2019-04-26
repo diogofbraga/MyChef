@@ -30,7 +30,10 @@ namespace FeelItaly.Models{
 
     public class UtilizadorContext : DbContext {
          
-        public UtilizadorContext(DbContextOptions<UtilizadorContext> options) : base(options){}
+        public UtilizadorContext(DbContextOptions<UtilizadorContext> options) 
+            : base(options)
+        {
+        }
 
         public DbSet<Utilizador> Utilizadores { get; set; }
     }
