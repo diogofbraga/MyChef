@@ -1,0 +1,14 @@
+CREATE DATABASE FeelItaly;
+GO
+
+USE FeelItaly;
+GO
+
+CREATE TABLE Utilizador(
+    Username NVARCHAR(32) NOT NULL PRIMARY KEY,
+    Passwd  NVARCHAR(16) NOT NULL,
+    Email NVARCHAR(225) NOT NULL,
+    Nome NVARCHAR(225) NOT NULL
+);
+
+GO

@@ -12,19 +12,19 @@ namespace FeelItaly.Models{
         [Key]
         [Required]
         [StringLength(32)]
-        public string Username { set; get; }
+        public string username { set; get; }
 
         [Required]
         [StringLength(16)]
-        public string Password { set; get; }
+        public string passwd { set; get; }
 
         [Required]
         [StringLength(225)]
-        public string Email { set; get; }
+        public string email { set; get; }
 
         [Required]
         [StringLength(225)]
-        public string Nome { set; get; }
+        public string nome { set; get; }
 
     }
 
@@ -35,6 +35,17 @@ namespace FeelItaly.Models{
         {
         }
 
-        public DbSet<Utilizador> Utilizadores { get; set; }
+        public DbSet<Utilizador> utilizador { get; set; }
+        /*
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            // define nome do esquema
+            modelBuilder.HasDefaultSchema("FeelItaly");
+
+            // transforma classes em tabelas SQL
+            modelBuilder.Entity<Utilizador>().ToTable("Utilizador");
+        }*/
+
     }
 }

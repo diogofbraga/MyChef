@@ -12082,28 +12082,29 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.AspNetCore.App >= 2.2.0",
+      "Microsoft.AspNetCore.Mvc.TagHelpers >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
   "packageFolders": {
-    "/Users/diogobraga/.nuget/packages/": {},
+    "/Users/joao/.nuget/packages/": {},
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/diogobraga/Desktop/MyChef/Construcao/Workshop1/Workshop1/Workshop1.csproj",
+      "projectUniqueName": "/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/Workshop1/Workshop1/Workshop1.csproj",
       "projectName": "Workshop1",
-      "projectPath": "/Users/diogobraga/Desktop/MyChef/Construcao/Workshop1/Workshop1/Workshop1.csproj",
-      "packagesPath": "/Users/diogobraga/.nuget/packages/",
-      "outputPath": "/Users/diogobraga/Desktop/MyChef/Construcao/Workshop1/Workshop1/obj/",
+      "projectPath": "/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/Workshop1/Workshop1/Workshop1.csproj",
+      "packagesPath": "/Users/joao/.nuget/packages/",
+      "outputPath": "/Users/joao/Desktop/Desktop_iCloud/Universidade/3ºano/2ºsemestre/LI4/MyChef/Construcao/Workshop1/Workshop1/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/diogobraga/.config/NuGet/NuGet.Config"
+        "/Users/joao/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
@@ -12130,6 +12131,10 @@
             "target": "Package",
             "version": "[2.2.0, )",
             "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.Mvc.TagHelpers": {
+            "target": "Package",
+            "version": "[2.2.0, )"
           },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",

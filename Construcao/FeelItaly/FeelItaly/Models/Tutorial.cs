@@ -12,6 +12,7 @@ namespace FeelItaly.Models{
         [StringLength(255)]
         public string Link { set; get; }
 
+        [Key]
         [Required]
         public Passo Passo { set; get; }
 

@@ -12,18 +12,19 @@ namespace FeelItaly.Controllers{
 
         private readonly UtilizadorContext _context;
 
-        public UtilizadorController(/*UtilizadorContext context*/) {
-            //_context = context;
+        public UtilizadorController(UtilizadorContext context) {
+            _context = context;
         }
 
         // GET: api/values
         [HttpGet]
         public Utilizador[] Get(){
-            //return _context.Utilizadores.ToArray();
+            return _context.utilizador.ToArray();
+            /*
             return new[] {
-                    new Utilizador() {Username = "joao21", Password = "joaop21", Email = "teste@gmail.com", Nome = "João"},
-                    new Utilizador() {Username = "joao22", Password = "joaop22", Email = "teste2@gmail.com", Nome = "João2"}
-                    };
+                    new Utilizador() {username = "joao21", passwd = "joaop21", email = "teste@gmail.com", nome = "João"},
+                    new Utilizador() {username = "joao22", passwd = "joaop22", email = "teste2@gmail.com", nome = "João2"}
+                    };*/
         }
 
         // GET api/values/5
