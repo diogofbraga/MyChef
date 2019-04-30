@@ -30,6 +30,8 @@ namespace FeelItaly.Controllers{
             return Ok(receita);
         }
 
+        // POST api/receita
+        // Custom -> {"idReceita":2,"nome":"Pizza Margarita","nutricional":400.0,"tempoTotal":45,"avaliacao":4.3,"idUtilizador":1}
         [HttpPost]
         public IActionResult Add([FromBody] Models.Receita receita){
             _context.receita.Add(receita);

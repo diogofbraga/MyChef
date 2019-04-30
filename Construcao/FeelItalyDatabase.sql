@@ -31,6 +31,9 @@ VALUES(1,'diogofbraga','dfb','diogo@gmail.com','Diogo Braga')
 INSERT INTO Receita
 VALUES(1,'Carbonara',400.0,45,4.3,1)
 
+INSERT INTO Receita
+VALUES(2,'Pizza Margarita',600.0,35,4.5,1)
+
 SELECT * FROM Utilizador
 
 SELECT * FROM Receita
