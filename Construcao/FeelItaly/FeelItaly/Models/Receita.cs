@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,20 +13,27 @@ namespace FeelItaly.Models{
 
         [Key]
         [Required]
-        public int IdReceita { set; get; }
+        public int idReceita { set; get; }
 
         [Required]
         [StringLength(100)]
-        public string Nome { set; get; }
+        public string nome { set; get; }
 
         [Required]
-        public float Nutricional { set; get; }
+        public double nutricional { set; get; }
 
         [Required]
-        public int TempoTotal { set; get; }
+        public int tempoTotal { set; get; }
 
         [Required]
-        public float Avaliacao { set; get; }
+        public double avaliacao { set; get; }
+
+        [Required]
+        public int idUtilizador { set; get; }
+
+        [NotMapped]
+        [JsonIgnore]
+        public Utilizador utilizador { set; get; }
 
     }
 }

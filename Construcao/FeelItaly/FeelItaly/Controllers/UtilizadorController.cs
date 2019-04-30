@@ -27,23 +27,16 @@ namespace FeelItaly.Controllers{
                     };*/
         }
 
-        // GET api/utilizador/diogofbraga
-        [HttpGet("{username}")]
-        public ActionResult Get(String username){
-            var utilizador = _context.utilizador.Find(username);
+        // GET api/utilizador/1
+        [HttpGet("{idUtilizador}")]
+        public ActionResult Get(int idUtilizador){
+            var utilizador = _context.utilizador.Find(idUtilizador);
             if (utilizador == null) { return NotFound(); }
             return Ok(utilizador);
         }
 
-
-        /*
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value){
-        }*/
-
         // POST api/utilizador/
-        // Custom -> {"username":"ricardofsc10","passwd":"rc10","email":"ricardofsc10@gmail.com","nome":"Ricardo Caçador"}
+        // Custom -> {"idUtilizador":"2","username":"ricardofsc10","passwd":"rc10","email":"ricardofsc10@gmail.com","nome":"Ricardo Caçador"}
         [HttpPost]
         public IActionResult Add([FromBody]Utilizador user)
         {
@@ -51,6 +44,36 @@ namespace FeelItaly.Controllers{
             _context.SaveChanges();
             return new CreatedResult($"/api/utilizador/{user.username}", user);
         }
+
+        // DELETE api/utilizador?idUtilizador=2
+        [HttpDelete]
+        public IActionResult Delete([FromQuery] int idUtilizador)
+        {
+            var user = _context.utilizador.Find(idUtilizador);
+            if (user == null){ return NotFound(); }
+            _context.utilizador.Remove(user);
+            _context.SaveChanges();
+            return NoContent();
+        }
+
+        // GET api/utilizador/getReceitas/1
+        [HttpGet("getReceitas/{idUt}")]
+        public IActionResult getUtilizadorReceitas(int idUt){
+            var user = _context.utilizador.Find(idUt);
+            if (user == null) { return NotFound(); }
+            var recipes = _context.receita.Where(s => s.idUtilizador == idUt);
+            foreach (Models.Receita r in recipes)
+            {
+                user.Receitas.Add(r);
+            }
+            return Ok(user);
+        }
+
+        /*
+        // POST api/values
+        [HttpPost]
+        public void Post([FromBody]string value){
+        }*/
 
         /*
         // PUT api/values/5
@@ -63,19 +86,5 @@ namespace FeelItaly.Controllers{
         [HttpDelete("{id}")]
         public void Delete(int id){
         }*/
-
-        // DELETE api/utilizador?username=diogofbraga
-        [HttpDelete]
-        public IActionResult Delete([FromQuery] String username)
-        {
-            var user = _context.utilizador.Find(username);
-            if (user == null)
-            {
-                return NotFound();
-            }
-            _context.utilizador.Remove(user);
-            _context.SaveChanges();
-            return NoContent();
-        }
     }
 }
