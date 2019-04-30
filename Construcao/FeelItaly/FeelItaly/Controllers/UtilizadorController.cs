@@ -16,7 +16,7 @@ namespace FeelItaly.Controllers{
             _context = context;
         }
 
-        // GET: api/values
+        // GET api/utilizador
         [HttpGet]
         public Utilizador[] Get(){
             return _context.utilizador.ToArray();
@@ -27,25 +27,55 @@ namespace FeelItaly.Controllers{
                     };*/
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id){
-            return "value";
+        // GET api/utilizador/diogofbraga
+        [HttpGet("{username}")]
+        public ActionResult Get(String username){
+            var utilizador = _context.utilizador.Find(username);
+            if (utilizador == null) { return NotFound(); }
+            return Ok(utilizador);
         }
 
+
+        /*
         // POST api/values
         [HttpPost]
         public void Post([FromBody]string value){
+        }*/
+
+        // POST api/utilizador/
+        // Custom -> {"username":"ricardofsc10","passwd":"rc10","email":"ricardofsc10@gmail.com","nome":"Ricardo Caçador"}
+        [HttpPost]
+        public IActionResult Add([FromBody]Utilizador user)
+        {
+            _context.utilizador.Add(user);
+            _context.SaveChanges();
+            return new CreatedResult($"/api/utilizador/{user.username}", user);
         }
 
+        /*
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value){
-        }
+        }*/
 
+        /*
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id){
+        }*/
+
+        // DELETE api/utilizador?username=diogofbraga
+        [HttpDelete]
+        public IActionResult Delete([FromQuery] String username)
+        {
+            var user = _context.utilizador.Find(username);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            _context.utilizador.Remove(user);
+            _context.SaveChanges();
+            return NoContent();
         }
     }
 }
