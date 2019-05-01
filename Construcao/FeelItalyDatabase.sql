@@ -14,6 +14,14 @@ CREATE TABLE Utilizador(
 
 GO
 
+
+CREATE TABLE Categoria(
+    IdCategoria INT NOT NULL PRIMARY KEY,
+    Descricao NVARCHAR(32) NOT NULL
+);
+
+GO
+
 CREATE TABLE Receita(
     IdReceita INT NOT NULL PRIMARY KEY,
     Nome NVARCHAR(100) NOT NULL,
@@ -25,8 +33,19 @@ CREATE TABLE Receita(
 
 GO
 
+CREATE TABLE CategoriaReceita(
+    IdCategoria INT NOT NULL PRIMARY KEY,
+    IdReceita INT NOT NULL
+);
+
 INSERT INTO Utilizador
 VALUES(1,'diogofbraga','dfb','diogo@gmail.com','Diogo Braga')
+
+INSERT INTO Categoria
+VALUES(1,'Massas')
+
+INSERT INTO Categoria
+VALUES(2,'Pizzas')
 
 INSERT INTO Receita
 VALUES(1,'Carbonara',400.0,45,4.3,1)
@@ -34,6 +53,17 @@ VALUES(1,'Carbonara',400.0,45,4.3,1)
 INSERT INTO Receita
 VALUES(2,'Pizza Margarita',600.0,35,4.5,1)
 
+INSERT INTO CategoriaReceita
+VALUES(1,1)
+
+INSERT INTO CategoriaReceita
+VALUES(2,2)
+
+
 SELECT * FROM Utilizador
 
 SELECT * FROM Receita
+
+SELECT * FROM Categoria
+
+SELECT * FROM CategoriaReceita

@@ -15,12 +15,11 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace FeelItaly
-{
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
+namespace FeelItaly{
+
+    public class Startup{
+
+        public Startup(IConfiguration configuration){
             Configuration = configuration;
         }
 
@@ -32,6 +31,9 @@ namespace FeelItaly
 
             var connection = @"Server=localhost;Database=FeelItaly;User=sa;Password=mieimasters20LI4";
             services.AddDbContext<UtilizadorContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ReceitaContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<CategoriaContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<CategoriaReceitaContext>(options => options.UseSqlServer(connection));
 
             services.AddMvc();
         }
@@ -45,5 +47,6 @@ namespace FeelItaly
 
             app.UseMvcWithDefaultRoute();
         }
+
     }
 }

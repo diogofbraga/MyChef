@@ -36,19 +36,19 @@ namespace FeelItaly.Controllers{
         }
 
         // POST api/utilizador/
-        // Custom -> {"idUtilizador":"2","username":"ricardofsc10","passwd":"rc10","email":"ricardofsc10@gmail.com","nome":"Ricardo Caçador"}
+        // JSON -> idUtilizador=2 ; username=ricardofsc10 ; passwd=rc10 ; email=ricardofsc10@gmail.com ; nome=Ricardo Caçador ;
+        // Custom -> {"idUtilizador":3,"username":"johnnnnnny","passwd":"jb","email":"johnnyboy@gmail.com","nome":"Johnny Boy"}
         [HttpPost]
         public IActionResult Add([FromBody]Utilizador user)
         {
             _context.utilizador.Add(user);
             _context.SaveChanges();
-            return new CreatedResult($"/api/utilizador/{user.username}", user);
+            return new CreatedResult($"/api/utilizador/{user.idUtilizador}", user);
         }
 
         // DELETE api/utilizador?idUtilizador=2
         [HttpDelete]
-        public IActionResult Delete([FromQuery] int idUtilizador)
-        {
+        public IActionResult Delete([FromQuery] int idUtilizador){
             var user = _context.utilizador.Find(idUtilizador);
             if (user == null){ return NotFound(); }
             _context.utilizador.Remove(user);
@@ -56,18 +56,6 @@ namespace FeelItaly.Controllers{
             return NoContent();
         }
 
-        // GET api/utilizador/getReceitas/1
-        [HttpGet("getReceitas/{idUt}")]
-        public IActionResult getUtilizadorReceitas(int idUt){
-            var user = _context.utilizador.Find(idUt);
-            if (user == null) { return NotFound(); }
-            var recipes = _context.receita.Where(s => s.idUtilizador == idUt);
-            foreach (Models.Receita r in recipes)
-            {
-                user.Receitas.Add(r);
-            }
-            return Ok(user);
-        }
 
         /*
         // POST api/values

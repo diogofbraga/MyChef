@@ -10,9 +10,9 @@ namespace FeelItaly.Controllers{
     [Route("api/[controller]")]
     public class ReceitaController : Controller{
 
-        private readonly UtilizadorContext _context;
+        private readonly ReceitaContext _context;
 
-        public ReceitaController(UtilizadorContext context){
+        public ReceitaController(ReceitaContext context){
             _context = context;
         }
 
@@ -31,12 +31,25 @@ namespace FeelItaly.Controllers{
         }
 
         // POST api/receita
-        // Custom -> {"idReceita":2,"nome":"Pizza Margarita","nutricional":400.0,"tempoTotal":45,"avaliacao":4.3,"idUtilizador":1}
+        // JSON -> idReceita=3 ; nome=Pizza Margarita ; nutricional=400.0 ; tempoTotal=45 ; avaliacao=4.3 ;
         [HttpPost]
         public IActionResult Add([FromBody] Models.Receita receita){
             _context.receita.Add(receita);
             _context.SaveChanges();
             return new CreatedResult($"/api/receita/{receita.idReceita}", receita);
         }
+
+        // GET api/receita/getCategoriasReceitas/1
+        [HttpGet("getCategoriasReceitas/{idRec}")]
+        public IActionResult getReceita_CategoriasReceitas(int idRec){
+            var catrec = _context.receita.Find(idRec);
+            if (catrec == null) { return NotFound(); }
+            var catrecipes = _context.categoriareceita.Where(s => s.idReceita == idRec);
+            foreach (Models.CategoriaReceita cr in catrecipes){
+                catrec.CategoriasReceitas.Add(cr);
+            }
+            return Ok(catrec);
+        }
+
     }
 }

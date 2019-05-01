@@ -28,12 +28,30 @@ namespace FeelItaly.Models{
         [Required]
         public double avaliacao { set; get; }
 
-        [Required]
-        public int idUtilizador { set; get; }
 
-        [NotMapped]
-        [JsonIgnore]
-        public Utilizador utilizador { set; get; }
+        public virtual ICollection<CategoriaReceita> CategoriasReceitas { get; set; }
 
     }
+
+        public class ReceitaContext : DbContext{
+
+        public ReceitaContext(DbContextOptions<ReceitaContext> options)
+                : base(options)
+            {
+            }
+
+            protected override void OnModelCreating(ModelBuilder modelBuilder){
+                modelBuilder.Entity<CategoriaReceita>()
+                        .HasOne(r => r.receita)
+                        .WithMany(cr => cr.CategoriasReceitas)
+                        .HasForeignKey(r => r.idReceita)
+                        .HasConstraintName("ForeignKey_Receita_CategoriaReceita");
+            }
+
+
+            public DbSet<Receita> receita { get; set; }
+            public DbSet<Models.CategoriaReceita> categoriareceita { get; set; }
+
+        }
+        
 }
