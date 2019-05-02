@@ -41,6 +41,18 @@ CREATE TABLE CategoriaReceita(
 INSERT INTO Utilizador
 VALUES(1,'diogofbraga','dfb','diogo@gmail.com','Diogo Braga')
 
+INSERT INTO Utilizador
+VALUES(2,'ricardomilhas','rm10','ricardinhomilas10@gmail.com','Ricardo Milhenzel')
+
+INSERT INTO Utilizador
+VALUES(3,'johnnyboy','jb10','johnnyboy@gmail.com','Johnny Boy')
+
+INSERT INTO Utilizador
+VALUES(4,'cacenzel','cac10','cacenzel@gmail.com','Caceeeeeenzel')
+
+INSERT INTO Utilizador
+VALUES(5,'denzel','d10','denzel@gmail.com','Denzel')
+
 INSERT INTO Categoria
 VALUES(1,'Massas')
 

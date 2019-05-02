@@ -46,6 +46,7 @@ namespace FeelItaly{
             }
 
             app.UseMvcWithDefaultRoute();
+            app.UseStaticFiles();
         }
 
     }

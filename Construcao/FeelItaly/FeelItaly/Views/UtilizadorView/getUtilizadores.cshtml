@@ -1,0 +1,19 @@
+﻿@model IEnumerable<FeelItaly.Models.Utilizador>
+
+@{
+    ViewData["Title"] = "Utilizadores";
+}
+
+<h1>Utilizadores</h1>
+
+<table>
+    <tr>
+        <td>Nome</td>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.nome</td>
+        </tr>
+    }
+</table>

@@ -4,12 +4,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FeelItaly.Models;
+using FeelItaly.shared;
 
 namespace FeelItaly.Controllers{
 
     [Route("api/[controller]")]
     public class UtilizadorController : Controller{
 
+        private UtilizadorHandling utilizadorHandling;
+
+        public UtilizadorController(UtilizadorContext context)
+        {
+            //_context = context;
+            utilizadorHandling = new UtilizadorHandling(context);
+        }
+
+        [HttpGet]
+        public Utilizador[] Get()
+        {
+            return utilizadorHandling.getUtilizadores();
+        }
+
+        /*
         private readonly UtilizadorContext _context;
 
         public UtilizadorController(UtilizadorContext context) {
@@ -20,13 +36,9 @@ namespace FeelItaly.Controllers{
         [HttpGet]
         public Utilizador[] Get(){
             return _context.utilizador.ToArray();
-            /*
-            return new[] {
-                    new Utilizador() {username = "joao21", passwd = "joaop21", email = "teste@gmail.com", nome = "João"},
-                    new Utilizador() {username = "joao22", passwd = "joaop22", email = "teste2@gmail.com", nome = "João2"}
-                    };*/
         }
-
+            
+               
         // GET api/utilizador/1
         [HttpGet("{idUtilizador}")]
         public ActionResult Get(int idUtilizador){
@@ -55,7 +67,7 @@ namespace FeelItaly.Controllers{
             _context.SaveChanges();
             return NoContent();
         }
-
+        */
 
         /*
         // POST api/values
@@ -74,5 +86,6 @@ namespace FeelItaly.Controllers{
         [HttpDelete("{id}")]
         public void Delete(int id){
         }*/
+
     }
 }
