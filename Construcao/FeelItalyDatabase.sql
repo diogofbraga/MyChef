@@ -45,6 +45,26 @@ CREATE TABLE ConfiguracaoInicial(
 	IdUtilizador INT NOT NULL
 );
 
+CREATE TABLE Passo(
+	IdPasso INT NOT NULL PRIMARY KEY,
+	TempoParcial FLOAT NOT NULL,
+	Unidade NVARCHAR(32),
+	Quantidade INT NOT NULL,
+	Extra NVARCHAR(255),
+	IdReceita INT,
+	IdIngrediente INT NOT NULL,
+	IdAcao INT NOT NULL
+);
+
+CREATE TABLE Historico(
+	IdReceita INT NOT NULL PRIMARY KEY,
+	IdUtilizador INT NOT NULL,
+	IdPasso INT NOT NULL,
+	TempoPasso FLOAT NOT NULL,
+	Dataa DATETIME NOT NULL,
+	NrPasso INT NOT NULL
+);
+
 INSERT INTO Utilizador
 VALUES(1,'diogofbraga','dfb','diogo@gmail.com','Diogo Braga')
 
@@ -81,6 +101,11 @@ VALUES(2,2)
 INSERT INTO ConfiguracaoInicial
 VALUES(1,1)
 
+INSERT INTO Passo
+VALUES(1,60.0,'Quilogramas',2,'Tacho',1,1,1)
+
+INSERT INTO Historico
+VALUES(1,1,1,45.0,'2018-05-04 00:35:00',3)
 
 SELECT * FROM Utilizador
 
@@ -91,3 +116,7 @@ SELECT * FROM Categoria
 SELECT * FROM CategoriaReceita
 
 SELECT * FROM ConfiguracaoInicial;
+
+SELECT * FROM Passo;
+
+SELECT * FROM Historico;

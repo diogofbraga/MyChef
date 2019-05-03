@@ -80,6 +80,20 @@ namespace FeelItaly.Controllers{
             }
             return Ok(cInicial);
         }
+
+        //GET api/utilizador/getHistorico/1
+        [HttpGet("getHistorico/{idUti}")]
+        public IActionResult getUtilizador_Historico(int idUti)
+        {
+            var historico = _context.utilizador.Find(idUti);
+            if (historico == null) { return NotFound(); }
+            var historicos = _context.historico.Where(s => s.idUtilizador == idUti);
+            foreach (Models.Historico h in historicos)
+            {
+                historico.Historicos.Add(h);
+            }
+            return Ok(historico);
+        }
         /*
         // POST api/values
         [HttpPost]

@@ -31,6 +31,8 @@ namespace FeelItaly.Models{
 
         public virtual ICollection<ConfiguracaoInicial> ConfiguracoesIniciais { get; set; }
 
+        public virtual ICollection<Historico> Historicos { get; set; }
+
     }
 
     public class UtilizadorContext : DbContext {
@@ -46,11 +48,18 @@ namespace FeelItaly.Models{
                 .WithMany(ci => ci.ConfiguracoesIniciais)
                 .HasForeignKey(u => u.idUtilizador)
                 .HasConstraintName("ForeignKey_Utilizador_ConfiguracaoInicial");
+            modelBuilder.Entity<Historico>()
+                .HasOne(u => u.Utilizador)
+                .WithMany(h => h.Historicos)
+                .HasForeignKey(u => u.idUtilizador)
+                .HasConstraintName("ForeignKey_Utilizador_Historico");
         }
 
         public DbSet<Utilizador> utilizador { get; set; }
 
         public DbSet<Models.ConfiguracaoInicial> configuracaoinicial { get; set; }
+
+        public DbSet<Models.Historico> historico { get; set; }
 
         /*
         protected override void OnModelCreating(ModelBuilder modelBuilder)

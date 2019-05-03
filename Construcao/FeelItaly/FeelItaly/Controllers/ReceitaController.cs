@@ -63,5 +63,19 @@ namespace FeelItaly.Controllers{
             return Ok(cInicial);
         }
 
+        // GET api/receita/getHistoricos/1
+        [HttpGet("getHistoricos/{idRec}")]
+        public IActionResult getReceita_Historicos(int idRec)
+        {
+            var historico = _context.receita.Find(idRec);
+            if (historico == null) { return NotFound(); }
+            var historicos = _context.historico.Where(s => s.idReceita == idRec);
+            foreach (Models.Historico h in historicos)
+            {
+                historico.Historicos.Add(h);
+            }
+            return Ok(historico);
+        }
+
     }
 }
