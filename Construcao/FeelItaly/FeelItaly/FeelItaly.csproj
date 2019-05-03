@@ -30,5 +30,6 @@
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\lib\" />
     <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
+    <Folder Include="Views\ReceitaView\" />
   </ItemGroup>
 </Project>

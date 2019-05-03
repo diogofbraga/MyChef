@@ -1,0 +1,20 @@
+﻿@model IEnumerable<FeelItaly.Models.Receita>
+
+<h1>Receitas</h1>
+
+
+<table style="width:100%">
+    <tr>
+        <th>Nome</th>
+        <th>Informação Nutricional</th>
+        <th>Tempo</th>
+    </tr>
+    @foreach (var receita in Model)
+    {
+        <tr>
+            <td>@receita.nome</td>
+            <td>@receita.nutricional</td>
+            <td>@receita.tempoTotal</td>
+        </tr>
+    }
+</table>
