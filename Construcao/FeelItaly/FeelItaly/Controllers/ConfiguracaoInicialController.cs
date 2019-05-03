@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FeelItaly.Models;
 
-namespace FeelItaly.Controllers
-{
+namespace FeelItaly.Controllers{
+
+    [Route("api/[controller]")]
     public class ConfiguracaoInicialController : Controller{
 
         public readonly ConfiguracaoInicialContext _context;
