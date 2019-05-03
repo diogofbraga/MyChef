@@ -60,15 +60,26 @@ namespace FeelItaly.Controllers{
 
         // DELETE api/utilizador?idUtilizador=2
         [HttpDelete]
-        public IActionResult Delete([FromQuery] int idUtilizador){
+        public IActionResult Delete([FromQuery] int idUtilizador)
+        {
             var user = _context.utilizador.Find(idUtilizador);
-            if (user == null){ return NotFound(); }
+            if (user == null) { return NotFound(); }
             _context.utilizador.Remove(user);
             _context.SaveChanges();
             return NoContent();
         }
 
-
+        //GET api/utilizador/getConfiguracoesIniciais/1
+        [HttpGet("getConfiguracoesIniciais/{idUti}")]
+        public IActionResult getUtilizador_ConfiguracoesIniciais(int idUti){
+            var cInicial = _context.utilizador.Find(idUti);
+            if(cInicial == null) { return NotFound(); }
+            var cIniciais = _context.configuracaoinicial.Where(s => s.idUtilizador == idUti);
+            foreach(Models.ConfiguracaoInicial ci in cIniciais){
+                cInicial.ConfiguracoesIniciais.Add(ci);
+            }
+            return Ok(cInicial);
+        }
         /*
         // POST api/values
         [HttpPost]

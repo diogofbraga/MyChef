@@ -35,7 +35,7 @@ namespace FeelItaly{
             services.AddDbContext<ReceitaContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<CategoriaContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<CategoriaReceitaContext>(options => options.UseSqlServer(connection));
-
+            services.AddDbContext<ConfiguracaoInicialContext>(options => options.UseSqlServer(connection));
             services.AddMvc();
         }
 

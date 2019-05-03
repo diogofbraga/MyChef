@@ -51,5 +51,17 @@ namespace FeelItaly.Controllers{
             return Ok(catrec);
         }
 
+        // GET api/receita/getConfiguracoesIniciais/1
+        [HttpGet("getConfiguracoesIniciais/{idRec}")]
+        public IActionResult getReceita_ConfiguracoesIniciais(int idRec){
+            var cInicial = _context.receita.Find(idRec);
+            if( cInicial == null) { return NotFound(); }
+            var cIniciais = _context.configuracaoinicial.Where(s => s.idReceita == idRec);
+            foreach (Models.ConfiguracaoInicial ci in cIniciais){
+                cInicial.ConfiguracoesIniciais.Add(ci);
+            }
+            return Ok(cInicial);
+        }
+
     }
 }

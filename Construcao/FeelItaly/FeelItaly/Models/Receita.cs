@@ -31,6 +31,8 @@ namespace FeelItaly.Models{
 
         public virtual ICollection<CategoriaReceita> CategoriasReceitas { get; set; }
 
+        public virtual ICollection<ConfiguracaoInicial> ConfiguracoesIniciais { get; set; }
+
     }
 
         public class ReceitaContext : DbContext{
@@ -40,17 +42,24 @@ namespace FeelItaly.Models{
             {
             }
 
-            protected override void OnModelCreating(ModelBuilder modelBuilder){
-                modelBuilder.Entity<CategoriaReceita>()
-                        .HasOne(r => r.receita)
-                        .WithMany(cr => cr.CategoriasReceitas)
-                        .HasForeignKey(r => r.idReceita)
-                        .HasConstraintName("ForeignKey_Receita_CategoriaReceita");
-            }
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder){
+            modelBuilder.Entity<CategoriaReceita>()
+                    .HasOne(r => r.receita)
+                    .WithMany(cr => cr.CategoriasReceitas)
+                    .HasForeignKey(r => r.idReceita)
+                    .HasConstraintName("ForeignKey_Receita_CategoriaReceita");
+            modelBuilder.Entity<ConfiguracaoInicial>()
+                .HasOne(r => r.receita)
+                .WithMany(ci => ci.ConfiguracoesIniciais)
+                .HasForeignKey(r => r.idReceita)
+                .HasConstraintName("ForeignKey_Receita_ConfiguracaoInicial");
+        }
+            
 
             public DbSet<Receita> receita { get; set; }
             public DbSet<Models.CategoriaReceita> categoriareceita { get; set; }
+
+            public DbSet<Models.ConfiguracaoInicial> configuracaoinicial { get; set; }
 
         }
         

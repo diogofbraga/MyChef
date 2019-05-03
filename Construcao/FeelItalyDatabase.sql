@@ -38,6 +38,13 @@ CREATE TABLE CategoriaReceita(
     IdReceita INT NOT NULL
 );
 
+GO
+
+CREATE TABLE ConfiguracaoInicial(
+	IdReceita INT NOT NULL PRIMARY KEY,
+	IdUtilizador INT NOT NULL
+);
+
 INSERT INTO Utilizador
 VALUES(1,'diogofbraga','dfb','diogo@gmail.com','Diogo Braga')
 
@@ -71,6 +78,9 @@ VALUES(1,1)
 INSERT INTO CategoriaReceita
 VALUES(2,2)
 
+INSERT INTO ConfiguracaoInicial
+VALUES(1,1)
+
 
 SELECT * FROM Utilizador
 
@@ -79,3 +89,5 @@ SELECT * FROM Receita
 SELECT * FROM Categoria
 
 SELECT * FROM CategoriaReceita
+
+SELECT * FROM ConfiguracaoInicial;

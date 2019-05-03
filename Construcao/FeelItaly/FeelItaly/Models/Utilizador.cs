@@ -29,6 +29,8 @@ namespace FeelItaly.Models{
         [StringLength(225)]
         public string nome { set; get; }
 
+        public virtual ICollection<ConfiguracaoInicial> ConfiguracoesIniciais { get; set; }
+
     }
 
     public class UtilizadorContext : DbContext {
@@ -38,8 +40,17 @@ namespace FeelItaly.Models{
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder){
+            modelBuilder.Entity<ConfiguracaoInicial>()
+                .HasOne(u => u.utilizador)
+                .WithMany(ci => ci.ConfiguracoesIniciais)
+                .HasForeignKey(u => u.idUtilizador)
+                .HasConstraintName("ForeignKey_Utilizador_ConfiguracaoInicial");
+        }
 
         public DbSet<Utilizador> utilizador { get; set; }
+
+        public DbSet<Models.ConfiguracaoInicial> configuracaoinicial { get; set; }
 
         /*
         protected override void OnModelCreating(ModelBuilder modelBuilder)

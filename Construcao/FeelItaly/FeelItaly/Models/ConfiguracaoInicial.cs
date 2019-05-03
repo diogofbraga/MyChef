@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,11 +13,29 @@ namespace FeelItaly.Models{
 
         [Key]
         [Required]
-        public Receita Receita { set; get; }
+        public int idReceita { set; get; }
 
-        [Key]
+        [NotMapped]
+        [JsonIgnore]
+        public Receita receita { set; get; }
+
+        //[Key]
         [Required]
-        public Utilizador Utilizador { set; get; }
+        public int idUtilizador { set; get; }
+
+        [NotMapped]
+        [JsonIgnore]
+        public Utilizador utilizador { set; get; }
+    }
+
+    public class ConfiguracaoInicialContext : DbContext{
+
+        public ConfiguracaoInicialContext(DbContextOptions<ConfiguracaoInicialContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<ConfiguracaoInicial> configuracaoinicial { set; get; }
 
     }
 }
