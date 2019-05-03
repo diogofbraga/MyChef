@@ -11,7 +11,7 @@ namespace FeelItaly.Controllers{
     [Route("api/[controller]")]
     public class UtilizadorController : Controller{
 
-        private UtilizadorHandling utilizadorHandling;
+        /*private UtilizadorHandling utilizadorHandling;
 
         public UtilizadorController(UtilizadorContext context)
         {
@@ -23,9 +23,9 @@ namespace FeelItaly.Controllers{
         public Utilizador[] Get()
         {
             return utilizadorHandling.getUtilizadores();
-        }
+        }*/
 
-        /*
+        
         private readonly UtilizadorContext _context;
 
         public UtilizadorController(UtilizadorContext context) {
@@ -67,7 +67,7 @@ namespace FeelItaly.Controllers{
             _context.SaveChanges();
             return NoContent();
         }
-        */
+
 
         /*
         // POST api/values
