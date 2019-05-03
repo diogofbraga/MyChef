@@ -13,15 +13,16 @@ namespace FeelItaly.Controllers{
     [Route("[controller]/[action]")]
     public class UtilizadorViewController : Controller{
 
-        private UtilizadorHandling userHandling;
+        private UtilizadorHandling utilizadorHandling;
+
         public UtilizadorViewController(UtilizadorContext context){
             //_context = context;
-            userHandling = new UtilizadorHandling(context);
+            utilizadorHandling = new UtilizadorHandling(context);
         }
 
         // GET: /<controller>/
         public IActionResult getUtilizadores(){
-            Utilizador[] users = userHandling.getUtilizadores();
+            Utilizador[] users = utilizadorHandling.getUtilizadores();
             return View(users);
         }
     }
