@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,11 +14,21 @@ namespace FeelItaly.Models{
         public int IdIngrediente { set; get; }
 
         [Required]
-        public float ValorNutricional { set; get; }
+        public double ValorNutricional { set; get; }
 
         [Required]
         [StringLength(100)]
         public string Nome { set; get; }
 
+    }
+
+    public class IngredienteContext : DbContext
+    {
+        public IngredienteContext(DbContextOptions<IngredienteContext> options)
+                : base(options)
+        {
+        }
+
+        public DbSet<Ingrediente> ingrediente { set; get; }
     }
 }

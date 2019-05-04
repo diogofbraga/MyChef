@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,5 +16,15 @@ namespace FeelItaly.Models{
         [StringLength(32)]
         public string Descricao { set; get; }
 
+    }
+
+    public class AcaoContext : DbContext
+    {
+        public AcaoContext(DbContextOptions<AcaoContext> options)
+                : base(options)
+        {
+        }
+
+        public DbSet<Acao> acao { set; get; }
     }
 }

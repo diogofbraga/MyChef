@@ -17,7 +17,6 @@
   <ItemGroup>
     <Compile Remove="Models\EmptyClass.cs" />
     <Compile Remove="Controllers\CategoriaReceitaContext.cs" />
-    <Compile Remove="Controllers\AcaoController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

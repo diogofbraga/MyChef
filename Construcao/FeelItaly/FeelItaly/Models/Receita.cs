@@ -35,6 +35,8 @@ namespace FeelItaly.Models{
 
         public virtual ICollection<Historico> Historicos { get; set; }
 
+        public virtual ICollection<ReceitaPasso> ReceitaPassos { get; set; }
+
     }
 
         public class ReceitaContext : DbContext{
@@ -60,15 +62,23 @@ namespace FeelItaly.Models{
                     .WithMany(h => h.Historicos)
                     .HasForeignKey(r => r.idReceita)
                     .HasConstraintName("ForeignKey_Receita_Historico");
+            modelBuilder.Entity<ReceitaPasso>()
+                    .HasOne(r => r.Receita)
+                    .WithMany(rp => rp.ReceitaPassos)
+                    .HasForeignKey(r => r.IdReceita)
+                    .HasConstraintName("ForeignKey_Receita_ReceitaPasso");
         }
             
 
             public DbSet<Receita> receita { get; set; }
+
             public DbSet<Models.CategoriaReceita> categoriareceita { get; set; }
 
             public DbSet<Models.ConfiguracaoInicial> configuracaoinicial { get; set; }
 
             public DbSet<Models.Historico> historico { get; set; }
+
+            public DbSet<Models.ReceitaPasso> receitapasso { get; set; }
 
     }
         

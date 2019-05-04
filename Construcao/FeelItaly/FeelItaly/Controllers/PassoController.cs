@@ -54,5 +54,18 @@ namespace FeelItaly.Controllers
             return Ok(historico);
         }
 
+        // GET api/passo/getReceitaPasso/1
+        [HttpGet("getReceitaPasso/{idPasso}")]
+        public IActionResult getPasso_ReceitaPassos(int idPasso)
+        {
+            var receitapasso = _context.passo.Find(idPasso);
+            if (receitapasso == null) { return NotFound(); }
+            var receitapassos = _context.receitapasso.Where(s => s.IdPasso == idPasso);
+            foreach (Models.ReceitaPasso rp in receitapassos)
+            {
+                receitapasso.ReceitaPassos.Add(rp);
+            }
+            return Ok(receitapasso);
+        }
     }
 }

@@ -65,6 +65,23 @@ CREATE TABLE Historico(
 	NrPasso INT NOT NULL
 );
 
+CREATE TABLE Ingrediente(
+	IdIngrediente INT NOT NULL PRIMARY KEY,
+	ValorNutricional FLOAT NOT NULL,
+	Nome NVARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Acao(
+	IdAcao INT NOT NULL PRIMARY KEY,
+	Descricao NVARCHAR(32) NOT NULL
+);
+
+CREATE TABLE ReceitaPasso(
+	IdReceita INT NOT NULL PRIMARY KEY,
+	IdPasso INT NOT NULL,
+	Numero INT NOT NULL
+);
+
 INSERT INTO Utilizador
 VALUES(1,'diogofbraga','dfb','diogo@gmail.com','Diogo Braga')
 
@@ -107,6 +124,15 @@ VALUES(1,60.0,'Quilogramas',2,'Tacho',1,1,1)
 INSERT INTO Historico
 VALUES(1,1,1,45.0,'2018-05-04 00:35:00',3)
 
+INSERT INTO Ingrediente
+VALUES(1,200.0,'Batatas')
+
+INSERT INTO Acao
+VALUES(1,'Cortar')
+
+INSERT INTO ReceitaPasso
+VALUES(2,1,1)
+
 SELECT * FROM Utilizador
 
 SELECT * FROM Receita
@@ -120,3 +146,9 @@ SELECT * FROM ConfiguracaoInicial;
 SELECT * FROM Passo;
 
 SELECT * FROM Historico;
+
+SELECT * FROM Ingrediente;
+
+SELECT * FROM Acao;
+
+SELECT * FROM ReceitaPasso;
