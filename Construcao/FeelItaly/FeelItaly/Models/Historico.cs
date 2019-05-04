@@ -39,7 +39,7 @@ namespace FeelItaly.Models{
         public float TempoPasso { set; get; }
 
         [Required]
-        public DateTime Dataa { set; get; }
+        public DateTime Data { set; get; }
 
         [Required]
         public int NrPasso { set; get; }
@@ -49,7 +49,7 @@ namespace FeelItaly.Models{
     public class HistoricoContext : DbContext
     {
 
-        public HistoricoContext(DbContextOptions<ConfiguracaoInicialContext> options)
+        public HistoricoContext(DbContextOptions<HistoricoContext> options)
             : base(options)
         {
         }

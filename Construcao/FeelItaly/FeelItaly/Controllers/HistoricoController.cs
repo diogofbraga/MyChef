@@ -1,12 +1,15 @@
-﻿using FeelItaly.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using FeelItaly.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FeelItaly.Controllers
 {
 
     [Route("api/[controller]")]
-    public class HistoricoController : Historico
+    public class HistoricoController : Controller
     {
 
         public readonly HistoricoContext _context;
@@ -21,6 +24,7 @@ namespace FeelItaly.Controllers
         public Historico[] Get(){
             return _context.historico.ToArray();
         }
+
 
         //GET api/historico/1
         [HttpGet("{idReceita}")]
