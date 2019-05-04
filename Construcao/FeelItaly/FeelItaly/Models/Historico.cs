@@ -36,10 +36,10 @@ namespace FeelItaly.Models{
         public Passo Passo { set; get; }
 
         [Required]
-        public float TempoPasso { set; get; }
+        public double TempoPasso { set; get; }
 
         [Required]
-        public DateTime Data { set; get; }
+        public DateTime Dataa { set; get; }
 
         [Required]
         public int NrPasso { set; get; }
