@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,5 +16,19 @@ namespace FeelItaly.Models{
         [Required]
         [StringLength(32)]
         public string Descricao { set; get; }
+
+        public virtual ICollection<UtensilioPasso> UtensilioPassos { get; set; }
+    }
+
+    public class UtensilioContext : DbContext
+    {
+        public UtensilioContext(DbContextOptions<UtensilioContext> options)
+                : base(options)
+        {
+        }
+
+        public DbSet<Utensilio> utensilio { set; get; }
+
+        public DbSet<Models.UtensilioPasso> utensiliopasso { set; get; }
     }
 }

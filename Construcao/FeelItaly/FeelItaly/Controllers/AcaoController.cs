@@ -34,7 +34,7 @@ namespace FeelItaly.Controllers
             return Ok(acao);
         }
 
-        //POST api/ingrediente
+        //POST api/acao
         // JSON -> 
         // Custom -> 
         public IActionResult Add([FromBody] Models.Acao acao)

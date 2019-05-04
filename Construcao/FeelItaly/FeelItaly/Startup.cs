@@ -41,6 +41,9 @@ namespace FeelItaly{
             services.AddDbContext<IngredienteContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<AcaoContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<ReceitaPassoContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<TutorialContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<UtensilioContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<UtensilioPassoContext>(options => options.UseSqlServer(connection));
             services.AddMvc();
         }
 

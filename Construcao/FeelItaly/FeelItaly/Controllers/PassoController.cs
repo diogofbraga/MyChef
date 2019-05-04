@@ -67,5 +67,19 @@ namespace FeelItaly.Controllers
             }
             return Ok(receitapasso);
         }
+
+        // GET api/passo/getUtensilioPasso/1
+        [HttpGet("getUtensilioPasso/{idPasso}")]
+        public IActionResult getPasso_UtensilioPassos(int idPasso)
+        {
+            var utensiliopasso = _context.passo.Find(idPasso);
+            if (utensiliopasso == null) { return NotFound(); }
+            var utensiliopassos = _context.utensiliopasso.Where(s => s.IdPasso == idPasso);
+            foreach (Models.UtensilioPasso up in utensiliopassos)
+            {
+                utensiliopasso.UtensilioPassos.Add(up);
+            }
+            return Ok(utensiliopasso);
+        }
     }
 }

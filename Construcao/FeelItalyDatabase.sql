@@ -82,6 +82,21 @@ CREATE TABLE ReceitaPasso(
 	Numero INT NOT NULL
 );
 
+CREATE TABLE Tutorial(
+	IdPasso INT NOT NULL PRIMARY KEY,
+	Link NVARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Utensilio(
+	IdUtensilio INT NOT NULL PRIMARY KEY,
+	Descricao NVARCHAR(32) NOT NULL
+);
+
+CREATE TABLE UtensilioPasso(
+	IdUtensilio INT NOT NULL PRIMARY KEY,
+	IdPasso INT NOT NULL
+);
+
 INSERT INTO Utilizador
 VALUES(1,'diogofbraga','dfb','diogo@gmail.com','Diogo Braga')
 
@@ -133,6 +148,15 @@ VALUES(1,'Cortar')
 INSERT INTO ReceitaPasso
 VALUES(2,1,1)
 
+INSERT INTO Tutorial
+VALUES(1,'https://www.youtube.com/watch?v=i7AZjzVx7os')
+
+INSERT INTO Utensilio
+VALUES(1,'Faca')
+
+INSERT INTO UtensilioPasso
+VALUES(1,1)
+
 SELECT * FROM Utilizador
 
 SELECT * FROM Receita
@@ -152,3 +176,9 @@ SELECT * FROM Ingrediente;
 SELECT * FROM Acao;
 
 SELECT * FROM ReceitaPasso;
+
+SELECT * FROM Tutorial;
+
+SELECT * FROM Utensilio;
+
+SELECT * FROM UtensilioPasso;
