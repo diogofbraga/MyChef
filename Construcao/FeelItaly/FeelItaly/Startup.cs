@@ -44,6 +44,12 @@ namespace FeelItaly{
             services.AddDbContext<TutorialContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<UtensilioContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<UtensilioPassoContext>(options => options.UseSqlServer(connection));
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                    .AddCookie(options =>{
+                        options.LoginPath = "/UtilizadorView/LoginUtilizador/";
+                    });
+
             services.AddMvc();
         }
 
@@ -54,6 +60,7 @@ namespace FeelItaly{
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
         }
