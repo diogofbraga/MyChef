@@ -18,5 +18,11 @@ namespace FeelItaly.shared{
         public Receita[] getReceitas(){
             return _context.receita.ToArray();
         }
+
+        public Receita selectReceita(int id){
+            Receita returnedReceita = _context.receita.Where(b => b.idReceita == id).FirstOrDefault();
+            return returnedReceita;
+        }
+
     }
 }

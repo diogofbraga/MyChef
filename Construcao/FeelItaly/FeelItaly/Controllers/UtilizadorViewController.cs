@@ -25,7 +25,7 @@ namespace FeelItaly.Controllers{
 
         // GET: /<controller>/
         [Authorize]
-        public IActionResult getUtilizadores(){
+        public IActionResult GetUtilizadores(){
             Utilizador[] users = utilizadorHandling.getUtilizadores();
             return View(users);
         }

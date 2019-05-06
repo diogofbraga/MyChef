@@ -21,9 +21,14 @@ namespace FeelItaly.Controllers{
         }
 
         // GET: /<controller>/
-        public IActionResult getReceitas(){
+        public IActionResult GetReceitas(){
             Receita[] recipes = receitaHandling.getReceitas();
             return View(recipes);
+        }
+
+        public IActionResult SelectReceita(int id){
+            Receita recipe = receitaHandling.selectReceita(id);
+            return View(recipe);
         }
     }
 }

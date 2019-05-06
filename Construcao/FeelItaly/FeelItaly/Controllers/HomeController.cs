@@ -11,5 +11,13 @@ namespace FeelItaly.Controllers{
         public IActionResult Index(){
             return View();
         }
+
+        public IActionResult AboutUs(){
+            return View();
+        }
+
+        public IActionResult GestaoDespensa(){
+            return View();
+        }
     }
 }
