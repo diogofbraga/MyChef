@@ -42,10 +42,10 @@ namespace FeelItaly.Controllers{
                 bool RegistrationStatus = this.utilizadorHandling.registerUtilizador(utilizador);
                 if (RegistrationStatus){
                     ModelState.Clear();
-                    TempData["Success"] = "Registration Successful!";
+                    TempData["Success"] = "Registado com Sucesso!";
                 }
                 else{
-                    TempData["Fail"] = "This User ID already exists. Registration Failed.";
+                    TempData["Fail"] = "Este Utilizador já existe. Registo Falhado.";
                 }
             }
             return View();
@@ -53,7 +53,6 @@ namespace FeelItaly.Controllers{
 
         [HttpGet]
         public IActionResult LoginUtilizador(){
-
             return View();
         }
 
@@ -73,10 +72,10 @@ namespace FeelItaly.Controllers{
                     ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
 
                     await HttpContext.SignInAsync(principal);
-                    return RedirectToAction("getUtilizadores", "UserView");
+                    return RedirectToAction("getUtilizadores", "UtilizadorView");
                 }
                 else{
-                    TempData["UserLoginFailed"] = "Login Failed.Please enter correct credentials";
+                    TempData["UserLoginFailed"] = "LogIn Falhado. Por favor coloque as credenciais corretas.";
                 }
             }
             return View();

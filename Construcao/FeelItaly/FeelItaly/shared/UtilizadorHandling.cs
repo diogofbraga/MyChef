@@ -20,24 +20,25 @@ namespace FeelItaly.shared{
             return _context.utilizador.ToArray();
         }
 
-        public bool validateUtilizador(Utilizador user)
-        {
-            user.passwd = MyHelpers.HashPassword(user.passwd);
+        public bool validateUtilizador(Utilizador user){
+            //user.passwd = MyHelpers.HashPassword(user.passwd);
             var returnedUser = _context.utilizador.Where(b => b.username == user.username && b.passwd == user.passwd).FirstOrDefault();
 
-            if (returnedUser == null)
-            {
+            if (returnedUser == null){
                 return false;
             }
             return true;
         }
 
-        public bool registerUtilizador(Utilizador user)
-        {
-            user.passwd = MyHelpers.HashPassword(user.passwd);
-            _context.utilizador.Add(user);
-            _context.SaveChanges();
-            return true;
+        public bool registerUtilizador(Utilizador user){
+            //user.passwd = MyHelpers.HashPassword(user.passwd);
+            var returnedUser = _context.utilizador.Where(b => b.username == user.username && b.passwd == user.passwd).FirstOrDefault();
+            if (returnedUser == null){
+                _context.utilizador.Add(user);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }

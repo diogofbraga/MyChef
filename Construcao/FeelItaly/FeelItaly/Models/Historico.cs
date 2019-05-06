@@ -21,7 +21,7 @@ namespace FeelItaly.Models{
 
         //[Key]
         [Required]
-        public int idUtilizador { set; get; }
+        public string username { set; get; }
 
         [NotMapped]
         [JsonIgnore]

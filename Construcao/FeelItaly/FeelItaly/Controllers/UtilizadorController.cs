@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using FeelItaly.Models;
 using FeelItaly.shared;
@@ -11,7 +14,7 @@ namespace FeelItaly.Controllers{
     [Route("api/[controller]")]
     public class UtilizadorController : Controller{
 
-        /*private UtilizadorHandling utilizadorHandling;
+        private UtilizadorHandling utilizadorHandling;
 
         public UtilizadorController(UtilizadorContext context)
         {
@@ -19,13 +22,14 @@ namespace FeelItaly.Controllers{
             utilizadorHandling = new UtilizadorHandling(context);
         }
 
+        [Authorize]
         [HttpGet]
         public Utilizador[] Get()
         {
             return utilizadorHandling.getUtilizadores();
-        }*/
+        }
 
-        
+        /*
         private readonly UtilizadorContext _context;
 
         public UtilizadorController(UtilizadorContext context) {
@@ -39,26 +43,26 @@ namespace FeelItaly.Controllers{
         }
             
                
-        // GET api/utilizador/1
-        [HttpGet("{idUtilizador}")]
-        public ActionResult Get(int idUtilizador){
-            var utilizador = _context.utilizador.Find(idUtilizador);
+        // GET api/utilizador/diogofbraga
+        [HttpGet("{username}")]
+        public ActionResult Get(string username){
+            var utilizador = _context.utilizador.Find(username);
             if (utilizador == null) { return NotFound(); }
             return Ok(utilizador);
         }
 
         // POST api/utilizador/
-        // JSON -> idUtilizador=2 ; username=ricardofsc10 ; passwd=rc10 ; email=ricardofsc10@gmail.com ; nome=Ricardo Caçador ;
-        // Custom -> {"idUtilizador":3,"username":"johnnnnnny","passwd":"jb","email":"johnnyboy@gmail.com","nome":"Johnny Boy"}
+        // JSON ->  username=ricardofsc10 ; passwd=rc10 ; email=ricardofsc10@gmail.com ; nome=Ricardo Caçador ;
+        // Custom -> {"username":"johnnnnnny","passwd":"jb","email":"johnnyboy@gmail.com","nome":"Johnny Boy"}
         [HttpPost]
         public IActionResult Add([FromBody]Utilizador user)
         {
             _context.utilizador.Add(user);
             _context.SaveChanges();
-            return new CreatedResult($"/api/utilizador/{user.idUtilizador}", user);
+            return new CreatedResult($"/api/utilizador/{user.username}", user);
         }
 
-        // DELETE api/utilizador?idUtilizador=2
+        // DELETE api/utilizador?username=diogofbraga
         [HttpDelete]
         public IActionResult Delete([FromQuery] int idUtilizador)
         {
@@ -69,47 +73,30 @@ namespace FeelItaly.Controllers{
             return NoContent();
         }
 
-        //GET api/utilizador/getConfiguracoesIniciais/1
-        [HttpGet("getConfiguracoesIniciais/{idUti}")]
-        public IActionResult getUtilizador_ConfiguracoesIniciais(int idUti){
-            var cInicial = _context.utilizador.Find(idUti);
+        //GET api/utilizador/getConfiguracoesIniciais/diogofbraga
+        [HttpGet("getConfiguracoesIniciais/{usernameUti}")]
+        public IActionResult getUtilizador_ConfiguracoesIniciais(string usernameUti){
+            var cInicial = _context.utilizador.Find(usernameUti);
             if(cInicial == null) { return NotFound(); }
-            var cIniciais = _context.configuracaoinicial.Where(s => s.idUtilizador == idUti);
+            var cIniciais = _context.configuracaoinicial.Where(s => s.username == usernameUti);
             foreach(Models.ConfiguracaoInicial ci in cIniciais){
                 cInicial.ConfiguracoesIniciais.Add(ci);
             }
             return Ok(cInicial);
         }
 
-        //GET api/utilizador/getHistorico/1
-        [HttpGet("getHistorico/{idUti}")]
-        public IActionResult getUtilizador_Historico(int idUti)
+        //GET api/utilizador/getHistorico/diogofbraga
+        [HttpGet("getHistorico/{usernameUti}")]
+        public IActionResult getUtilizador_Historico(string usernameUti)
         {
-            var historico = _context.utilizador.Find(idUti);
+            var historico = _context.utilizador.Find(usernameUti);
             if (historico == null) { return NotFound(); }
-            var historicos = _context.historico.Where(s => s.idUtilizador == idUti);
+            var historicos = _context.historico.Where(s => s.username == usernameUti);
             foreach (Models.Historico h in historicos)
             {
                 historico.Historicos.Add(h);
             }
             return Ok(historico);
-        }
-        /*
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value){
-        }*/
-
-        /*
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value){
-        }*/
-
-        /*
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id){
         }*/
 
     }

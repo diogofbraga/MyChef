@@ -5,8 +5,7 @@ USE FeelItaly;
 GO
 
 CREATE TABLE Utilizador(
-    IdUtilizador INT NOT NULL PRIMARY KEY,
-    Username NVARCHAR(32) NOT NULL,
+    Username NVARCHAR(32) NOT NULL PRIMARY KEY,
     Passwd  NVARCHAR(16) NOT NULL,
     Email NVARCHAR(225) NOT NULL,
     Nome NVARCHAR(225) NOT NULL
@@ -28,7 +27,6 @@ CREATE TABLE Receita(
     Nutricional FLOAT NOT NULL,
     TempoTotal INT NOT NULL,
     Avaliacao FLOAT NOT NULL,
-    IdUtilizador INT NOT NULL
 );
 
 GO
@@ -42,7 +40,7 @@ GO
 
 CREATE TABLE ConfiguracaoInicial(
 	IdReceita INT NOT NULL PRIMARY KEY,
-	IdUtilizador INT NOT NULL
+	Username NVARCHAR(32) NOT NULL
 );
 
 CREATE TABLE Passo(
@@ -58,7 +56,7 @@ CREATE TABLE Passo(
 
 CREATE TABLE Historico(
 	IdReceita INT NOT NULL PRIMARY KEY,
-	IdUtilizador INT NOT NULL,
+	Username NVARCHAR(32) NOT NULL,
 	IdPasso INT NOT NULL,
 	TempoPasso FLOAT NOT NULL,
 	Dataa DATETIME NOT NULL,
@@ -98,19 +96,19 @@ CREATE TABLE UtensilioPasso(
 );
 
 INSERT INTO Utilizador
-VALUES(1,'diogofbraga','dfb','diogo@gmail.com','Diogo Braga')
+VALUES('diogofbraga','dfb','diogo@gmail.com','Diogo Braga')
 
 INSERT INTO Utilizador
-VALUES(2,'ricardomilhas','rm10','ricardinhomilas10@gmail.com','Ricardo Milhenzel')
+VALUES('ricardomilhas','rm10','ricardinhomilas10@gmail.com','Ricardo Milhenzel')
 
 INSERT INTO Utilizador
-VALUES(3,'johnnyboy','jb10','johnnyboy@gmail.com','Johnny Boy')
+VALUES('johnnyboy','jb10','johnnyboy@gmail.com','Johnny Boy')
 
 INSERT INTO Utilizador
-VALUES(4,'cacenzel','cac10','cacenzel@gmail.com','Caceeeeeenzel')
+VALUES('cacenzel','cac10','cacenzel@gmail.com','Caceeeeeenzel')
 
 INSERT INTO Utilizador
-VALUES(5,'denzel','d10','denzel@gmail.com','Denzel')
+VALUES('denzel','d10','denzel@gmail.com','Denzel')
 
 INSERT INTO Categoria
 VALUES(1,'Massas')
@@ -119,10 +117,10 @@ INSERT INTO Categoria
 VALUES(2,'Pizzas')
 
 INSERT INTO Receita
-VALUES(1,'Carbonara',400.0,45,4.3,1)
+VALUES(1,'Carbonara',400.0,45,4.3)
 
 INSERT INTO Receita
-VALUES(2,'Pizza Margarita',600.0,35,4.5,1)
+VALUES(2,'Pizza Margarita',600.0,35,4.5)
 
 INSERT INTO CategoriaReceita
 VALUES(1,1)
@@ -131,13 +129,13 @@ INSERT INTO CategoriaReceita
 VALUES(2,2)
 
 INSERT INTO ConfiguracaoInicial
-VALUES(1,1)
+VALUES(1,'diogofbraga')
 
 INSERT INTO Passo
 VALUES(1,60.0,'Quilogramas',2,'Tacho',1,1,1)
 
 INSERT INTO Historico
-VALUES(1,1,1,45.0,'2018-05-04 00:35:00',3)
+VALUES(1,'diogofbraga',1,45.0,'2018-05-04 00:35:00',3)
 
 INSERT INTO Ingrediente
 VALUES(1,200.0,'Batatas')

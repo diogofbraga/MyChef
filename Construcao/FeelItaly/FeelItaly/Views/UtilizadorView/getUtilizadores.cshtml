@@ -7,14 +7,19 @@
 <h1>Utilizadores</h1>
 
 
-<table>
-    <tr>
-        <td>Nome</td>
-    </tr>
-    @foreach (var utilizador in Model)
-    {
+<div class="col-xs-12" style="height:50px;"></div>
+<table class="table">
+    <thead>
         <tr>
-            <td>@utilizador.nome</td>
+            <th scope="col">Nome</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var utilizador in Model)
+        {
+            <tr>
+                <td>@utilizador.nome</td>
+            </tr>
+        }
+    </tbody>
 </table>

@@ -11,9 +11,6 @@ namespace FeelItaly.Models{
 
         [Key]
         [Required]
-        public int idUtilizador { set; get; }
-
-        [Required]
         [StringLength(32)]
         public string username { set; get; }
 
@@ -46,12 +43,12 @@ namespace FeelItaly.Models{
             modelBuilder.Entity<ConfiguracaoInicial>()
                 .HasOne(u => u.utilizador)
                 .WithMany(ci => ci.ConfiguracoesIniciais)
-                .HasForeignKey(u => u.idUtilizador)
+                .HasForeignKey(u => u.username)
                 .HasConstraintName("ForeignKey_Utilizador_ConfiguracaoInicial");
             modelBuilder.Entity<Historico>()
                 .HasOne(u => u.Utilizador)
                 .WithMany(h => h.Historicos)
-                .HasForeignKey(u => u.idUtilizador)
+                .HasForeignKey(u => u.username)
                 .HasConstraintName("ForeignKey_Utilizador_Historico");
         }
 
