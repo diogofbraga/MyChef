@@ -11,15 +11,10 @@ CREATE TABLE Utilizador(
     Nome NVARCHAR(225) NOT NULL
 );
 
-GO
-
-
 CREATE TABLE Categoria(
     IdCategoria INT NOT NULL PRIMARY KEY,
     Descricao NVARCHAR(32) NOT NULL
 );
-
-GO
 
 CREATE TABLE Receita(
     IdReceita INT NOT NULL PRIMARY KEY,
@@ -29,14 +24,10 @@ CREATE TABLE Receita(
     Avaliacao FLOAT NOT NULL,
 );
 
-GO
-
 CREATE TABLE CategoriaReceita(
     IdCategoria INT NOT NULL PRIMARY KEY,
     IdReceita INT NOT NULL
 );
-
-GO
 
 CREATE TABLE ConfiguracaoInicial(
 	IdReceita INT NOT NULL PRIMARY KEY,
@@ -102,20 +93,24 @@ CREATE TABLE Comentario(
 	IdReceita INT NOT NULL
 );
 
-INSERT INTO Utilizador
-VALUES('diogofbraga','dfb','diogo@gmail.com','Diogo Braga')
+-- Utilizadores
 
 INSERT INTO Utilizador
-VALUES('ricardomilhas','rm10','ricardinhomilas10@gmail.com','Ricardo Milhenzel')
+VALUES('diogofbraga','dfb','diogofiliperfbraga@gmail.com','Diogo Braga')
 
 INSERT INTO Utilizador
-VALUES('johnnyboy','jb10','johnnyboy@gmail.com','Johnny Boy')
+VALUES('ricardomilhazes','rm10','rmilhazesveloso@gmail.com','Ricardo Milhazes')
 
 INSERT INTO Utilizador
-VALUES('cacenzel','cac10','cacenzel@gmail.com','Caceeeeeenzel')
+VALUES('joaopedro','joaop21','jpsilva9898@gmail.com','João Silva')
 
 INSERT INTO Utilizador
-VALUES('denzel','d10','denzel@gmail.com','Denzel')
+VALUES('ricardofsc10','rc10','ricardofsc10@gmail.com','Ricardo Caçador')
+
+INSERT INTO Utilizador
+VALUES('rjsf','rj','rjsf@gmail.com','Ricardo Ferreira')
+
+-- Categorias
 
 INSERT INTO Categoria
 VALUES(1,'Massas')
@@ -123,47 +118,81 @@ VALUES(1,'Massas')
 INSERT INTO Categoria
 VALUES(2,'Pizzas')
 
-INSERT INTO Receita
-VALUES(1,'Carbonara',400.0,45,4.3)
+INSERT INTO Categoria
+VALUES(3,'Tartes')
+
+INSERT INTO Categoria
+VALUES(4,'Carne')
+
+INSERT INTO Categoria
+VALUES(5,'Peixe')
+
+INSERT INTO Categoria
+VALUES(6,'Entradas')
+
+INSERT INTO Categoria
+VALUES(7,'Sobremesa')
+
+-- Receitas
 
 INSERT INTO Receita
-VALUES(2,'Pizza Margarita',600.0,35,4.5)
+VALUES(1,'Tagliatelle',356.0,25,4.3)
+
+
+-- CategoriasReceitas
 
 INSERT INTO CategoriaReceita
 VALUES(1,1)
 
-INSERT INTO CategoriaReceita
-VALUES(2,2)
+-- ConfiguraçõesIniciais
 
 INSERT INTO ConfiguracaoInicial
 VALUES(1,'diogofbraga')
 
+-- Passos
+
 INSERT INTO Passo
-VALUES(1,60.0,'Quilogramas',2,'Tacho',1,1,1)
+VALUES(1,4.0,'','','com papel de cozinha',1,1,1)
+
+-- Históricos
 
 INSERT INTO Historico
 VALUES(1,'diogofbraga',1,45.0,'2018-05-04 00:35:00',3)
 
+-- Ingredientes
+
 INSERT INTO Ingrediente
-VALUES(1,200.0,'Batatas')
+VALUES(1,200.0,'Cogumelos')
+
+-- Ações
 
 INSERT INTO Acao
-VALUES(1,'Cortar')
+VALUES(1,'Limpar')
+
+-- ReceitasPassos
 
 INSERT INTO ReceitaPasso
-VALUES(2,1,1)
+VALUES(1,1,1)
+
+-- Tutoriais
 
 INSERT INTO Tutorial
 VALUES(1,'https://www.youtube.com/watch?v=i7AZjzVx7os')
 
+-- Utensílios
+
 INSERT INTO Utensilio
 VALUES(1,'Faca')
+
+-- UtensíliosPassos
 
 INSERT INTO UtensilioPasso
 VALUES(1,1)
 
+-- Comentarios
+
 INSERT INTO Comentario
-	VALUES(1,'Grande pissa','2018-05-04 00:35:00',2)
+VALUES(1,'Grande pissa','2018-05-04 00:35:00',2)
 
 SELECT * FROM Utilizador
 
