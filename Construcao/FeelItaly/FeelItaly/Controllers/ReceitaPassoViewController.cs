@@ -16,12 +16,16 @@ namespace FeelItaly.Controllers{
         private ReceitaHandling receitaHandling;
         private ReceitaPassoHandling receitapassoHandling;
         private PassoHandling passoHandling;
+        private IngredienteHandling ingredienteHandling;
+        private AcaoHandling acaoHandling;
 
-        public ReceitaPassoViewController(ReceitaContext receitacontext,ReceitaPassoContext receitapassocontext, PassoContext passocontext)
+        public ReceitaPassoViewController(ReceitaContext receitacontext,ReceitaPassoContext receitapassocontext, PassoContext passocontext, IngredienteContext ingredientecontext, AcaoContext acaocontext)
         {
             receitaHandling = new ReceitaHandling(receitacontext);
             receitapassoHandling = new ReceitaPassoHandling(receitapassocontext);
             passoHandling = new PassoHandling(passocontext);
+            ingredienteHandling = new IngredienteHandling(ingredientecontext);
+            acaoHandling = new AcaoHandling(acaocontext);
         }
 
         // GET: /<controller>/
@@ -34,15 +38,23 @@ namespace FeelItaly.Controllers{
         public IActionResult SelectReceita(int id){
             ReceitaTotal res = new ReceitaTotal();
             Receita recipe = receitaHandling.getReceita(id);
+            Dictionary<int,string> desc_passos = new Dictionary<int,string>();
             List<int> idPassos = receitapassoHandling.getPassosDaReceita(id);
             List<Passo> passos = new List<Passo>();
             foreach (int i in idPassos)
             {
                 Passo p = passoHandling.selectPasso(i);
                 passos.Add(p);
+                Acao ac = acaoHandling.selectAcao(p.idAcao);
+                Ingrediente ing = ingredienteHandling.selectIngrediente(p.idIngrediente);
+                string desc_passo = new string(ac.Descricao + " " + p.Quantidade + " " +
+                                               p.Unidade + " " + ing.Nome + " " + p.Extra + 
+                                               ".");
+                desc_passos.Add(receitapassoHandling.getPassoDaReceita(id,i), desc_passo);
             }
             res.rec = recipe;
             res.pass = passos;
+            res.desc_passos = desc_passos;
             return View(res);
         }
     }

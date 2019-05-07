@@ -16,9 +16,10 @@
 </table>
 
 <h1>Passos:</h1>
-@foreach (var passo in Model.pass)
+@foreach (var desc in Model.desc_passos)
 {
 <tr>
-    <td>Passo Nº: @passo.IdPasso</td>
+    <td>Passo Nº @desc.Key: </td>
+    <td>@desc.Value </td>
 </tr>
 }
