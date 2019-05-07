@@ -25,10 +25,7 @@ namespace FeelItaly.shared
 
         public List<int> getPassosDaReceita(int idReceita)
         {
-            List<int> res = new List<int>();
-            int returnedReceitaPasso = _context.receitapasso.Where(b => b.IdReceita == idReceita).Select(b => b.IdPasso).FirstOrDefault();
-            res.Add(returnedReceitaPasso);
-            return res;
+            return _context.receitapasso.Where(b => b.IdReceita == idReceita).Select(b => b.IdPasso).ToList();
         }
 
         public int getPassoDaReceita(int idReceita, int idPasso)

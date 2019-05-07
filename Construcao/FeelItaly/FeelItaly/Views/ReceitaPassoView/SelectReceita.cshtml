@@ -18,8 +18,16 @@
 <h1>Passos:</h1>
 @foreach (var desc in Model.desc_passos)
 {
-<tr>
-    <td>Passo Nº @desc.Key: </td>
-    <td>@desc.Value </td>
-</tr>
+    <tr>
+        <td>Passo Nº @desc.Key: </td>
+        <td>@desc.Value </td>
+    </tr>
+}
+
+<h1>Comentários:</h1>
+@foreach (var coment in Model.coments)
+{
+    <tr>
+        <td>@coment.Descricao @coment.Dataa </td>
+    </tr>
 }

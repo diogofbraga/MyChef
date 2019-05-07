@@ -23,5 +23,10 @@ namespace FeelItaly.shared
             return _context.comentario.ToArray();
         }
 
+        public List<Comentario> getComentariosReceita(int idReceita)
+        {
+            return _context.comentario.Where(b => b.IdReceita == idReceita).ToList();
+        }
+
     }
 }

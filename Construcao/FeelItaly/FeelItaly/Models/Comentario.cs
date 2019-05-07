@@ -20,7 +20,7 @@ namespace FeelItaly.Models{
         public string Descricao { set; get; }
 
         [Required]
-        public DateTime Data { set; get; }
+        public DateTime Dataa { set; get; }
 
         [Required]
         public int IdReceita { set; get; }
