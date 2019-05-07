@@ -14,7 +14,7 @@ namespace FeelItaly.Models{
         public Receita rec; 
         public List<Passo> pass;
         public Dictionary<int,string> desc_passos;
-        
+        public List<Comentario> coments;
 
     }
 }
