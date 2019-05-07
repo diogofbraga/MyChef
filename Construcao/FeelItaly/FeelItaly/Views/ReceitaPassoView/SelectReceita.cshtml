@@ -1,0 +1,24 @@
+﻿@model FeelItaly.Models.ReceitaTotal
+
+<table style="width:100%">
+    <tr>
+        <th>Nome</th>
+        <th>Informação Nutricional</th>
+        <th>Tempo</th>
+        <th>Avaliação</th>
+    </tr>
+    <tr>
+        <td>@Model.rec.nome</td>
+        <td>@Model.rec.nutricional kcal</td>
+        <td>@Model.rec.tempoTotal min</td>
+        <td>@Model.rec.avaliacao</td>
+    </tr>
+</table>
+
+<h1>Passos:</h1>
+@foreach (var passo in Model.pass)
+{
+<tr>
+    <td>Passo Nº: @passo.IdPasso</td>
+</tr>
+}

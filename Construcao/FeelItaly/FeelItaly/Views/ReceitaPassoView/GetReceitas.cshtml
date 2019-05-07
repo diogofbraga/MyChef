@@ -1,0 +1,10 @@
+﻿@model IEnumerable<FeelItaly.Models.Receita>
+
+<h1>Receitas</h1>
+
+@foreach (var receita in Model)
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">@receita.nome</a>
+    </li>
+}
