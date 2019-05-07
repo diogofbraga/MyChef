@@ -1,10 +1,20 @@
 ﻿@model IEnumerable<FeelItaly.Models.Receita>
 
+
 <h1>Receitas</h1>
 
-@foreach (var receita in Model)
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">@receita.nome</a>
-    </li>
+@foreach (var receita in Model){
+        <div class="polaroid">
+            <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
+                <img src="~/images/Carbonara.jpg" alt="Carbonara" style="width:332px;height:200px;">
+            </a>
+            <div class="container">
+                <p>Carbonara</p>
+            </div>
+        </div>
+
+        //@receita.nome
+        //<a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
+        //    <img src="~/images/Carbonara.jpg" alt="Carbonara" style="width:332px;height:200px;border:0;">
+        //</a>
 }

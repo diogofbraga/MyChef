@@ -14,9 +14,6 @@ namespace FeelItaly.Models{
         public int IdIngrediente { set; get; }
 
         [Required]
-        public double ValorNutricional { set; get; }
-
-        [Required]
         [StringLength(100)]
         public string Nome { set; get; }
 
