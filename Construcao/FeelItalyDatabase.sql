@@ -113,11 +113,12 @@ VALUES('rjsf','rj','rjsf@gmail.com','Ricardo Ferreira')
 
 -- Categorias
 
-INSERT INTO Categoria
-VALUES(1,'Massas')
 
 INSERT INTO Categoria
-VALUES(2,'Pizzas')
+VALUES(1,'Pizzas')
+
+INSERT INTO Categoria
+VALUES(2,'Massas')
 
 INSERT INTO Categoria
 VALUES(3,'Tartes')
@@ -135,12 +136,14 @@ INSERT INTO Categoria
 VALUES(7,'Sobremesa')
 
 -- Receitas
+-- IdReceita INT, Nome NVARCHAR(100), Nutricional FLOAT, TempoTotal INT, Avaliacao FLOAT
 
 INSERT INTO Receita
-VALUES(1,'Tagliatelle Com Cogumelos',356.0,25,4.3)
+VALUES(1,'Pizza Margherita',356.0,90,4.3)
 
 
 -- CategoriasReceitas
+-- IdCategoria INT, IdReceita INT
 
 INSERT INTO CategoriaReceita
 VALUES(1,1)
@@ -157,41 +160,23 @@ VALUES(1,'diogofbraga')
 INSERT INTO Passo
 VALUES(1,4.0,'g','200','com papel de cozinha',1,1,1)
 
-INSERT INTO Passo
-VALUES(2,4.0,'','','em pedaços',1,1,2)
-
-INSERT INTO Passo
-VALUES(3,4.0,'','3','',1,2,3)
-
-INSERT INTO Passo
-VALUES(4,4.0,'','','',1,2,4)
-
 -- Históricos
 
 INSERT INTO Historico
 VALUES(1,'diogofbraga',1,45.0,'2018-05-04 00:35:00',3)
 
 -- Ingredientes
+-- IdIngrediente INT, ValorNutricional FLOAT, Nome NVARCHAR(100)
 
 INSERT INTO Ingrediente
-VALUES(1,200.0,'Cogumelos')
+VALUES(1,200.0,'Farinha de Trigo')
 
-INSERT INTO Ingrediente
-VALUES(2,3.0,'Dentes de Alho')
 
 -- Ações
 
 INSERT INTO Acao
 VALUES(1,'Limpar')
 
-INSERT INTO Acao
-VALUES(2,'Cortar')
-
-INSERT INTO Acao
-VALUES(3,'Esmagar')
-
-INSERT INTO Acao
-VALUES(4,'Picar')
 
 -- ReceitasPassos
 -- Id INT, IdReceita INT, IdPasso INT, Numero INT
@@ -199,14 +184,6 @@ VALUES(4,'Picar')
 INSERT INTO ReceitaPasso
 VALUES(1,1,1,1)
 
-INSERT INTO ReceitaPasso
-VALUES(2,1,2,2)
-
-INSERT INTO ReceitaPasso
-VALUES(3,1,3,3)
-
-INSERT INTO ReceitaPasso
-VALUES(4,1,4,4)
 
 -- Tutoriais
 
