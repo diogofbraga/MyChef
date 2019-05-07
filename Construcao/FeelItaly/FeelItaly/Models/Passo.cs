@@ -22,7 +22,7 @@ namespace FeelItaly.Models{
         public string Unidade { set; get; }
 
         [Required]
-        public int Quantidade { set; get; }
+        public string Quantidade { set; get; }
 
         [StringLength(225)]
         public string Extra { set; get; }

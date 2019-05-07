@@ -12,6 +12,8 @@ namespace FeelItaly.Models{
     public class ReceitaPasso{
 
         [Key]
+        public int Id { set; get; }
+
         [Required]
         public int IdReceita { set; get; }
 

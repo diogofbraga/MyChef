@@ -38,7 +38,7 @@ CREATE TABLE Passo(
 	IdPasso INT NOT NULL PRIMARY KEY,
 	TempoParcial FLOAT NOT NULL,
 	Unidade NVARCHAR(32),
-	Quantidade INT NOT NULL,
+	Quantidade NVARCHAR(10) NOT NULL,
 	Extra NVARCHAR(255),
 	IdReceita INT,
 	IdIngrediente INT NOT NULL,
@@ -66,7 +66,8 @@ CREATE TABLE Acao(
 );
 
 CREATE TABLE ReceitaPasso(
-	IdReceita INT NOT NULL PRIMARY KEY,
+  Id INT NOT NULL PRIMARY KEY,
+	IdReceita INT NOT NULL,
 	IdPasso INT NOT NULL,
 	Numero INT NOT NULL
 );
@@ -136,7 +137,7 @@ VALUES(7,'Sobremesa')
 -- Receitas
 
 INSERT INTO Receita
-VALUES(1,'Tagliatelle',356.0,25,4.3)
+VALUES(1,'Tagliatelle Com Cogumelos',356.0,25,4.3)
 
 
 -- CategoriasReceitas
@@ -150,9 +151,20 @@ INSERT INTO ConfiguracaoInicial
 VALUES(1,'diogofbraga')
 
 -- Passos
+-- IdPasso INT, TempoParcial FLOAT, Unidade NVARCHAR(32), Quantidade INT,
+-- Extra NVARCHAR(255), IdReceita INT, IdIngrediente INT, IdAcao INT
 
 INSERT INTO Passo
-VALUES(1,4.0,'g',200,'com papel de cozinha',1,1,1)
+VALUES(1,4.0,'g','200','com papel de cozinha',1,1,1)
+
+INSERT INTO Passo
+VALUES(2,4.0,'','','em pedaços',1,1,2)
+
+INSERT INTO Passo
+VALUES(3,4.0,'','3','',1,2,3)
+
+INSERT INTO Passo
+VALUES(4,4.0,'','','',1,2,4)
 
 -- Históricos
 
@@ -164,15 +176,37 @@ VALUES(1,'diogofbraga',1,45.0,'2018-05-04 00:35:00',3)
 INSERT INTO Ingrediente
 VALUES(1,200.0,'Cogumelos')
 
+INSERT INTO Ingrediente
+VALUES(2,3.0,'Dentes de Alho')
+
 -- Ações
 
 INSERT INTO Acao
 VALUES(1,'Limpar')
 
+INSERT INTO Acao
+VALUES(2,'Cortar')
+
+INSERT INTO Acao
+VALUES(3,'Esmagar')
+
+INSERT INTO Acao
+VALUES(4,'Picar')
+
 -- ReceitasPassos
+-- Id INT, IdReceita INT, IdPasso INT, Numero INT
 
 INSERT INTO ReceitaPasso
-VALUES(1,1,1)
+VALUES(1,1,1,1)
+
+INSERT INTO ReceitaPasso
+VALUES(2,1,2,2)
+
+INSERT INTO ReceitaPasso
+VALUES(3,1,3,3)
+
+INSERT INTO ReceitaPasso
+VALUES(4,1,4,4)
 
 -- Tutoriais
 

@@ -1,33 +1,35 @@
 ﻿@model FeelItaly.Models.ReceitaTotal
 
+
+<h1>@Model.rec.nome</h1>
+
 <table style="width:100%">
     <tr>
-        <th>Nome</th>
         <th>Informação Nutricional</th>
         <th>Tempo</th>
         <th>Avaliação</th>
     </tr>
     <tr>
-        <td>@Model.rec.nome</td>
         <td>@Model.rec.nutricional kcal</td>
         <td>@Model.rec.tempoTotal min</td>
         <td>@Model.rec.avaliacao</td>
     </tr>
 </table>
 
-<h1>Passos:</h1>
+<h3>Passos:</h3>
 @foreach (var desc in Model.desc_passos)
 {
-    <tr>
-        <td>Passo Nº @desc.Key: </td>
-        <td>@desc.Value </td>
-    </tr>
+    <p>Passo @desc.Key: @desc.Value</p>
 }
 
-<h1>Comentários:</h1>
+<h4>Comentários:</h4>
 @foreach (var coment in Model.coments)
 {
-    <tr>
-        <td>@coment.Descricao @coment.Dataa </td>
-    </tr>
+    <p>@coment.Descricao @coment.Dataa </p>
 }
+
+<form asp-action="ExecuteReceita">
+    <div class="form-group">
+        <input type="submit" value="Iniciar" class="btn btn-default btn-primary" />
+    </div>
+</form>

@@ -63,5 +63,10 @@ namespace FeelItaly.Controllers{
             res.coments = coments;
             return View(res);
         }
+
+        public IActionResult ExecuteReceita()
+        {
+            return View();
+        }
     }
 }
