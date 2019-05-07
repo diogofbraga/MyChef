@@ -95,6 +95,13 @@ CREATE TABLE UtensilioPasso(
 	IdPasso INT NOT NULL
 );
 
+CREATE TABLE Comentario(
+	IdComentario INT NOT NULL PRIMARY KEY,
+	Descricao NVARCHAR(32) NOT NULL,
+	Dataa DATETIME NOT NULL,
+	IdReceita INT NOT NULL
+);
+
 INSERT INTO Utilizador
 VALUES('diogofbraga','dfb','diogo@gmail.com','Diogo Braga')
 
@@ -155,6 +162,9 @@ VALUES(1,'Faca')
 INSERT INTO UtensilioPasso
 VALUES(1,1)
 
+INSERT INTO Comentario
+	VALUES(1,'Grande pissa','2018-05-04 00:35:00',2)
+
 SELECT * FROM Utilizador
 
 SELECT * FROM Receita
@@ -180,3 +190,5 @@ SELECT * FROM Tutorial;
 SELECT * FROM Utensilio;
 
 SELECT * FROM UtensilioPasso;
+
+SELECT * FROM Comentario;

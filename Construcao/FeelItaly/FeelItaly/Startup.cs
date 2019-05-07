@@ -29,8 +29,8 @@ namespace FeelItaly{
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services){
 
-            //var connection = @"Server=DESKTOP-27V5D2G;Database=FeelItaly;Trusted_Connection=True;ConnectRetryCount=0";
-            var connection = @"Server=localhost;Database=FeelItaly;User=sa;Password=mieimasters20LI4";
+            var connection = @"Server=DESKTOP-27V5D2G;Database=FeelItaly;Trusted_Connection=True;ConnectRetryCount=0";
+            //var connection = @"Server=localhost;Database=FeelItaly;User=sa;Password=mieimasters20LI4";
             services.AddDbContext<UtilizadorContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<ReceitaContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<CategoriaContext>(options => options.UseSqlServer(connection));
@@ -44,6 +44,7 @@ namespace FeelItaly{
             services.AddDbContext<TutorialContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<UtensilioContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<UtensilioPassoContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ComentarioContext>(options => options.UseSqlServer(connection));
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                     .AddCookie(options =>{

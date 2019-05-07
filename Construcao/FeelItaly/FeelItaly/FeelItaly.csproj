@@ -20,8 +20,6 @@
     <Compile Remove="Views\UtilizadorView\LoginUtilizador.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\" />
-    <Folder Include="Views\Home\" />
     <Folder Include="Views\UtilizadorView\" />
     <Folder Include="shared\" />
     <Folder Include="Views\shared\" />
