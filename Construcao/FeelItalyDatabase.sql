@@ -152,7 +152,7 @@ VALUES(1,'diogofbraga')
 -- Passos
 
 INSERT INTO Passo
-VALUES(1,4.0,'','','com papel de cozinha',1,1,1)
+VALUES(1,4.0,'g',200,'com papel de cozinha',1,1,1)
 
 -- Históricos
 
