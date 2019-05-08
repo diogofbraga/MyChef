@@ -11,6 +11,7 @@
 <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idpasso="@Model.passo.IdPasso">
     <div class="form-group">
         <input type="submit" value="Próximo Passo" class="btn btn-default btn-primary" />
+        <a asp-action="ExecuteReceita" class="btn btn-info">Voltar ao Anterior</a>
     </div>
 </form>
 
