@@ -9,13 +9,11 @@ using System.Threading.Tasks;
 
 namespace FeelItaly.Models{
 
-    public class ReceitaTotal{
+    public class PassoTotal{
 
-        public Receita rec; 
-        public List<Passo> pass;
-        public Dictionary<string,string> desc_passos;
-        public List<Comentario> coments;
-        public int idpasso;
+        public Passo passo;
+        public string desc_passo;
+        //public int idpasso;
         //public int nrpassoatual;
         //public string passoatual;
 

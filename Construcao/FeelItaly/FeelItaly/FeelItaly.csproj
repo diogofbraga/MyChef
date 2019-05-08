@@ -18,6 +18,7 @@
     <Compile Remove="Models\EmptyClass.cs" />
     <Compile Remove="Controllers\CategoriaReceitaContext.cs" />
     <Compile Remove="Views\UtilizadorView\LoginUtilizador.cshtml" />
+    <Compile Remove="Models\PassosTotais.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\UtilizadorView\" />

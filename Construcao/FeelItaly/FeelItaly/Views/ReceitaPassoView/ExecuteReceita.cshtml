@@ -1,17 +1,14 @@
-﻿@model FeelItaly.Models.PassosTotais
+﻿@model FeelItaly.Models.PassoTotal
 
-@{
-    string value = "";
-    string passoatual = Model.nrpassoatual.ToString();
-    Model.passostotais.TryGetValue(passoatual, out value);
-}
+<!--para ja funciona, mas está errado, tem que ser o Model.passo.numero-->
+<h1>Passo @Model.passo.IdPasso</h1>
 
-<h1>Passo @Model.nrpassoatual</h1>
-
-<p>@value</p>
+<p>@Model.desc_passo</p>
 
 
-<form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-all-route-data="@Model.passostotais">
+@{ Model.passo.IdPasso++; }
+
+<form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idpasso="@Model.passo.IdPasso">
     <div class="form-group">
         <input type="submit" value="Próximo Passo" class="btn btn-default btn-primary" />
     </div>

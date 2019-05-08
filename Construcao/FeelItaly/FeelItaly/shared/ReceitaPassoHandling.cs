@@ -33,5 +33,10 @@ namespace FeelItaly.shared
             return _context.receitapasso.Where(b => b.IdReceita == idReceita && b.IdPasso == idPasso).Select(b => b.Numero).FirstOrDefault();
         }
 
+        public int getPrimeiroPassoDaReceita(int idReceita)
+        {
+            return _context.receitapasso.Where(b => b.IdReceita == idReceita && b.Numero == "1").Select(b => b.IdPasso).FirstOrDefault();
+        }
+
     }
 }
