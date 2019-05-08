@@ -72,7 +72,7 @@ namespace FeelItaly.Controllers{
                     ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
 
                     await HttpContext.SignInAsync(principal);
-                    return RedirectToAction("getUtilizadores", "UtilizadorView");
+                    return RedirectToAction("Index", "Home");
                 }
                 else{
                     TempData["UserLoginFailed"] = "LogIn Falhado. Por favor coloque as credenciais corretas.";

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FeelItaly.Models;
 using FeelItaly.shared;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -33,6 +34,7 @@ namespace FeelItaly.Controllers{
         }
 
         // GET: /<controller>/
+        [Authorize]
         public IActionResult GetReceitas()
         {
             Receita[] recipes = receitaHandling.getReceitas();
