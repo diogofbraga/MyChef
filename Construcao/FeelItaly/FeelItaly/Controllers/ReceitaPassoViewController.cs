@@ -19,6 +19,7 @@ namespace FeelItaly.Controllers{
         private IngredienteHandling ingredienteHandling;
         private AcaoHandling acaoHandling;
         private ComentarioHandling comentarioHandling;
+        private PassosTotais passostot = new PassosTotais();
 
         public ReceitaPassoViewController(ReceitaContext receitacontext,ReceitaPassoContext receitapassocontext, 
                                           PassoContext passocontext, IngredienteContext ingredientecontext,
@@ -42,7 +43,7 @@ namespace FeelItaly.Controllers{
         public IActionResult SelectReceita(int id){
             ReceitaTotal res = new ReceitaTotal();
             Receita recipe = receitaHandling.getReceita(id);
-            Dictionary<int,string> desc_passos = new Dictionary<int,string>();
+            Dictionary<string,string> desc_passos = new Dictionary<string,string>();
             List<Comentario> coments = comentarioHandling.getComentariosReceita(id);
             List<int> idPassos = receitapassoHandling.getPassosDaReceita(id);
             List<Passo> passos = new List<Passo>();
@@ -64,9 +65,11 @@ namespace FeelItaly.Controllers{
             return View(res);
         }
 
-        public IActionResult ExecuteReceita()
-        {
-            return View();
+        public IActionResult ExecuteReceita(Dictionary<string, string> passos){
+            passostot.passostotais = passos;
+            passostot.incrementNrPasso();
+            return View(passostot);
         }
+
     }
 }

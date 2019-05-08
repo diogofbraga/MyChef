@@ -68,7 +68,7 @@ CREATE TABLE ReceitaPasso(
   Id INT NOT NULL PRIMARY KEY,
 	IdReceita INT NOT NULL,
 	IdPasso INT NOT NULL,
-	Numero INT NOT NULL
+	Numero NVARCHAR(10) NOT NULL
 );
 
 CREATE TABLE Tutorial(
@@ -202,17 +202,17 @@ INSERT INTO Acao VALUES(5,'Temperar')
 
 
 -- ReceitasPassos
--- Id INT, IdReceita INT, IdPasso INT, Numero INT
+-- Id INT, IdReceita INT, IdPasso INT, Numero NVARCHAR(10)
 
-INSERT INTO ReceitaPasso VALUES(1,1,1,1)
+INSERT INTO ReceitaPasso VALUES(1,1,1,'1')
 
-INSERT INTO ReceitaPasso VALUES(2,1,2,2)
+INSERT INTO ReceitaPasso VALUES(2,1,2,'2')
 
-INSERT INTO ReceitaPasso VALUES(3,1,3,3)
+INSERT INTO ReceitaPasso VALUES(3,1,3,'3')
 
-INSERT INTO ReceitaPasso VALUES(4,1,4,4)
+INSERT INTO ReceitaPasso VALUES(4,1,4,'4')
 
-INSERT INTO ReceitaPasso VALUES(5,1,5,5)
+INSERT INTO ReceitaPasso VALUES(5,1,5,'5')
 
 
 -- Históricos

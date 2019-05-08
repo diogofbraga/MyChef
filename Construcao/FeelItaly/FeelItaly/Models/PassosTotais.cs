@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 
 namespace FeelItaly.Models{
 
-    public class ReceitaTotal{
+    public class PassosTotais{
 
-        public Receita rec; 
-        public List<Passo> pass;
-        public Dictionary<string,string> desc_passos;
-        public List<Comentario> coments;
+        public Dictionary<string, string> passostotais;
+        public int nrpassoatual=0;
+
+        public void incrementNrPasso(){
+            nrpassoatual++;
+        }
 
     }
 }

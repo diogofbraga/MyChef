@@ -30,8 +30,9 @@
     <p>@coment.Descricao @coment.Dataa </p>
 }
 
-<form asp-action="ExecuteReceita">
+<!--asp-all-route-data="Model.desc_passos"-->
+<a asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-all-route-data="@Model.desc_passos">
     <div class="form-group">
         <input type="submit" value="Iniciar" class="btn btn-default btn-primary" />
     </div>
-</form>
+</a>

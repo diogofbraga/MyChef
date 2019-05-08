@@ -1,3 +1,20 @@
-﻿<div class="text-center">
-    <h1 class="display-5">RECEITA</h1>
-</div>
+﻿@model FeelItaly.Models.PassosTotais
+
+@{
+    string value = "";
+    string passoatual = Model.nrpassoatual.ToString();
+    Model.passostotais.TryGetValue(passoatual, out value);
+}
+
+<h1>Passo @Model.nrpassoatual</h1>
+
+<p>@value</p>
+
+
+<form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-all-route-data="@Model.passostotais">
+    <div class="form-group">
+        <input type="submit" value="Próximo Passo" class="btn btn-default btn-primary" />
+    </div>
+</form>
+
+
