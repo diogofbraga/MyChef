@@ -2,11 +2,13 @@
 
 <link rel="stylesheet" href="~/css/GetReceitas.css" />
 
-
-<h1>Receitas</h1>
+<div class="text-center">
+    <h1 class="display-4">Receitas</h1>
+</div>
 
 @foreach (var receita in Model)
 {
+    /*
     <div class="polaroid">
         <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
             <img src="~/images/Carbonara.jpg" alt="Carbonara">
@@ -15,6 +17,38 @@
             <p><b>Carbonara</b></p>
         </div>
     </div>
+    */
+    
+    <div class="hover01 column">
+        <div>
+            <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
+                <figure><img src="~/images/Carbonara.jpg" /></figure>
+                <span>Carbonara</span>
+            </a>
+        </div>
+        <div>
+            <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
+                <figure><img src="~/images/Margherita.jpg" /></figure>
+                <span>Pizza Margherita</span>
+            </a>
+        </div>
+        <div>
+            <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
+                <figure><img src="~/images/Tagliatelle.jpg" /></figure>
+                <span>Tagliatelle</span>
+            </a>
+    </div>
+    </div>
+    <div class="hover01 column">
+        <div>
+            <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
+                <figure><img src="~/images/LasanhaLegumes.jpg" /></figure>
+                <span>Lasanha de Legumes</span>
+            </a>
+        </div>
+    </div>
+    
+
     //@receita.nome
     //<a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
     //    <img src="~/images/Carbonara.jpg" alt="Carbonara" style="width:332px;height:200px;border:0;">
