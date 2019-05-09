@@ -149,7 +149,7 @@ INSERT INTO Receita
 VALUES(2,'Pizza Marguerita',204.0,60,4.7)
 
 INSERT INTO Receita
-VALUES(3,'Molho Tomate',80.0,5,4.0)
+VALUES(3,'Molho de Tomate',80.0,5,4.0)
 
 -- CategoriasReceitas
 -- Id INT, IdCategoria INT, IdReceita INT
@@ -175,9 +175,10 @@ VALUES(2,'ricardofsc10')
 
 -- Passos
 -- IdPasso INT, TempoParcial FLOAT, Unidade NVARCHAR(32), Quantidade INT,
--- Extra NVARCHAR(255), IdReceita INT, IdIngrediente INT, IdAcao INT
+-- Extra NVARCHAR(255), IdReceita(SubReceita) INT, IdIngrediente INT, IdAcao INT
 
-INSERT INTO Passo VALUES(14,4.0,'','','',3,'','')
+
+
 
 INSERT INTO Passo VALUES(1,4.0,'c. sopa','2','numa frigideira',-1,1,1)
 
@@ -205,6 +206,16 @@ INSERT INTO Passo VALUES(12,4.0,'g','50','',-1,7,1)
 
 INSERT INTO Passo VALUES(13,4.0,'','','a gosto',-1,8,1)
 
+INSERT INTO Passo VALUES(14,4.0,'','','',3,'','')
+
+INSERT INTO Passo VALUES(15,1.0,'','','',3,9,10)
+
+INSERT INTO Passo VALUES(16,1.0,'','','',3,10,10)
+
+INSERT INTO Passo VALUES(17,1.0,'','','',3,10,16)
+
+INSERT INTO Passo VALUES(18,1.0,'','','',3,9,16)
+
 -- Ingredientes
 -- IdIngrediente INT, Nome NVARCHAR(100)
 
@@ -223,6 +234,22 @@ INSERT INTO Ingrediente VALUES(6,'esparguete')
 INSERT INTO Ingrediente VALUES(7,'queijo parmesão ralado')
 
 INSERT INTO Ingrediente VALUES(8,'pimenta preta')
+
+INSERT INTO Ingrediente VALUES(9,'cebola')
+
+INSERT INTO Ingrediente VALUES(10,'alho')
+
+INSERT INTO Ingrediente VALUES(11,'açúcar')
+
+INSERT INTO Ingrediente VALUES(12,'manjericão')
+
+INSERT INTO Ingrediente VALUES(13,'louro')
+
+INSERT INTO Ingrediente VALUES(14,'orégãos')
+
+INSERT INTO Ingrediente VALUES(15,'concentrado de tomate')
+
+INSERT INTO Ingrediente VALUES(16,'tomate pelado')
 
 -- Ações
 -- IdAcao INT, Descricao NVARCHAR(32)
@@ -244,6 +271,20 @@ INSERT INTO Acao VALUES(7,'Cozinhar')
 INSERT INTO Acao VALUES(8,'Cozer')
 
 INSERT INTO Acao VALUES(9,'Escorrer')
+
+INSERT INTO Acao VALUES(10,'Descascar')
+
+INSERT INTO Acao VALUES(11,'Refogar')
+
+INSERT INTO Acao VALUES(12,'Ferver')
+
+INSERT INTO Acao VALUES(13,'Misturar')
+
+INSERT INTO Acao VALUES(14,'Retirar')
+
+INSERT INTO Acao VALUES(15,'Passar')
+
+INSERT INTO Acao VALUES(16,'Picar')
 
 -- ReceitasPassos
 -- Id INT, IdReceita INT, IdPasso INT, Numero NVARCHAR(10)
@@ -276,6 +317,8 @@ INSERT INTO ReceitaPasso VALUES(13,1,13,'13')
 
 INSERT INTO ReceitaPasso VALUES(14,2,14,'1')
 
+
+
 -- Históricos
 
 INSERT INTO Historico
@@ -303,6 +346,10 @@ VALUES(3,'Tacho')
 
 INSERT INTO Utensilio
 VALUES(4,'Colher')
+
+INSERT INTO Utensilio
+VALUES(5,'Varinha mágica')
+
 
 
 -- UtensíliosPassos
