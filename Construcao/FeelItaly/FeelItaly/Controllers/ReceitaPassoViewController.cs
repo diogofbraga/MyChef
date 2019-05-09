@@ -34,7 +34,6 @@ namespace FeelItaly.Controllers{
         }
 
         // GET: /<controller>/
-        [Authorize]
         public IActionResult GetReceitas()
         {
             Receita[] recipes = receitaHandling.getReceitas();
@@ -69,6 +68,7 @@ namespace FeelItaly.Controllers{
             return View(res);
         }
 
+        [Authorize]
         public IActionResult ExecuteReceita(int idpasso){
             PassoTotal passo = new PassoTotal();
             Passo p = passoHandling.selectPasso(idpasso);
