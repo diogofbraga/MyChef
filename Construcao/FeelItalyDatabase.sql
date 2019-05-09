@@ -222,27 +222,31 @@ VALUES(1,'diogofbraga',1,45.0,'2018-05-04 00:35:00',3)
 
 
 -- Tutoriais
+-- IdPasso INT, Link NVARCHAR(255)
 
 INSERT INTO Tutorial
 VALUES(1,'https://www.youtube.com/watch?v=i7AZjzVx7os')
 
 
 -- Utensílios
+-- IdUtensilio INT, Descricao NVARCHAR(32)
 
 INSERT INTO Utensilio
 VALUES(1,'Faca')
 
 
 -- UtensíliosPassos
+-- IdUtensilio INT, IdPasso INT
 
 INSERT INTO UtensilioPasso
 VALUES(1,1)
 
 
 -- Comentarios
+-- IdComentario INT, Descricao NVARCHAR(32), Dataa DATETIME, IdReceita INT
 
 INSERT INTO Comentario
-VALUES(1,'Grande pissa','2018-05-04 00:35:00',2)
+VALUES(1,'Excelente massa! Aconselho vivamente!','2018-05-04 00:35:00',1)
 
 SELECT * FROM Utilizador
 
