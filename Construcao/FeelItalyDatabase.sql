@@ -25,7 +25,8 @@ CREATE TABLE Receita(
 );
 
 CREATE TABLE CategoriaReceita(
-    IdCategoria INT NOT NULL PRIMARY KEY,
+	Id INT NOT NULL PRIMARY KEY,
+    IdCategoria INT NOT NULL,
     IdReceita INT NOT NULL
 );
 
@@ -65,7 +66,7 @@ CREATE TABLE Acao(
 );
 
 CREATE TABLE ReceitaPasso(
-  Id INT NOT NULL PRIMARY KEY,
+	Id INT NOT NULL PRIMARY KEY,
 	IdReceita INT NOT NULL,
 	IdPasso INT NOT NULL,
 	Numero NVARCHAR(10) NOT NULL
@@ -82,7 +83,8 @@ CREATE TABLE Utensilio(
 );
 
 CREATE TABLE UtensilioPasso(
-	IdUtensilio INT NOT NULL PRIMARY KEY,
+	Id INT NOT NULL PRIMARY KEY,
+	IdUtensilio INT NOT NULL,
 	IdPasso INT NOT NULL
 );
 
@@ -143,13 +145,23 @@ VALUES(7,'Sobremesa')
 INSERT INTO Receita
 VALUES(1,'Carbonara',655.0,20,4.3)
 
+INSERT INTO Receita
+VALUES(2,'Pizza Marguerita',204.0,60,4.7)
+
+INSERT INTO Receita
+VALUES(3,'Molho Tomate',80.0,5,4.0)
 
 -- CategoriasReceitas
--- IdCategoria INT, IdReceita INT
+-- Id INT, IdCategoria INT, IdReceita INT
 
 INSERT INTO CategoriaReceita
-VALUES(1,1)
+VALUES(1,1,1)
 
+INSERT INTO CategoriaReceita
+VALUES(2,2,2)
+
+INSERT INTO CategoriaReceita
+VALUES(3,2,3)
 
 -- ConfiguraçõesIniciais
 -- IdReceita INT, Username NVARCHAR(32)
@@ -157,10 +169,15 @@ VALUES(1,1)
 INSERT INTO ConfiguracaoInicial
 VALUES(1,'diogofbraga')
 
+INSERT INTO ConfiguracaoInicial
+VALUES(2,'ricardofsc10')
+
 
 -- Passos
 -- IdPasso INT, TempoParcial FLOAT, Unidade NVARCHAR(32), Quantidade INT,
 -- Extra NVARCHAR(255), IdReceita INT, IdIngrediente INT, IdAcao INT
+
+INSERT INTO Passo VALUES(14,4.0,'','','',3,'','')
 
 INSERT INTO Passo VALUES(1,4.0,'c. sopa','2','numa frigideira',-1,1,1)
 
@@ -174,7 +191,7 @@ INSERT INTO Passo VALUES(5,4.0,'c. chá','1','',-1,5,5)
 
 INSERT INTO Passo VALUES(6,4.0,'','','e as natas ao bacon', -1,3,6)
 
-INSERT INTO Passo VALUES(7,4.0,'','','durante 3 minutos em lume brando',-1,9,7)
+INSERT INTO Passo VALUES(7,4.0,'','','tudo durante 3 minutos em lume brando',-1,'',7)
 
 INSERT INTO Passo VALUES(8,4.0,'g','300','num tacho',-1,6,1)
 
@@ -191,23 +208,21 @@ INSERT INTO Passo VALUES(13,4.0,'','','a gosto',-1,8,1)
 -- Ingredientes
 -- IdIngrediente INT, Nome NVARCHAR(100)
 
-INSERT INTO Ingrediente VALUES(1,'Azeite')
+INSERT INTO Ingrediente VALUES(1,'azeite')
 
-INSERT INTO Ingrediente VALUES(2,'Bacon')
+INSERT INTO Ingrediente VALUES(2,'bacon')
 
-INSERT INTO Ingrediente VALUES(3,'Ovos')
+INSERT INTO Ingrediente VALUES(3,'ovos')
 
-INSERT INTO Ingrediente VALUES(4,'Natas')
+INSERT INTO Ingrediente VALUES(4,'natas')
 
-INSERT INTO Ingrediente VALUES(5,'Sal')
+INSERT INTO Ingrediente VALUES(5,'sal')
 
-INSERT INTO Ingrediente VALUES(6,'Esparguete')
+INSERT INTO Ingrediente VALUES(6,'esparguete')
 
-INSERT INTO Ingrediente VALUES(7,'Queijo parmesão ralado')
+INSERT INTO Ingrediente VALUES(7,'queijo parmesão ralado')
 
-INSERT INTO Ingrediente VALUES(8,'Pimenta preta')
-
-INSERT INTO Ingrediente VALUES(9,'Tudo')
+INSERT INTO Ingrediente VALUES(8,'pimenta preta')
 
 -- Ações
 -- IdAcao INT, Descricao NVARCHAR(32)
@@ -259,6 +274,8 @@ INSERT INTO ReceitaPasso VALUES(12,1,12,'12')
 
 INSERT INTO ReceitaPasso VALUES(13,1,13,'13')
 
+INSERT INTO ReceitaPasso VALUES(14,2,14,'1')
+
 -- Históricos
 
 INSERT INTO Historico
@@ -278,12 +295,24 @@ VALUES(1,'https://www.youtube.com/watch?v=i7AZjzVx7os')
 INSERT INTO Utensilio
 VALUES(1,'Faca')
 
+INSERT INTO Utensilio
+VALUES(2,'Frigideira')
+
+INSERT INTO Utensilio
+VALUES(3,'Tacho')
+
+INSERT INTO Utensilio
+VALUES(4,'Colher')
+
 
 -- UtensíliosPassos
 -- IdUtensilio INT, IdPasso INT
 
 INSERT INTO UtensilioPasso
-VALUES(1,1)
+VALUES(1,1,1)
+
+INSERT INTO UtensilioPasso
+VALUES(2,2,1)
 
 
 -- Comentarios
