@@ -12,6 +12,8 @@ namespace FeelItaly.Models{
     public class UtensilioPasso{
 
         [Key]
+        public int Id { set; get; }
+
         [Required]
         public int IdUtensilio { set; get; }
 

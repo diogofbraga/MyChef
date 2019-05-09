@@ -12,6 +12,8 @@ namespace FeelItaly.Models{
     public class CategoriaReceita{
 
         [Key]
+        public int Id { set; get; }
+
         [Required]
         public int idCategoria { set; get; }
 

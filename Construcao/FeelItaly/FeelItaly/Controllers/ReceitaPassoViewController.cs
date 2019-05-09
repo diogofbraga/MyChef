@@ -53,9 +53,19 @@ namespace FeelItaly.Controllers{
                 passos.Add(p);
                 Acao ac = acaoHandling.selectAcao(p.idAcao);
                 Ingrediente ing = ingredienteHandling.selectIngrediente(p.idIngrediente);
-                string desc_passo = new string(ac.Descricao + " " + p.Quantidade + " " +
-                                               p.Unidade + " " + ing.Nome + " " + p.Extra + 
-                                               ".");
+                string desc_passo;
+                if (ing != null)
+                {
+                    desc_passo = new string(ac.Descricao + " " + p.Quantidade + " " +
+                                                   p.Unidade + " " + ing.Nome + " " + p.Extra +
+                                                   ".");
+                }
+                else
+                {
+                    desc_passo = new string(ac.Descricao + " " + p.Quantidade + " " +
+                                                   p.Unidade + " " + p.Extra +
+                                                   ".");
+                }
                 desc_passos.Add(receitapassoHandling.getPassoDaReceita(id,i), desc_passo);
             }
             res.rec = recipe;
@@ -74,9 +84,19 @@ namespace FeelItaly.Controllers{
             Passo p = passoHandling.selectPasso(idpasso);
             Acao ac = acaoHandling.selectAcao(p.idAcao);
             Ingrediente ing = ingredienteHandling.selectIngrediente(p.idIngrediente);
-            string desc_passo = new string(ac.Descricao + " " + p.Quantidade + " " +
-                                           p.Unidade + " " + ing.Nome + " " + p.Extra +
-                                           ".");
+            string desc_passo;
+            if (ing != null)
+            {
+                desc_passo = new string(ac.Descricao + " " + p.Quantidade + " " +
+                                               p.Unidade + " " + ing.Nome + " " + p.Extra +
+                                               ".");
+            }
+            else
+            {
+                desc_passo = new string(ac.Descricao + " " + p.Quantidade + " " +
+                                               p.Unidade + " " + p.Extra +
+                                               ".");
+            }
             passo.passo = p;
             passo.desc_passo = desc_passo;
             return View(passo);
