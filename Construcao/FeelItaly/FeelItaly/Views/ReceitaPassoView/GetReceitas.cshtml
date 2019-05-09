@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FeelItaly.Models.Receita>
+﻿@model FeelItaly.Models.Receita[]
 
 <link rel="stylesheet" href="~/css/GetReceitas.css" />
 
@@ -6,57 +6,42 @@
     <h1 class="display-4">Receitas</h1>
 </div>
 
-@foreach (var receita in Model)
-{
-    /*
-    <div class="polaroid">
-        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
-            <img src="~/images/Carbonara.jpg" alt="Carbonara">
+<div class="hover01 column">
+    @{ var rec = Model[0]; }
+    <div>
+        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+            <figure><img src="~/images/Carbonara.jpg" /></figure>
+            <span>Carbonara</span>
         </a>
-        <div class="container">
-            <p><b>Carbonara</b></p>
-        </div>
     </div>
-    */
-    
-    <div class="hover01 column">
-        <div>
-            <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
-                <figure><img src="~/images/Carbonara.jpg" /></figure>
-                <span>Carbonara</span>
-            </a>
-        </div>
-        <div>
-            <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
-                <figure><img src="~/images/Margherita.jpg" /></figure>
-                <span>Pizza Margherita</span>
-            </a>
-        </div>
-        <div>
-            <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
-                <figure><img src="~/images/Tagliatelle.jpg" /></figure>
-                <span>Tagliatelle</span>
-            </a>
+    @{ rec = Model[1]; }
+    <div>
+        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+            <figure><img src="~/images/Margherita.jpg" /></figure>
+            <span>Pizza Margherita</span>
+        </a>
     </div>
+    @{ rec = Model[2]; }
+    <div>
+        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+            <figure><img src="~/images/MolhoTomate.jpg" /></figure>
+            <span>Molho de Tomate</span>
+        </a>
     </div>
-    <div class="hover01 column">
-        <div>
-            <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
-                <figure><img src="~/images/LasanhaLegumes.jpg" /></figure>
-                <span>Lasanha de Legumes</span>
-            </a>
-        </div>
-        <div>
-            <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
-                <figure><img src="~/images/molhotomate.jpg" /></figure>
-                <span>Molho de Tomate</span>
-            </a>
-        </div>
+</div>
+<div class="hover01 column">
+    @{ rec = Model[3]; }
+    <div>
+        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+            <figure><img src="~/images/Tagliatelle.jpg" /></figure>
+            <span>Tagliatelle</span>
+        </a>
     </div>
-    
-
-    //@receita.nome
-    //<a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@receita.idReceita">
-    //    <img src="~/images/Carbonara.jpg" alt="Carbonara" style="width:332px;height:200px;border:0;">
-    //</a>
-}
+    @{ rec = Model[4]; }
+    <div>
+        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+            <figure><img src="~/images/LasanhaLegumes.jpg" /></figure>
+            <span>Lasanha de Legumes</span>
+        </a>
+    </div>
+</div>

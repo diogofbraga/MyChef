@@ -177,9 +177,6 @@ VALUES(2,'ricardofsc10')
 -- IdPasso INT, TempoParcial FLOAT, Unidade NVARCHAR(32), Quantidade INT,
 -- Extra NVARCHAR(255), IdReceita(SubReceita) INT, IdIngrediente INT, IdAcao INT
 
-
-
-
 INSERT INTO Passo VALUES(1,4.0,'c. sopa','2','numa frigideira',-1,1,1)
 
 INSERT INTO Passo VALUES(2,4.0,'g','200','na frigideira',-1,2,2)
@@ -208,13 +205,13 @@ INSERT INTO Passo VALUES(13,4.0,'','','a gosto',-1,8,1)
 
 INSERT INTO Passo VALUES(14,4.0,'','','',3,'','')
 
-INSERT INTO Passo VALUES(15,1.0,'','','',3,9,10)
+INSERT INTO Passo VALUES(15,1.0,'','1','',-1,9,10)
 
-INSERT INTO Passo VALUES(16,1.0,'','','',3,10,10)
+INSERT INTO Passo VALUES(16,1.0,'','1','',-1,10,10)
 
-INSERT INTO Passo VALUES(17,1.0,'','','',3,10,16)
+INSERT INTO Passo VALUES(17,1.0,'','1','',-1,10,16)
 
-INSERT INTO Passo VALUES(18,1.0,'','','',3,9,16)
+INSERT INTO Passo VALUES(18,1.0,'','1','',-1,9,16)
 
 -- Ingredientes
 -- IdIngrediente INT, Nome NVARCHAR(100)
@@ -237,7 +234,7 @@ INSERT INTO Ingrediente VALUES(8,'pimenta preta')
 
 INSERT INTO Ingrediente VALUES(9,'cebola')
 
-INSERT INTO Ingrediente VALUES(10,'alho')
+INSERT INTO Ingrediente VALUES(10,'dente de alho')
 
 INSERT INTO Ingrediente VALUES(11,'açúcar')
 
