@@ -88,7 +88,7 @@ CREATE TABLE UtensilioPasso(
 
 CREATE TABLE Comentario(
 	IdComentario INT NOT NULL PRIMARY KEY,
-	Descricao NVARCHAR(32) NOT NULL,
+	Descricao NVARCHAR(100) NOT NULL,
 	Dataa DATETIME NOT NULL,
 	IdReceita INT NOT NULL
 );
@@ -243,7 +243,7 @@ VALUES(1,1)
 
 
 -- Comentarios
--- IdComentario INT, Descricao NVARCHAR(32), Dataa DATETIME, IdReceita INT
+-- IdComentario INT, Descricao NVARCHAR(100), Dataa DATETIME, IdReceita INT
 
 INSERT INTO Comentario
 VALUES(1,'Excelente massa! Aconselho vivamente!','2018-05-04 00:35:00',1)
