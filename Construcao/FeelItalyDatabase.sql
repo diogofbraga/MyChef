@@ -40,7 +40,7 @@ CREATE TABLE Passo(
 	Unidade NVARCHAR(32),
 	Quantidade NVARCHAR(10) NOT NULL,
 	Extra NVARCHAR(255),
-  IdReceita INT,
+	IdReceita INT,
 	IdIngrediente INT NOT NULL,
 	IdAcao INT NOT NULL
 );
@@ -164,7 +164,7 @@ VALUES(1,'diogofbraga')
 
 INSERT INTO Passo VALUES(1,4.0,'c. sopa','2','numa frigideira',-1,1,1)
 
-INSERT INTO Passo VALUES(2,4.0,'g','200','',-1,2,2)
+INSERT INTO Passo VALUES(2,4.0,'g','200','na frigideira',-1,2,2)
 
 INSERT INTO Passo VALUES(3,4.0,'','2','',-1,3,3)
 
@@ -172,6 +172,21 @@ INSERT INTO Passo VALUES(4,4.0,'ml','80','',-1,4,4)
 
 INSERT INTO Passo VALUES(5,4.0,'c. chá','1','',-1,5,5)
 
+INSERT INTO Passo VALUES(6,4.0,'','','e as natas ao bacon', -1,3,6)
+
+INSERT INTO Passo VALUES(7,4.0,'','','durante 3 minutos em lume brando',-1,9,7)
+
+INSERT INTO Passo VALUES(8,4.0,'g','300','num tacho',-1,6,1)
+
+INSERT INTO Passo VALUES(9,4.0,'pitada','1','ao tacho',-1,5,4)
+
+INSERT INTO Passo VALUES(10,4.0,'','','durante 8 minutos',-1,6,8)
+
+INSERT INTO Passo VALUES(11,4.0,'','','para a frigideira',-1,6,9)
+
+INSERT INTO Passo VALUES(12,4.0,'g','50','',-1,7,1)
+
+INSERT INTO Passo VALUES(13,4.0,'','','a gosto',-1,8,1)
 
 -- Ingredientes
 -- IdIngrediente INT, Nome NVARCHAR(100)
@@ -186,6 +201,13 @@ INSERT INTO Ingrediente VALUES(4,'Natas')
 
 INSERT INTO Ingrediente VALUES(5,'Sal')
 
+INSERT INTO Ingrediente VALUES(6,'Esparguete')
+
+INSERT INTO Ingrediente VALUES(7,'Queijo parmesão ralado')
+
+INSERT INTO Ingrediente VALUES(8,'Pimenta preta')
+
+INSERT INTO Ingrediente VALUES(9,'Tudo')
 
 -- Ações
 -- IdAcao INT, Descricao NVARCHAR(32)
@@ -200,6 +222,13 @@ INSERT INTO Acao VALUES(4,'Acrescentar')
 
 INSERT INTO Acao VALUES(5,'Temperar')
 
+INSERT INTO Acao VALUES(6,'Juntar')
+
+INSERT INTO Acao VALUES(7,'Cozinhar')
+
+INSERT INTO Acao VALUES(8,'Cozer')
+
+INSERT INTO Acao VALUES(9,'Escorrer')
 
 -- ReceitasPassos
 -- Id INT, IdReceita INT, IdPasso INT, Numero NVARCHAR(10)
@@ -214,6 +243,21 @@ INSERT INTO ReceitaPasso VALUES(4,1,4,'4')
 
 INSERT INTO ReceitaPasso VALUES(5,1,5,'5')
 
+INSERT INTO ReceitaPasso VALUES(6,1,6,'6')
+
+INSERT INTO ReceitaPasso VALUES(7,1,7,'7')
+
+INSERT INTO ReceitaPasso VALUES(8,1,8,'8')
+
+INSERT INTO ReceitaPasso VALUES(9,1,9,'9')
+
+INSERT INTO ReceitaPasso VALUES(10,1,10,'10')
+
+INSERT INTO ReceitaPasso VALUES(11,1,11,'11')
+
+INSERT INTO ReceitaPasso VALUES(12,1,12,'12')
+
+INSERT INTO ReceitaPasso VALUES(13,1,13,'13')
 
 -- Históricos
 
