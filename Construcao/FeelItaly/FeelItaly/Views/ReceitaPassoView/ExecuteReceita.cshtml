@@ -6,13 +6,18 @@
 
 <p>@Model.desc_passo</p>
 
+
 @{ Model.numero++; }
-
-
 <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
     <div class="form-group">
         <input type="submit" value="Próximo Passo" class="btn btn-default btn-primary" />
-        <a asp-action="ExecuteReceita" class="btn btn-info">Voltar ao Anterior</a>
+    </div>
+</form>
+
+@{ Model.numero=Model.numero-2;/* Passa sempre no ++ de cima, mas pode nao clicar no botao, se passar para aqui é porque é para voltar para trás, mas tambem somou atras, logo retira dois aqui*/}
+<form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
+    <div class="form-group">
+        <input type="submit" value="Voltar ao Anterior" class="btn btn-default btn-primary" />
     </div>
 </form>
 
