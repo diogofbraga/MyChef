@@ -1,4 +1,6 @@
-﻿<link rel="stylesheet" href="~/css/Index.css" />
+﻿@model FeelItaly.Models.Receita[]
+
+<link rel="stylesheet" href="~/css/Index.css" />
 
 <div class="text-center">
     <h1 class="display-3">FeelItaly</h1>
@@ -6,10 +8,10 @@
 </div>
 
 <div class="container">
-    <div class="box">
-        <img src="~/images/Carbonara.jpg">
-        <span>Carbonara</span>
-    </div>
+    <a class="box text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@Model[0].idReceita">
+            <img src="~/images/Carbonara.jpg">
+            <span>Carbonara</span>
+    </a>
     <div class="box">
         <img src="~/images/Margherita.jpg">
         <span>Pizza Margherita</span>

@@ -19,6 +19,7 @@
     <Compile Remove="Controllers\CategoriaReceitaContext.cs" />
     <Compile Remove="Views\UtilizadorView\LoginUtilizador.cshtml" />
     <Compile Remove="Models\PassosTotais.cs" />
+    <Compile Remove="Controllers\AcaoController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\UtilizadorView\" />
