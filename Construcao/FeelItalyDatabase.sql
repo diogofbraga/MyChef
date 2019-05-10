@@ -42,8 +42,8 @@ CREATE TABLE Passo(
 	Quantidade NVARCHAR(10) NOT NULL,
 	Extra NVARCHAR(255),
 	IdReceita INT,
-	IdIngrediente INT NOT NULL,
-	IdAcao INT NOT NULL
+	IdIngrediente INT,
+	IdAcao INT
 );
 
 CREATE TABLE Historico(
@@ -69,7 +69,7 @@ CREATE TABLE ReceitaPasso(
 	Id INT NOT NULL PRIMARY KEY,
 	IdReceita INT NOT NULL,
 	IdPasso INT NOT NULL,
-	Numero NVARCHAR(10) NOT NULL
+	Numero INT NOT NULL
 );
 
 CREATE TABLE Tutorial(
@@ -146,10 +146,10 @@ INSERT INTO Receita
 VALUES(1,'Carbonara',655.0,20,4.3)
 
 INSERT INTO Receita
-VALUES(2,'Pizza Marguerita',204.0,60,4.7)
+VALUES(2,'Molho de Tomate',80.0,5,4.0)
 
 INSERT INTO Receita
-VALUES(3,'Molho de Tomate',80.0,5,4.0)
+VALUES(3,'Pizza Marguerita',204.0,60,4.7)
 
 -- CategoriasReceitas
 -- Id INT, IdCategoria INT, IdReceita INT
@@ -174,7 +174,7 @@ VALUES(2,'ricardofsc10')
 
 
 -- Passos
--- IdPasso INT, TempoParcial FLOAT, Unidade NVARCHAR(32), Quantidade INT,
+-- IdPasso INT, TempoParcial FLOAT, Unidade NVARCHAR(32), Quantidade NVARCHAR(32),
 -- Extra NVARCHAR(255), IdReceita(SubReceita) INT, IdIngrediente INT, IdAcao INT
 
 INSERT INTO Passo VALUES(1,4.0,'c. sopa','2','numa frigideira',-1,1,1)
@@ -203,15 +203,13 @@ INSERT INTO Passo VALUES(12,4.0,'g','50','',-1,7,1)
 
 INSERT INTO Passo VALUES(13,4.0,'','','a gosto',-1,8,1)
 
-INSERT INTO Passo VALUES(14,4.0,'','','',3,'','')
+INSERT INTO Passo VALUES(14,1.0,'','1','',-1,9,10)
 
-INSERT INTO Passo VALUES(15,1.0,'','1','',-1,9,10)
+INSERT INTO Passo VALUES(15,1.0,'','1','',-1,10,10)
 
-INSERT INTO Passo VALUES(16,1.0,'','1','',-1,10,10)
+INSERT INTO Passo VALUES(16,1.0,'','1','',-1,10,16)
 
-INSERT INTO Passo VALUES(17,1.0,'','1','',-1,10,16)
-
-INSERT INTO Passo VALUES(18,1.0,'','1','',-1,9,16)
+INSERT INTO Passo VALUES(17,1.0,'','1','',-1,9,16)
 
 -- Ingredientes
 -- IdIngrediente INT, Nome NVARCHAR(100)
@@ -284,35 +282,41 @@ INSERT INTO Acao VALUES(15,'Passar')
 INSERT INTO Acao VALUES(16,'Picar')
 
 -- ReceitasPassos
--- Id INT, IdReceita INT, IdPasso INT, Numero NVARCHAR(10)
+-- Id INT, IdReceita INT, IdPasso INT, Numero INT
 
-INSERT INTO ReceitaPasso VALUES(1,1,1,'1')
+INSERT INTO ReceitaPasso VALUES(1,1,1,1)
 
-INSERT INTO ReceitaPasso VALUES(2,1,2,'2')
+INSERT INTO ReceitaPasso VALUES(2,1,2,2)
 
-INSERT INTO ReceitaPasso VALUES(3,1,3,'3')
+INSERT INTO ReceitaPasso VALUES(3,1,3,3)
 
-INSERT INTO ReceitaPasso VALUES(4,1,4,'4')
+INSERT INTO ReceitaPasso VALUES(4,1,4,4)
 
-INSERT INTO ReceitaPasso VALUES(5,1,5,'5')
+INSERT INTO ReceitaPasso VALUES(5,1,5,5)
 
-INSERT INTO ReceitaPasso VALUES(6,1,6,'6')
+INSERT INTO ReceitaPasso VALUES(6,1,6,6)
 
-INSERT INTO ReceitaPasso VALUES(7,1,7,'7')
+INSERT INTO ReceitaPasso VALUES(7,1,7,7)
 
-INSERT INTO ReceitaPasso VALUES(8,1,8,'8')
+INSERT INTO ReceitaPasso VALUES(8,1,8,8)
 
-INSERT INTO ReceitaPasso VALUES(9,1,9,'9')
+INSERT INTO ReceitaPasso VALUES(9,1,9,9)
 
-INSERT INTO ReceitaPasso VALUES(10,1,10,'10')
+INSERT INTO ReceitaPasso VALUES(10,1,10,10)
 
-INSERT INTO ReceitaPasso VALUES(11,1,11,'11')
+INSERT INTO ReceitaPasso VALUES(11,1,11,11)
 
-INSERT INTO ReceitaPasso VALUES(12,1,12,'12')
+INSERT INTO ReceitaPasso VALUES(12,1,12,12)
 
-INSERT INTO ReceitaPasso VALUES(13,1,13,'13')
+INSERT INTO ReceitaPasso VALUES(13,1,13,13)
 
-INSERT INTO ReceitaPasso VALUES(14,2,14,'1')
+INSERT INTO ReceitaPasso VALUES(14,2,14,1)
+
+INSERT INTO ReceitaPasso VALUES(15,2,15,2)
+
+INSERT INTO ReceitaPasso VALUES(16,2,16,3)
+
+INSERT INTO ReceitaPasso VALUES(17,2,17,4)
 
 
 

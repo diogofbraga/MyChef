@@ -13,10 +13,10 @@ namespace FeelItaly.Models{
 
         public Receita rec; 
         public List<Passo> pass;
-        public Dictionary<string,string> desc_passos;
+        public Dictionary<int,string> desc_passos;
         public List<Comentario> coments;
         public int idpasso;
-        //public int nrpassoatual;
+        //public string nrpassoatual;
         //public string passoatual;
 
     }

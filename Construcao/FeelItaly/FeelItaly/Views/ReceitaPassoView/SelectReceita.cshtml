@@ -32,7 +32,7 @@
 
 
 <!--asp-all-route-data="Model.desc_passos"-->
-<form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idpasso="@Model.idpasso">
+<form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.rec.idReceita" asp-route-numero="1">
     <div class="form-group">
         <input type="submit" value="Iniciar" class="btn btn-default btn-primary" />
     </div>

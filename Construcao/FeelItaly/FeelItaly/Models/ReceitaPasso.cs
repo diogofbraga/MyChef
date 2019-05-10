@@ -30,7 +30,7 @@ namespace FeelItaly.Models{
         public Passo Passo { set; get; }
 
         [Required]
-        public string Numero { set; get; }
+        public int Numero { set; get; }
 
     }
 

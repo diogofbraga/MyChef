@@ -43,7 +43,7 @@ namespace FeelItaly.Controllers{
         public IActionResult SelectReceita(int id){
             ReceitaTotal res = new ReceitaTotal();
             Receita recipe = receitaHandling.getReceita(id);
-            Dictionary<string,string> desc_passos = new Dictionary<string,string>();
+            Dictionary<int,string> desc_passos = new Dictionary<int,string>();
             List<Comentario> coments = comentarioHandling.getComentariosReceita(id);
             List<int> idPassos = receitapassoHandling.getPassosDaReceita(id);
             List<Passo> passos = new List<Passo>();
@@ -72,15 +72,16 @@ namespace FeelItaly.Controllers{
             res.pass = passos;
             res.desc_passos = desc_passos;
             res.coments = coments;
-            res.idpasso = receitapassoHandling.getPrimeiroPassoDaReceita(id);
-            //res.nrpassoatual = 1;
+            //res.idpasso = receitapassoHandling.getPrimeiroPassoDaReceita(id);
             //res.passoatual = desc_passos[res.nrpassoatual.ToString()];
             return View(res);
         }
 
         [Authorize]
-        public IActionResult ExecuteReceita(int idpasso){
-            PassoTotal passo = new PassoTotal();
+        public IActionResult ExecuteReceita(int idreceita, int numero){
+            PassoTotal res = new PassoTotal();
+            int idpasso = receitapassoHandling.getPassoNumDaReceita(idreceita,numero);
+
             Passo p = passoHandling.selectPasso(idpasso);
             Acao ac = acaoHandling.selectAcao(p.idAcao);
             Ingrediente ing = ingredienteHandling.selectIngrediente(p.idIngrediente);
@@ -97,9 +98,12 @@ namespace FeelItaly.Controllers{
                                                p.Unidade + " " + p.Extra +
                                                ".");
             }
-            passo.passo = p;
-            passo.desc_passo = desc_passo;
-            return View(passo);
+            res.idReceita = idreceita;
+            res.desc_passo = desc_passo;
+            //res.idpasso = receitapassoHandling.getPrimeiroPassoDaReceita(id);
+            res.numero = numero;
+            //res.passoatual = desc_passos[res.nrpassoatual.ToString()];
+            return View(res);
         }
 
     }

@@ -1,14 +1,15 @@
 ﻿@model FeelItaly.Models.PassoTotal
-
 <!--para ja funciona, mas está errado, tem que ser o Model.passo.numero-->
-<h1>Passo @Model.passo.IdPasso</h1>
+
+<h1>Passo @Model.numero</h1>
+
 
 <p>@Model.desc_passo</p>
 
+@{ Model.numero++; }
 
-@{ Model.passo.IdPasso++; }
 
-<form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idpasso="@Model.passo.IdPasso">
+<form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
     <div class="form-group">
         <input type="submit" value="Próximo Passo" class="btn btn-default btn-primary" />
         <a asp-action="ExecuteReceita" class="btn btn-info">Voltar ao Anterior</a>
