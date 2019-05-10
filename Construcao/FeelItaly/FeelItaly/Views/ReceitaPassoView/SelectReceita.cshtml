@@ -4,9 +4,28 @@
 
 <h1 class="display-4">@Model.rec.nome</h1>
 
-<div class="text-center">
-    <img src="~/images/carbonara.jpg" alt="Carbonara">
-</div>
+@if (Model.rec.idReceita == 1)
+{
+    <div class="text-center">
+        <img src="~/images/Carbonara.jpg" alt="Carbonara">
+    </div>
+}
+
+@if (Model.rec.idReceita == 2)
+{
+    <div class="text-center">
+        <img src="~/images/MolhoTomate.jpg" alt="MolhoTomate">
+    </div>
+}
+
+@if (Model.rec.idReceita == 3)
+{
+    <div class="text-center">
+        <img src="~/images/PizzaMargherita.jpg" alt="Margherita">
+    </div>
+}
+
+
 
     <table align="center" style="width:100%">
         <tr>
@@ -28,9 +47,12 @@
     }
 
     <h5>Comentários:</h5>
-    @foreach (var coment in Model.coments)
-    {
-        <p>@coment.Descricao @coment.Dataa </p>
+    @if (Model.coments.Count != 0){
+        foreach (var coment in Model.coments){
+            @coment.Descricao <font style='font-style:italic; font-size:x-small'>@coment.Dataa</font>
+        }
+    } else{
+            <font style='font-style:italic; font-size:x-small'> (Não existem comentários para esta receita) </font>
     }
 
 <div class="text-center">
