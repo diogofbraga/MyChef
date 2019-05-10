@@ -211,6 +211,22 @@ INSERT INTO Passo VALUES(16,1.0,'','1','',-1,10,16)
 
 INSERT INTO Passo VALUES(17,1.0,'','1','',-1,9,16)
 
+INSERT INTO Passo VALUES(18,1.0,'','','no azeite',-1,'',11)
+
+-- Passos
+-- IdPasso INT, TempoParcial FLOAT, Unidade NVARCHAR(32), Quantidade NVARCHAR(32),
+-- Extra NVARCHAR(255), IdReceita(SubReceita) INT, IdIngrediente INT, IdAcao INT
+
+INSERT INTO Passo VALUES(19,1.0,'g','400','em pedaços pequenos',-1,16,6)
+
+INSERT INTO Passo VALUES(20,15.0,'','','em lume brando durante 15 minutos, sem tapar',-1,'',12)
+INSERT INTO Passo VALUES(21,10.0,'','','com açúcar, sal, louro e pimenta e deixar cozer durante mais 10 minutos',-1,'',5)
+INSERT INTO Passo VALUES(22,1.0,'','','as ervas aromáticas',-1,'',6)
+INSERT INTO Passo VALUES(23,10.0,'','','durante 10 minutos',-1,'',8)
+INSERT INTO Passo VALUES(24,1.0,'colheres de chá','2 a 3','',-1,15,13)
+INSERT INTO Passo VALUES(25,1.0,'','','',-1,13,14)
+INSERT INTO Passo VALUES(26,1.0,'','','',-1,'',15)
+
 -- Ingredientes
 -- IdIngrediente INT, Nome NVARCHAR(100)
 
@@ -238,7 +254,7 @@ INSERT INTO Ingrediente VALUES(11,'açúcar')
 
 INSERT INTO Ingrediente VALUES(12,'manjericão')
 
-INSERT INTO Ingrediente VALUES(13,'louro')
+INSERT INTO Ingrediente VALUES(13,'folha de louro')
 
 INSERT INTO Ingrediente VALUES(14,'orégãos')
 
@@ -317,6 +333,17 @@ INSERT INTO ReceitaPasso VALUES(15,2,15,2)
 INSERT INTO ReceitaPasso VALUES(16,2,16,3)
 
 INSERT INTO ReceitaPasso VALUES(17,2,17,4)
+
+INSERT INTO ReceitaPasso VALUES(18,2,18,5)
+
+INSERT INTO ReceitaPasso VALUES(19,2,19,6)
+INSERT INTO ReceitaPasso VALUES(20,2,20,7)
+INSERT INTO ReceitaPasso VALUES(21,2,21,8)
+INSERT INTO ReceitaPasso VALUES(22,2,22,9)
+INSERT INTO ReceitaPasso VALUES(23,2,23,10)
+INSERT INTO ReceitaPasso VALUES(24,2,24,11)
+INSERT INTO ReceitaPasso VALUES(25,2,25,12)
+INSERT INTO ReceitaPasso VALUES(26,2,26,13)
 
 
 
