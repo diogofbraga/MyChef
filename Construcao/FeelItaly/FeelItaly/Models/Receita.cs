@@ -28,7 +28,6 @@ namespace FeelItaly.Models{
         [Required]
         public double avaliacao { set; get; }
 
-
         public virtual ICollection<CategoriaReceita> CategoriasReceitas { get; set; }
 
         public virtual ICollection<ConfiguracaoInicial> ConfiguracoesIniciais { get; set; }

@@ -28,6 +28,11 @@ namespace FeelItaly.shared
             return _context.receitapasso.Where(b => b.IdReceita == idReceita).Select(b => b.IdPasso).ToList();
         }
 
+        public int getNrPassosdaReceita(int idReceita)
+        {
+            return _context.receitapasso.Where(b => b.IdReceita == idReceita).Count();
+        }
+
         public int getPassoDaReceita(int idReceita, int idPasso)
         {
             return _context.receitapasso.Where(b => b.IdReceita == idReceita && b.IdPasso == idPasso).Select(b => b.Numero).FirstOrDefault();

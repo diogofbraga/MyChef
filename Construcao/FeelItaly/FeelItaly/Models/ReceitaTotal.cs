@@ -16,6 +16,7 @@ namespace FeelItaly.Models{
         public Dictionary<int,string> desc_passos;
         public List<Comentario> coments;
         public int idpasso;
+        public int nrpassos;
         //public string nrpassoatual;
         //public string passoatual;
 
