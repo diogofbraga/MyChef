@@ -1,39 +1,43 @@
 ﻿@model FeelItaly.Models.ReceitaTotal
 
+<link rel="stylesheet" href="~/css/SelectReceita.css" />
 
-<h1>@Model.rec.nome</h1>
+<h1 class="display-4">@Model.rec.nome</h1>
 
-<img src="~/images/carbonara.jpg" alt="Carbonara">
+<div class="text-center">
+    <img src="~/images/carbonara.jpg" alt="Carbonara">
+</div>
 
-<table style="width:100%">
-    <tr>
-        <th>Informação Nutricional</th>
-        <th>Tempo</th>
-        <th>Avaliação</th>
-    </tr>
-    <tr>
-        <td>@Model.rec.nutricional kcal</td>
-        <td>@Model.rec.tempoTotal min</td>
-        <td>@Model.rec.avaliacao</td>
-    </tr>
-</table>
+    <table align="center" style="width:100%">
+        <tr>
+            <th>Informação Nutricional</th>
+            <th>Tempo</th>
+            <th>Avaliação</th>
+        </tr>
+        <tr>
+            <td>@Model.rec.nutricional kcal</td>
+            <td>@Model.rec.tempoTotal min</td>
+            <td>@Model.rec.avaliacao</td>
+        </tr>
+    </table>
 
-<h3>Passos:</h3>
-@foreach (var desc in Model.desc_passos)
-{
-    <p>Passo @desc.Key: @desc.Value</p>
-}
+    <h3>Passos:</h3>
+    @foreach (var desc in Model.desc_passos)
+    {
+        <p>Passo @desc.Key: @desc.Value</p>
+    }
 
-<h5>Comentários:</h5>
-@foreach (var coment in Model.coments)
-{
-    <p>@coment.Descricao @coment.Dataa </p>
-}
+    <h5>Comentários:</h5>
+    @foreach (var coment in Model.coments)
+    {
+        <p>@coment.Descricao @coment.Dataa </p>
+    }
 
-
-<!--asp-all-route-data="Model.desc_passos"-->
-<form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.rec.idReceita" asp-route-numero="1">
-    <div class="form-group">
-        <input type="submit" value="Iniciar" class="btn btn-default btn-primary" />
-    </div>
-</form>
+<div class="text-center">
+            <!--asp-all-route-data="Model.desc_passos"-->
+            <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.rec.idReceita" asp-route-numero="1">
+                <div class="form-group">
+                    <input type="submit" value="Iniciar" class="btn btn-default btn-primary" />
+                </div>
+            </form>
+</div>
