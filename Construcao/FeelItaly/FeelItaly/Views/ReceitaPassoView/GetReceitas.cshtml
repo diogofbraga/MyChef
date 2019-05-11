@@ -6,25 +6,17 @@
 <h1 class="display-4">Receitas</h1>
 
 <div class="hover01 column">
-    @{ var rec = Model[0]; }
-    <div>
-        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
-            <figure><img src="~/images/Carbonara.jpg" /></figure>
-            <span>Carbonara</span>
-        </a>
-    </div>
-    @{ rec = Model[1]; }
-    <div>
-        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
-            <figure><img src="~/images/MolhoTomate.jpg" /></figure>
-            <span>Molho de Tomate</span>
-        </a>
-    </div>
-    @{ rec = Model[2]; }
-    <div>
-        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
-            <figure><img src="~/images/Margherita.jpg" /></figure>
-            <span>Pizza Margherita</span>
-        </a>
-    </div>
+    @{  for (var i = 0; i < 3; i++)
+        {
+            var rec = Model[i];
+            string path = "~/images/" + rec.nome + ".jpg";
+
+            <div>
+                <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                    <figure><img src="@Url.Content(path)" /></figure>
+                    <span>@rec.nome</span>
+                </a>
+            </div>
+        }
+    }
 </div>
