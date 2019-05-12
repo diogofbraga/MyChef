@@ -2,58 +2,52 @@
 
 <link rel="stylesheet" href="~/css/SelectReceita.css" />
 
-
-
-
     <div class="application-main " data-commit-hovercards-enabled="">
 
         <div class="d-flex flex-wrap bg-gray" style="min-height: 100vh;">
+
             <aside class="team-left-column col-12 col-md-4 col-lg-3 bg-white border-right hide-md hide-sm" aria-label="Ingredients">
 
                 <h3>Ingredientes:</h3>
                 <ul>
-                    @foreach (var ing in Model.ingredientes)
-                    {
-                    <li>@ing.Nome</li>
+                    @foreach (var ing in Model.ingredientes){
+                        <li>@ing.Nome</li>
                     }
-                    </ul>
+                </ul>
 
-</aside>
+                <h3>Utensílios:</h3>
+
+            </aside>
 
             <div class="col-12 col-md-8 col-lg-6 p-responsive mt-3 border-bottom d-flex flex-auto">
+
                 <div class="mx-auto d-flex flex-auto flex-column" style="max-width: 1400px">
 
                     <h1 class="display-4">@Model.rec.nome</h1>
+                    @if (Model.rec.idReceita == 1){
+                        <div class="text-center">
+                            <img src="~/images/Carbonara.jpg" alt="Carbonara">
+                        </div>
+                    }
+                    @if (Model.rec.idReceita == 2){
+                        <div class="text-center">
+                            <img src="~/images/MolhoTomate.jpg" alt="MolhoTomate">
+                        </div>
+                    }
 
-                    @if (Model.rec.idReceita == 1)
-    {
-                <div class="text-center">
-                    <img src="~/images/Carbonara.jpg" alt="Carbonara">
-                </div>
-}
-
-                    @if (Model.rec.idReceita == 2)
-    {
-                <div class="text-center">
-                    <img src="~/images/MolhoTomate.jpg" alt="MolhoTomate">
-                </div>
-}
-
-                    @if (Model.rec.idReceita == 3)
-    {
-                <div class="text-center">
-                    <img src="~/images/PizzaMargherita.jpg" alt="Margherita">
-                </div>
-}
+                    @if (Model.rec.idReceita == 3){
+                        <div class="text-center">
+                            <img src="~/images/PizzaMargherita.jpg" alt="Margherita">
+                        </div>
+                    }
 
                     <h3>Passos:</h3>
-                    @foreach (var desc in Model.desc_passos)
-    {
-                <p><b>@desc.Key:</b> @desc.Value</p>
-}
-
-
+                    @foreach (var desc in Model.desc_passos){
+                        <p><b>@desc.Key:</b> @desc.Value</p>
+                    }
+                    
                 </div>
+
             </div>
 
             <aside class="team-left-column col-12 col-md-4 col-lg-3 hide-lg hide-md hide-sm border-left" aria-label="Info">
@@ -62,37 +56,30 @@
                 <p><b>Tempo</b> @Model.rec.tempoTotal min</p>
                 <p><b>Avaliação</b> @Model.rec.avaliacao</p>
 
-
                 <aside class="col-12 hide-lg hide-md hide-sm border-left border-right" aria-label="Comments">
                     <h5>Comentários:</h5>
-                    @if (Model.coments.Count != 0)
-
-    {
-        foreach (var coment in Model.coments)
-        {
-                @coment.Descricao <font style='font-style:italic; font-size:x-small'>@coment.Dataa</font>
-}
-}
-else
-{
-                <font style='font-style:italic; font-size:x-small'> (Não existem comentários para esta receita) </font>
-}
+                    @if (Model.coments.Count != 0){
+                        foreach (var coment in Model.coments){
+                            @coment.Descricao <font style='font-style:italic; font-size:x-small'>@coment.Dataa</font>
+                        }
+                    }
+                    else{
+                        <font style='font-style:italic; font-size:x-small'> (Não existem comentários para esta receita) </font>
+                    }
 
                 </aside>
 
-                </aside>
+            </aside>
+
         </div>
 
-
     </div>
-    
-    
 
 <div class="text-center">
-            <!--asp-all-route-data="Model.desc_passos"-->
-            <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.rec.idReceita" asp-route-numero="1">
-                <div class="form-group">
-                    <input type="submit" value="Iniciar" class="btn btn-default btn-primary" />
-                </div>
-            </form>
+    <!--asp-all-route-data="Model.desc_passos"-->
+    <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.rec.idReceita" asp-route-numero="1">
+        <div class="form-group">
+            <input type="submit" value="Iniciar" class="btn btn-default btn-primary" />
+        </div>
+    </form>
 </div>
