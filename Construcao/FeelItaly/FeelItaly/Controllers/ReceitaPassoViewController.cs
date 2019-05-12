@@ -48,6 +48,7 @@ namespace FeelItaly.Controllers{
             List<Comentario> coments = comentarioHandling.getComentariosReceita(id);
             List<int> idPassos = receitapassoHandling.getPassosDaReceita(id);
             List<Passo> passos = new List<Passo>();
+            List<Ingrediente> ingredientes = new List<Ingrediente>();
             foreach (int i in idPassos)
             {
                 Passo p = passoHandling.selectPasso(i);
@@ -60,6 +61,7 @@ namespace FeelItaly.Controllers{
                     desc_passo = new string(ac.Descricao + " " + p.Quantidade + " " +
                                                    p.Unidade + " " + ing.Nome + " " + p.Extra +
                                                    ".");
+                    if (!ingredientes.Contains(ing)) ingredientes.Add(ing);
                 }
                 else
                 {
@@ -74,6 +76,7 @@ namespace FeelItaly.Controllers{
             res.desc_passos = desc_passos;
             res.coments = coments;
             res.nrpassos = nrpassos;
+            res.ingredientes = ingredientes;
             //res.idpasso = receitapassoHandling.getPrimeiroPassoDaReceita(id);
             //res.passoatual = desc_passos[res.nrpassoatual.ToString()];
             return View(res);

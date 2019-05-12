@@ -13,6 +13,7 @@ namespace FeelItaly.Models{
 
         public Receita rec; 
         public List<Passo> pass;
+        public List<Ingrediente> ingredientes;
         public Dictionary<int,string> desc_passos;
         public List<Comentario> coments;
         public int idpasso;
