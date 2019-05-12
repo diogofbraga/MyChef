@@ -10,7 +10,7 @@
 
                 <h3>Ingredientes:</h3>
                 <ul>
-                    @foreach (var ing in Model.ingredientes){
+                    @foreach (var ing in Model.ingredientes) {
                         <li>@ing.Nome</li>
                     }
                 </ul>
@@ -24,22 +24,12 @@
                 <div class="mx-auto d-flex flex-auto flex-column" style="max-width: 1400px">
 
                     <h1 class="display-4">@Model.rec.nome</h1>
-                    @if (Model.rec.idReceita == 1){
-                        <div class="text-center">
-                            <img src="~/images/Carbonara.jpg" alt="Carbonara">
-                        </div>
-                    }
-                    @if (Model.rec.idReceita == 2){
-                        <div class="text-center">
-                            <img src="~/images/MolhoTomate.jpg" alt="MolhoTomate">
-                        </div>
-                    }
 
-                    @if (Model.rec.idReceita == 3){
-                        <div class="text-center">
-                            <img src="~/images/PizzaMargherita.jpg" alt="Margherita">
-                        </div>
-                    }
+                    @{ string path = "~/images/" + Model.rec.nome + ".jpg"; }
+
+                    <div class="text-center">
+                        <img src="@Url.Content(path)" />
+                    </div>
 
                     <h3>Passos:</h3>
                     @foreach (var desc in Model.desc_passos){
