@@ -28,9 +28,10 @@ namespace FeelItaly{
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services){
+            var connection = @"Server=DESKTOP-GMKL1J1;Database=FeelItaly;Trusted_Connection=True;ConnectRetryCount=0";
             //var connection = @"Server=LAPTOP-TCFKJLM6;Database=FeelItaly;Trusted_Connection=True;ConnectRetryCount=0";
             //var connection = @"Server=DESKTOP-27V5D2G;Database=FeelItaly;Trusted_Connection=True;ConnectRetryCount=0";
-            var connection = @"Server=localhost;Database=FeelItaly;User=sa;Password=mieimasters20LI4";
+            //var connection = @"Server=localhost;Database=FeelItaly;User=sa;Password=mieimasters20LI4";
             services.AddDbContext<UtilizadorContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<ReceitaContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<CategoriaContext>(options => options.UseSqlServer(connection));
