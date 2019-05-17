@@ -12,19 +12,21 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
 
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">FeelItaly</a>
-
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/images/logoFundoVazio.jpg" height="60" width="140" /></a>
+               
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
 
                     <ul class="navbar-nav">
-                            @if (User.Identity.IsAuthenticated){
+                        @if (User.Identity.IsAuthenticated)
+                        {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="UtilizadorView" asp-action="Logout">
-                                Bem-vindo @User.Identity.Name (LogOut)
+                                    Bem-vindo @User.Identity.Name (LogOut)
                                 </a>
                             </li>
-                            }
-                            else{
+                        }
+                        else
+                        {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="UtilizadorView" asp-action="LoginUtilizador">
                                     LogIn
@@ -35,23 +37,23 @@
                                     Registo
                                 </a>
                             </li>
-                            }
+                        }
                     </ul>
 
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        <li class="nav-item navOptions">
                             <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="GetReceitas">Receitas</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item navOptions">
                             <a class="nav-link text-dark" asp-controller="Home" asp-action="GestaoDespensa">Gestão de Despensa</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item navOptions">
                             <a class="nav-link text-dark" asp-controller="Home" asp-action="AboutUs">Sobre Nós</a>
                         </li>
                     </ul>
 
                 </div>
-                
+
             </div>
         </nav>
     </header>

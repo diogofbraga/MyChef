@@ -21,12 +21,15 @@
     <Compile Remove="Models\PassosTotais.cs" />
     <Compile Remove="Controllers\AcaoController.cs" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\StyleSheet.css" />
+    <Content Remove="wwwroot\css\StyleSheet1.css" />
+  </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\UtilizadorView\" />
     <Folder Include="shared\" />
     <Folder Include="Views\shared\" />
-    <Folder Include="wwwroot\" />
-    <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\lib\" />
     <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />

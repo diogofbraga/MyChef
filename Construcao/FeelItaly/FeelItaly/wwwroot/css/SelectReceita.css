@@ -1,3 +1,31 @@
-﻿h1 {
-    text-align: center;
+﻿html,
+body {
+    background: #f6e8ce url(~/images/background.jpg);
+}
+
+h1 {
+    font-family: Georgia;
+    font-size: 29px;
+    font-style: italic;
+    color: #68502e;
+    font-weight: normal;
+    padding: 8px 5px;
+}
+
+h2 {
+    font-family: Georgia;
+    font-size: 25px;
+    font-style: italic;
+    color: #68502e;
+    font-weight: normal;
+    padding: 8px 0px;
+}
+
+h3 {
+    font-family: Georgia;
+    font-size: 17px;
+    font-style: italic;
+    color: #68502e;
+    font-weight: normal;
+    padding: 8px 0px;
 }
