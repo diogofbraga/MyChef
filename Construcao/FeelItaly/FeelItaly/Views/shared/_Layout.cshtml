@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="~/css/Site.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+    <div class="back-image">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -80,6 +81,7 @@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+    </div>
     </div>
 
     <footer class="border-top footer text-muted">
@@ -95,6 +97,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
-
+ 
 </body>
 </html>
