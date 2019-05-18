@@ -16,13 +16,31 @@
                
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
 
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav dropdown">
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="UtilizadorView" asp-action="Logout">
                                     Bem-vindo @User.Identity.Name (LogOut)
                                 </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item">Autenticado como <b>@User.Identity.Name</b></li>
+                                    <li class="dropdown-divider"></li>
+                                    <li class="dropdown-item">Seu Perfil</li>
+                                    <li class="dropdown-item">Suas Estatísticas</li>
+                                    <li class="dropdown-item">Sua Despensa</li>
+                                    <li class="dropdown-divider"></li>
+                                    <li class="dropdown-item">Definições</li>
+                                    <a class="dropdown-item" asp-controller="UtilizadorView" asp-action="Logout">
+                                        LogOut
+                                    </a>
+                                   
+                                </ul>
                             </li>
                         }
                         else
