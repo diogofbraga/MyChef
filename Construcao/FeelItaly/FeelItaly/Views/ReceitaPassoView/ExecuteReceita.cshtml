@@ -1,5 +1,6 @@
 ﻿@model FeelItaly.Models.PassoTotal
-<!--para ja funciona, mas está errado, tem que ser o Model.passo.numero-->
+
+<link rel="stylesheet" href="~/css/ExecuteReceita.css" />
 
 <h1>Passo @Model.numero</h1>
 
@@ -7,13 +8,16 @@
 <p>@Model.desc_passo</p>
 
 
+<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+
+
 @{ Model.numero++; }
 
 @if (Model.numero <= Model.nrpassos)
 {
     <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
-        <div class="form-group">
-            <input type="submit" value="Próximo Passo" class="btn btn-default btn-primary" />
+        <div class="form-group center">
+            <input type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
         </div>
     </form>
 }
@@ -23,8 +27,8 @@
 @if (Model.numero <= Model.nrpassos && Model.numero != 0)
 {
     <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
-        <div class="form-group">
-            <input type="submit" value="Voltar ao Anterior" class="btn btn-default btn-primary" />
+        <div class="form-group center">
+            <input type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
         </div>
     </form>
 }
@@ -32,8 +36,8 @@
 @if (Model.numero <= Model.nrpassos && Model.numero == 0)
 {
     <form asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@Model.idReceita">
-        <div class="form-group">
-            <input type="submit" value="Voltar à Receita" class="btn btn-default btn-primary" />
+        <div class="form-group center">
+            <input type="submit" value="Voltar à Receita" class="btn btn-default btn-success" />
         </div>
     </form>
 }
@@ -41,8 +45,8 @@
 @if (Model.numero + 1 == Model.nrpassos)
 {
     <form asp-controller="Home" asp-action="Index">
-        <div class="form-group">
-            <input type="submit" value="Finalizar" class="btn btn-default btn-primary" />
+        <div class="form-group center">
+            <input type="submit" value="Finalizar" class="btn btn-default btn-success" />
         </div>
     </form>
 }
