@@ -20,10 +20,13 @@ namespace FeelItaly.Controllers{
         private IngredienteHandling ingredienteHandling;
         private AcaoHandling acaoHandling;
         private ComentarioHandling comentarioHandling;
+        private UtensilioPassoHandling utensiliopassoHandling;
+        private UtensilioHandling utensilioHandling;
 
         public ReceitaPassoViewController(ReceitaContext receitacontext,ReceitaPassoContext receitapassocontext, 
                                           PassoContext passocontext, IngredienteContext ingredientecontext,
-                                          AcaoContext acaocontext, ComentarioContext comentariocontext)
+                                          AcaoContext acaocontext, ComentarioContext comentariocontext, 
+                                          UtensilioPassoContext utensiliopassocontext, UtensilioContext utensiliocontext)
         {
             receitaHandling = new ReceitaHandling(receitacontext);
             receitapassoHandling = new ReceitaPassoHandling(receitapassocontext);
@@ -31,6 +34,8 @@ namespace FeelItaly.Controllers{
             ingredienteHandling = new IngredienteHandling(ingredientecontext);
             acaoHandling = new AcaoHandling(acaocontext);
             comentarioHandling = new ComentarioHandling(comentariocontext);
+            utensiliopassoHandling = new UtensilioPassoHandling(utensiliopassocontext);
+            utensilioHandling = new UtensilioHandling(utensiliocontext);
         }
 
         // GET: /<controller>/
@@ -49,12 +54,20 @@ namespace FeelItaly.Controllers{
             List<int> idPassos = receitapassoHandling.getPassosDaReceita(id);
             List<Passo> passos = new List<Passo>();
             List<Ingrediente> ingredientes = new List<Ingrediente>();
+            List<Utensilio> utensilios = new List<Utensilio>();
             foreach (int i in idPassos)
             {
+                // Passo
                 Passo p = passoHandling.selectPasso(i);
                 passos.Add(p);
+
+                // Ação
                 Acao ac = acaoHandling.selectAcao(p.idAcao);
+
+                // Ingrediente
                 Ingrediente ing = ingredienteHandling.selectIngrediente(p.idIngrediente);
+
+                // Descrição
                 string desc_passo;
                 if (ing != null)
                 {
@@ -70,15 +83,23 @@ namespace FeelItaly.Controllers{
                                                    ".");
                 }
                 desc_passos.Add(receitapassoHandling.getPassoDaReceita(id,i), desc_passo);
+
+                // Utensílios
+                List<UtensilioPasso> ups = utensiliopassoHandling.selectUtensiliosPassos(i);
+                foreach (UtensilioPasso up in ups)
+                {
+                    Utensilio u = utensilioHandling.selectUtensilio(up.IdUtensilio);
+                    utensilios.Add(u);
+                }
             }
+
             res.rec = recipe;
             res.pass = passos;
             res.desc_passos = desc_passos;
             res.coments = coments;
             res.nrpassos = nrpassos;
             res.ingredientes = ingredientes;
-            //res.idpasso = receitapassoHandling.getPrimeiroPassoDaReceita(id);
-            //res.passoatual = desc_passos[res.nrpassoatual.ToString()];
+            res.utensilios = utensilios;
             return View(res);
         }
 
@@ -106,10 +127,8 @@ namespace FeelItaly.Controllers{
             }
             res.idReceita = idreceita;
             res.desc_passo = desc_passo;
-            //res.idpasso = receitapassoHandling.getPrimeiroPassoDaReceita(id);
             res.numero = numero;
             res.nrpassos = nrpassos;
-            //res.passoatual = desc_passos[res.nrpassoatual.ToString()];
             return View(res);
         }
 

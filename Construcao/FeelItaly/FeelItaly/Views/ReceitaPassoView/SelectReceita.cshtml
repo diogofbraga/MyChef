@@ -16,6 +16,11 @@
                 </ul>
 
                 <h3>Utensílios:</h3>
+                <ul>
+                    @foreach (var ut in Model.utensilios) {
+                        <li>@ut.Descricao</li>
+                    }
+                </ul>
 
             </aside>
 
@@ -23,7 +28,7 @@
 
                 <div class="mx-auto d-flex flex-auto flex-column" style="max-width: 1400px">
 
-                    <h1 class="display-4">@Model.rec.nome</h1>
+                    <h1 class="display-4 text-center">@Model.rec.nome</h1>
 
                     @{ string path = "~/images/" + Model.rec.nome + ".jpg"; }
 
