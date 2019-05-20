@@ -89,7 +89,7 @@ namespace FeelItaly.Controllers{
                 foreach (UtensilioPasso up in ups)
                 {
                     Utensilio u = utensilioHandling.selectUtensilio(up.IdUtensilio);
-                    utensilios.Add(u);
+                    if (!utensilios.Contains(u))  utensilios.Add(u);
                 }
             }
 

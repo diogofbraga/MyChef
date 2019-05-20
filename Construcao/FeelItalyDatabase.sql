@@ -213,18 +213,20 @@ INSERT INTO Passo VALUES(17,1.0,'','1','',-1,9,16)
 
 INSERT INTO Passo VALUES(18,1.0,'','','no azeite',-1,'',11)
 
--- Passos
--- IdPasso INT, TempoParcial FLOAT, Unidade NVARCHAR(32), Quantidade NVARCHAR(32),
--- Extra NVARCHAR(255), IdReceita(SubReceita) INT, IdIngrediente INT, IdAcao INT
-
 INSERT INTO Passo VALUES(19,1.0,'g','400','em pedaços pequenos',-1,16,6)
 
 INSERT INTO Passo VALUES(20,15.0,'','','em lume brando durante 15 minutos, sem tapar',-1,'',12)
+
 INSERT INTO Passo VALUES(21,10.0,'','','com açúcar, sal, louro e pimenta e deixar cozer durante mais 10 minutos',-1,'',5)
+
 INSERT INTO Passo VALUES(22,1.0,'','','as ervas aromáticas',-1,'',6)
+
 INSERT INTO Passo VALUES(23,10.0,'','','durante 10 minutos',-1,'',8)
+
 INSERT INTO Passo VALUES(24,1.0,'colheres de chá','2 a 3','',-1,15,13)
+
 INSERT INTO Passo VALUES(25,1.0,'','','',-1,13,14)
+
 INSERT INTO Passo VALUES(26,1.0,'','','',-1,'',15)
 
 -- Ingredientes
@@ -337,12 +339,19 @@ INSERT INTO ReceitaPasso VALUES(17,2,17,4)
 INSERT INTO ReceitaPasso VALUES(18,2,18,5)
 
 INSERT INTO ReceitaPasso VALUES(19,2,19,6)
+
 INSERT INTO ReceitaPasso VALUES(20,2,20,7)
+
 INSERT INTO ReceitaPasso VALUES(21,2,21,8)
+
 INSERT INTO ReceitaPasso VALUES(22,2,22,9)
+
 INSERT INTO ReceitaPasso VALUES(23,2,23,10)
+
 INSERT INTO ReceitaPasso VALUES(24,2,24,11)
+
 INSERT INTO ReceitaPasso VALUES(25,2,25,12)
+
 INSERT INTO ReceitaPasso VALUES(26,2,26,13)
 
 
@@ -364,30 +373,39 @@ VALUES(1,'https://www.youtube.com/watch?v=i7AZjzVx7os')
 -- IdUtensilio INT, Descricao NVARCHAR(32)
 
 INSERT INTO Utensilio
-VALUES(1,'Faca')
+VALUES(1,'frigideira')
 
 INSERT INTO Utensilio
-VALUES(2,'Frigideira')
+VALUES(2,'tigela')
 
 INSERT INTO Utensilio
-VALUES(3,'Tacho')
+VALUES(3,'batedor')
 
 INSERT INTO Utensilio
-VALUES(4,'Colher')
+VALUES(4,'colher de sopa')
 
 INSERT INTO Utensilio
-VALUES(5,'Varinha mágica')
+VALUES(5,'tacho')
+
+INSERT INTO Utensilio
+VALUES(6,'colher')
+
+INSERT INTO Utensilio
+VALUES(7,'varinha mágica')
 
 
 
 -- UtensíliosPassos
--- IdUtensilio INT, IdPasso INT
+-- Id INT, IdUtensilio INT, IdPasso INT
 
 INSERT INTO UtensilioPasso
 VALUES(1,1,1)
 
 INSERT INTO UtensilioPasso
-VALUES(2,2,1)
+VALUES(2,2,3)
+
+INSERT INTO UtensilioPasso
+VALUES(3,2,3)
 
 
 -- Comentarios

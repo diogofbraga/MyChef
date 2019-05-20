@@ -5,9 +5,12 @@
 
 <h1 class="display-4">Receitas</h1>
 
-<div class="hover01 column">
-    @{  for (var i = 0; i < 3; i++){
-            var rec = Model[i];
+@{for (var i = 0; i < (Model.Length / 3); i++) // com duvidas ainda neste ciclo, não está totalmente correto
+    {
+    <div class="hover01 column">
+    @{  for (var j = 0; j < 3; j++)
+        {
+            var rec = Model[j];
             string path = "~/images/" + rec.nome + ".jpg";
 
             <div>
@@ -18,4 +21,7 @@
             </div>
         }
     }
-</div>
+    </div>
+   }
+}
+
