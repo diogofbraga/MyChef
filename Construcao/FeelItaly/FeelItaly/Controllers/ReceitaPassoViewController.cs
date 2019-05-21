@@ -118,12 +118,14 @@ namespace FeelItaly.Controllers{
                 desc_passo = new string(ac.Descricao + " " + p.Quantidade + " " +
                                                p.Unidade + " " + ing.Nome + " " + p.Extra +
                                                ".");
+                res.ingrediente = ing;
             }
             else
             {
                 desc_passo = new string(ac.Descricao + " " + p.Quantidade + " " +
                                                p.Unidade + " " + p.Extra +
                                                ".");
+                res.ingrediente = null;
             }
             res.idReceita = idreceita;
             res.desc_passo = desc_passo;
