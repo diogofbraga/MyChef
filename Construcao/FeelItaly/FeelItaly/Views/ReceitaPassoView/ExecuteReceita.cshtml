@@ -22,6 +22,16 @@
     </form>
 }
 
+@if (Model.numero -1 == Model.nrpassos)
+{
+    <form asp-controller="Home" asp-action="Index">
+        <div class="form-group center">
+            <input type="submit" value="Finalizar" class="btn btn-default btn-success" />
+        </div>
+    </form>
+}
+
+
 @{ Model.numero = Model.numero - 2;/* Passa sempre no ++ de cima, mas pode nao clicar no botao, se passar para aqui é porque é para voltar para trás, mas tambem somou atras, logo retira dois aqui*/}
 
 @if (Model.numero <= Model.nrpassos && Model.numero != 0)
@@ -42,13 +52,5 @@
     </form>
 }
 
-@if (Model.numero + 1 == Model.nrpassos)
-{
-    <form asp-controller="Home" asp-action="Index">
-        <div class="form-group center">
-            <input type="submit" value="Finalizar" class="btn btn-default btn-success" />
-        </div>
-    </form>
-}
 
 
