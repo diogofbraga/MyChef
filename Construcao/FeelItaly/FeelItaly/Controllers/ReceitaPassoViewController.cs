@@ -134,5 +134,10 @@ namespace FeelItaly.Controllers{
             return View(res);
         }
 
+        public IActionResult RatingReceita()
+        {
+            return View();
+        }
+
     }
 }
