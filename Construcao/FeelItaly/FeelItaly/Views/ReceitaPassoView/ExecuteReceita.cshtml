@@ -15,7 +15,7 @@
 
 @if(Model.utensilios.Count()!=0){
     for(int i=0; i<Model.utensilios.Count();i++){
-        if (i == 0) { <h6 class="center">Utensílios:@Model.utensilios.ElementAt(i).Descricao</h6>}
+        if (i == 0) { <h6 class="center">Utensílios: @Model.utensilios.ElementAt(i).Descricao</h6>}
         else { <h6 class="center">@Model.utensilios.ElementAt(i).Descricao</h6>}
     }
 }
