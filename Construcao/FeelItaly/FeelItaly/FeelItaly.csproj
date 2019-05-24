@@ -25,7 +25,6 @@
   <ItemGroup>
     <Content Remove="wwwroot\css\StyleSheet.css" />
     <Content Remove="wwwroot\css\StyleSheet1.css" />
-    <Content Remove="Views\ReceitaPassoView\RatingReceita.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\UtilizadorView\" />

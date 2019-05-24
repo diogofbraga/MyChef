@@ -1,6 +1,7 @@
 ﻿@model FeelItaly.Models.ReceitaTotal
 
-<!--<link rel="stylesheet" href="~/css/SelectReceita.css" />-->
+<link rel="stylesheet" href="~/css/SelecReceita.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <div class="application-main " data-commit-hovercards-enabled="">
 
@@ -49,7 +50,52 @@
 
                 <p><b>Informação Nutricional</b> @Model.rec.nutricional kcal</p>
                 <p><b>Tempo</b> @Model.rec.tempoTotal min</p>
-                <p><b>Avaliação</b> @Model.rec.avaliacao</p>
+
+                @if(Model.rec.avaliacao<1.5){
+                    <b>Avaliação</b>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                }
+
+                @if(Model.rec.avaliacao>=1.5 && Model.rec.avaliacao<2.5){
+                    <b>Avaliação</b>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                }
+
+                @if(Model.rec.avaliacao>=2.5 && Model.rec.avaliacao<3.5){
+                    <b>Avaliação</b>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                }
+
+                @if(Model.rec.avaliacao>=3.5 && Model.rec.avaliacao<4.5){
+                    <b>Avaliação</b>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                }
+
+                @if(Model.rec.avaliacao>=4.5 && Model.rec.avaliacao<=5){
+                    <b>Avaliação</b>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                }
+                
 
                 <aside class="col-12 hide-lg hide-md hide-sm border-left border-right" aria-label="Comments">
                     <h5>Comentários:</h5>
