@@ -9,7 +9,15 @@
 
 @if (Model.ingrediente != null)
 {
-<h6 class="center">Ingrediente: @Model.ingrediente.Nome</h6>
+    <h6 class="center">Ingrediente: @Model.ingrediente.Nome</h6>
+}
+
+
+@if(Model.utensilios.Count()!=0){
+    for(int i=0; i<Model.utensilios.Count();i++){
+        if (i == 0) { <h6 class="center">Utensílios:@Model.utensilios.ElementAt(i).Descricao</h6>}
+        else { <h6 class="center">@Model.utensilios.ElementAt(i).Descricao</h6>}
+    }
 }
 
 
@@ -19,42 +27,42 @@
 @{ Model.numero++; }
 
 @if (Model.numero <= Model.nrpassos)
-{
-    <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
-        <div class="form-group center">
-            <input type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
-        </div>
-    </form>
+    {
+        <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
+            <div class="form-group center">
+                <input type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
+            </div>
+        </form>
 }
 
-@if (Model.numero -1 == Model.nrpassos)
-{
-    <form asp-controller="ReceitaPassoView" asp-action="RatingReceita">
-        <div class="form-group center">
-            <input type="submit" value="Finalizar" class="btn btn-default btn-success" />
-        </div>
-    </form>
+@if (Model.numero - 1 == Model.nrpassos)
+    {
+        <form asp-controller="ReceitaPassoView" asp-action="RatingReceita">
+            <div class="form-group center">
+                <input type="submit" value="Finalizar" class="btn btn-default btn-success" />
+            </div>
+        </form>
 }
 
 
 @{ Model.numero = Model.numero - 2;/* Passa sempre no ++ de cima, mas pode nao clicar no botao, se passar para aqui é porque é para voltar para trás, mas tambem somou atras, logo retira dois aqui*/}
 
 @if (Model.numero <= Model.nrpassos && Model.numero != 0)
-{
-    <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
-        <div class="form-group center">
-            <input type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
-        </div>
-    </form>
+    {
+        <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
+            <div class="form-group center">
+                <input type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
+            </div>
+        </form>
 }
 
 @if (Model.numero <= Model.nrpassos && Model.numero == 0)
-{
-    <form asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@Model.idReceita">
-        <div class="form-group center">
-            <input type="submit" value="Voltar à Receita" class="btn btn-default btn-success" />
-        </div>
-    </form>
+    {
+        <form asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@Model.idReceita">
+            <div class="form-group center">
+                <input type="submit" value="Voltar à Receita" class="btn btn-default btn-success" />
+            </div>
+        </form>
 }
 
 

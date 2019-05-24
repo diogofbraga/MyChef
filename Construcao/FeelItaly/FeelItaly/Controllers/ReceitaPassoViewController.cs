@@ -109,9 +109,16 @@ namespace FeelItaly.Controllers{
             int nrpassos = receitapassoHandling.getNrPassosdaReceita(idreceita);
             int idpasso = receitapassoHandling.getPassoNumDaReceita(idreceita,numero);
 
+            // Passo
             Passo p = passoHandling.selectPasso(idpasso);
+
+            // Ação
             Acao ac = acaoHandling.selectAcao(p.idAcao);
+
+            // Ingrediente
             Ingrediente ing = ingredienteHandling.selectIngrediente(p.idIngrediente);
+
+            // Descrição
             string desc_passo;
             if (ing != null)
             {
@@ -127,8 +134,19 @@ namespace FeelItaly.Controllers{
                                                ".");
                 res.ingrediente = null;
             }
+
+            // Utensílios
+            List<Utensilio> utensilios = new List<Utensilio>();
+            List<UtensilioPasso> ups = utensiliopassoHandling.selectUtensiliosPassos(idpasso);
+            foreach (UtensilioPasso up in ups)
+            {
+                Utensilio u = utensilioHandling.selectUtensilio(up.IdUtensilio);
+                if (!utensilios.Contains(u)) utensilios.Add(u);
+            }
+
             res.idReceita = idreceita;
             res.desc_passo = desc_passo;
+            res.utensilios = utensilios;
             res.numero = numero;
             res.nrpassos = nrpassos;
             return View(res);
