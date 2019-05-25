@@ -1,27 +1,39 @@
 ﻿@model FeelItaly.Models.Receita[]
 
 <link rel="stylesheet" href="~/css/GetReceitas.css" />
+<link rel="stylesheet" href="~/css/GetReceitas_Filtro.css" />
 
 
 <h1 class="display-4">Receitas</h1>
 
+<input id="clicker" type="checkbox" />
+<label for="clicker">Olha os filtrinhos!</label>
+
 @{for (var i = 0; i < (Model.Length / 3); i++) // com duvidas ainda neste ciclo, não está totalmente correto
     {
-    <div class="hover01 column">
-    @{  for (var j = 0; j < 3; j++)
-        {
-            var rec = Model[j];
-            string path = "~/images/" + rec.nome + ".jpg";
+        <div class="hover01 column">
+            @{ for (var j = 0; j < 3; j++)
+                {
+                    var rec = Model[j];
+                    string path = "~/images/" + rec.nome + ".jpg";
 
-            <div>
-                <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
-                    <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
-                    <span>@rec.nome</span>
-                </a>
-            </div>
-        }
+                    <div>
+                        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                            <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                            <span>@rec.nome</span>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
     }
-    </div>
-   }
 }
+
+<div class="panel-wrap">
+  <div class="panel">
+    <h3>Filtros</h3>
+  </div>
+</div>
+
+
 
