@@ -9,10 +9,10 @@
 <input id="clicker" type="checkbox" />
 <label for="clicker">Olha os filtrinhos!</label>
 
-@{for (var i = 0; i < (Model.Length / 3); i++) // com duvidas ainda neste ciclo, não está totalmente correto
+@{for (var i = 0; i < (Model.Length/3); i++) // com duvidas ainda neste ciclo, não está totalmente correto
     {
         <div class="hover01 column">
-            @{ for (var j = 0; j < 3; j++)
+            @{ for (var j = i; j < i+3; j++)
                 {
                     var rec = Model[j];
                     string path = "~/images/" + rec.nome + ".jpg";
