@@ -155,7 +155,7 @@ INSERT INTO Receita
 VALUES(4,'Lasanha de Legumes',500.0,45,4.2)
 
 INSERT INTO Receita
-VALUES(5,'Tagliatelle',700.0,50,4.0)
+VALUES(5,'Tagliatelle Com Cogumelos',700.0,50,4.0)
 
 INSERT INTO Receita
 VALUES(6,'Raviolis de Espargos',600.0,50,4.0)
