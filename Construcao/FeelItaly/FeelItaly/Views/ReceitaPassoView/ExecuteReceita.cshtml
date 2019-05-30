@@ -1,93 +1,98 @@
 ﻿@model FeelItaly.Models.PassoTotal
 
-<link rel="stylesheet" href="~/css/ExecuteReceita.css" />
+<script src="~/js/Time.js"></script>
 
+<link rel="stylesheet" href="~/css/ExecuteReceita.css" />
 
 <div class="application-main " data-commit-hovercards-enabled="" style="min-width:1200px">
 
-        <div class="d-flex flex-wrap bg-gray">
-        
-            <div class="col-12 col-md-8 col-lg-6 p-responsive mt-3 d-flex flex-auto" style="min-width:800px">
+    <div class="d-flex flex-wrap bg-gray">
 
-                <div class="mx-auto d-flex flex-auto flex-column" style="min-width:600px">
+        <div class="col-12 col-md-8 col-lg-6 p-responsive mt-3 d-flex flex-auto" style="min-width:800px">
 
-                    <h1>Passo @Model.numero</h1>
-                    
-                    <p>@Model.desc_passo</p>
+            <div class="mx-auto d-flex flex-auto flex-column" style="min-width:600px">
 
-                    @{ string path = Model.tutorial; }
+                <h1>Passo @Model.numero</h1>
 
-                    <!--<iframe src="Url.Content(path)" />-->
+                <p>@Model.desc_passo</p>
 
-                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                @{ string path = Model.tutorial; }
 
+                <!--<iframe src="Url.Content(path)" />-->
 
-                    @{ Model.numero++; }
-
-                    @if (Model.numero <= Model.nrpassos){
-                    <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
-                        <div class="form-group center">
-                            <input type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
-                        </div>
-                    </form>
-                    }
-
-                    @if (Model.numero - 1 == Model.nrpassos)
-                    {
-                    <form asp-controller="ReceitaPassoView" asp-action="RatingReceita" >
-                        <div class="form-group center">
-                            <input type="submit" value="Finalizar" class="btn btn-default btn-success" />
-                        </div>
-                    </form>
-                    }
+                <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
 
 
-                    @{ Model.numero = Model.numero - 2;/* Passa sempre no ++ de cima, mas pode nao clicar no botao, se passar para aqui é porque é para voltar para trás, mas tambem somou atras, logo retira dois aqui*/}
+                @{ Model.numero++; }
 
-                    @if (Model.numero <= Model.nrpassos && Model.numero != 0)
-                    {
-                    <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
-                        <div class="form-group center">
-                            <input type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
-                        </div>
-                    </form>
-                    }
+                @if (Model.numero <= Model.nrpassos)
+            {
+                <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
+                    <div class="form-group center">
+                        <input type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
+                    </div>
+                </form>
+        }
 
-                    @if (Model.numero <= Model.nrpassos && Model.numero == 0)
-                    {
-                    <form asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@Model.idReceita">
-                        <div class="form-group center">
-                            <input type="submit" value="Voltar à Receita" class="btn btn-default btn-success" />
-                        </div>
-                    </form>
-                    }
+                @if (Model.numero - 1 == Model.nrpassos)
+            {
+                <form asp-controller="ReceitaPassoView" asp-action="RatingReceita">
+                    <div class="form-group center">
+                        <input type="submit" value="Finalizar" class="btn btn-default btn-success" />
+                    </div>
+                </form>
+        }
 
-                </div>
+
+                @{ Model.numero = Model.numero - 2;/* Passa sempre no ++ de cima, mas pode nao clicar no botao, se passar para aqui é porque é para voltar para trás, mas tambem somou atras, logo retira dois aqui*/}
+
+                @if (Model.numero <= Model.nrpassos && Model.numero != 0)
+            {
+                <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
+                    <div class="form-group center">
+                        <input type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
+                    </div>
+                </form>
+        }
+
+                @if (Model.numero <= Model.nrpassos && Model.numero == 0)
+            {
+                <form asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@Model.idReceita">
+                    <div class="form-group center">
+                        <input type="submit" value="Voltar à Receita" class="btn btn-default btn-success" />
+                    </div>
+                </form>
+        }
 
             </div>
 
-            <aside class="team-left-column col-12 col-md-4 col-lg-3 hide-lg hide-md hide-sm border-left" aria-label="Info">
-            
+        </div>
+
+        <aside class="team-left-column col-12 col-md-4 col-lg-3 hide-lg hide-md hide-sm border-left" aria-label="Info">
+
             @if (Model.ingrediente != null)
-            {
+        {
             <h3>Ingrediente</h3>
             <ul>
                 <li class="center">@Model.ingrediente.Nome</li>
             </ul>
-            }
-            
-            @if(Model.utensilios.Count()!=0){
+    }
+
+            @if (Model.utensilios.Count() != 0)
+        {
             <h3>Utensílio</h3>
             <ul>
-            @for(int i=0; i<Model.utensilios.Count();i++)
+                @for (int i = 0; i < Model.utensilios.Count(); i++)
             {
                 <li class="center">@Model.utensilios.ElementAt(i).Descricao</li>
-            }
+        }
             </ul>
-            }
+    }
 
-            </aside>
+        </aside>
 
-        </div>
+        <div class="clock_in">             <p>                 Horas:                 <span id="h">Hours</span>             </p>         </div>         <div class="clock_in">             <p>                 Minutos:                 <span id="m">Minutes</span>             </p>         </div>         <div class="clock_in">             <p>                 Segundos:                 <span id="s">Sec</span>             </p>         </div>
 
     </div>
+
+</div>

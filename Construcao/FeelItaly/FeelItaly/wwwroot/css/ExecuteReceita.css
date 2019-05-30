@@ -24,3 +24,10 @@ iframe {
     margin: 20px auto;
     display: block;
 }
+
+.clock_in {
+    margin: 0px 5px;
+    display: inline;
+    float: left;
+    font-size: 20px;
+}
