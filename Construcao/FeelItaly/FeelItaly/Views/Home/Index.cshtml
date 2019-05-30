@@ -16,16 +16,12 @@
         <img src="~/images/Pizza Marguerita.jpg">
         <span>Pizza Marguerita</span>
     </a>
-    <a class="box">
+    <a class="box text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@Model[4].idReceita">
         <img src="~/images/Tagliatelle.jpg">
         <span>Tagliatelle</span>
     </a>
-    <a class="box">
+    <a class="box text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@Model[3].idReceita">
         <img src="~/images/Lasanha de Legumes.jpg">
         <span>Lasanha</span>
     </a>
-</div>
-
-<div class="text-center">
-    <p><a asp-controller="UtilizadorView" asp-action="GetUtilizadores">Ver Utilizadores</a></p>
 </div>
