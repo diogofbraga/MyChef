@@ -16,6 +16,7 @@ namespace FeelItaly.Models
         public string desc_passo;
         public Ingrediente ingrediente;
         public List<Utensilio> utensilios;
+        public string tutorial;
         public int numero;
         public int nrpassos;
     }

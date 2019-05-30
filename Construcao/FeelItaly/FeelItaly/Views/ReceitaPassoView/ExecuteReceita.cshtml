@@ -15,7 +15,9 @@
                     
                     <p>@Model.desc_passo</p>
 
-                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                    @{ string path = Model.tutorial; }
+
+                    <iframe src="@Url.Content(path)" />
 
 
                     @{ Model.numero++; }

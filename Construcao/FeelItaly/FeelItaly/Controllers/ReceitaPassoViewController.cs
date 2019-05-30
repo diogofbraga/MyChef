@@ -22,11 +22,13 @@ namespace FeelItaly.Controllers{
         private ComentarioHandling comentarioHandling;
         private UtensilioPassoHandling utensiliopassoHandling;
         private UtensilioHandling utensilioHandling;
+        private TutorialHandling tutorialHandling;
 
         public ReceitaPassoViewController(ReceitaContext receitacontext,ReceitaPassoContext receitapassocontext, 
                                           PassoContext passocontext, IngredienteContext ingredientecontext,
                                           AcaoContext acaocontext, ComentarioContext comentariocontext, 
-                                          UtensilioPassoContext utensiliopassocontext, UtensilioContext utensiliocontext)
+                                          UtensilioPassoContext utensiliopassocontext, UtensilioContext utensiliocontext,
+                                          TutorialContext tutorialcontext)
         {
             receitaHandling = new ReceitaHandling(receitacontext);
             receitapassoHandling = new ReceitaPassoHandling(receitapassocontext);
@@ -36,6 +38,7 @@ namespace FeelItaly.Controllers{
             comentarioHandling = new ComentarioHandling(comentariocontext);
             utensiliopassoHandling = new UtensilioPassoHandling(utensiliopassocontext);
             utensilioHandling = new UtensilioHandling(utensiliocontext);
+            tutorialHandling = new TutorialHandling(tutorialcontext);
         }
 
         // GET: /<controller>/
@@ -117,6 +120,13 @@ namespace FeelItaly.Controllers{
 
             // Ingrediente
             Ingrediente ing = ingredienteHandling.selectIngrediente(p.idIngrediente);
+
+            // Tutorial
+            Tutorial tutorial = tutorialHandling.selectTutorial(idpasso);
+            if(tutorial != null)
+            {
+                res.tutorial = tutorial.Link;
+            }
 
             // Descrição
             string desc_passo;
