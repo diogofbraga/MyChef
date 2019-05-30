@@ -17,7 +17,9 @@
 
                     @{ string path = Model.tutorial; }
 
-                    <iframe src="@Url.Content(path)" />
+                    <!--<iframe src="Url.Content(path)" />-->
+
+                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
 
 
                     @{ Model.numero++; }
@@ -32,7 +34,7 @@
 
                     @if (Model.numero - 1 == Model.nrpassos)
                     {
-                    <form asp-controller="ReceitaPassoView" asp-action="RatingReceita">
+                    <form asp-controller="ReceitaPassoView" asp-action="RatingReceita" >
                         <div class="form-group center">
                             <input type="submit" value="Finalizar" class="btn btn-default btn-success" />
                         </div>

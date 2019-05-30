@@ -1,15 +1,25 @@
-﻿<link rel="stylesheet" href="~/css/RatingReceita.css" />
+﻿@model FeelItaly.Models.Receita
+
+<link rel="stylesheet" href="~/css/RatingReceita.css" />
 
 <h1>Avaliação</h1>
 
 <p class="center">(ESTRELAS)</p>
 
-<form action="/html/tags/html_form_tag_action.cfm" method="post" class="center">
-    <div>
-    <h5>Comentários</h5>
-    <textarea rows="4" cols="30" name="comment" form="usrform">Insira aqui o seu comentário ...</textarea>
+<script>
+function getComment() {
+        var x = document.getElementById("comment").value;
+}
+</script>
+
+<form asp-controller="ReceitaPassoView" asp-action="ComentSaveReceita" asp-route-idreceita="@Model.idReceita" asp-route-comment=x >
+    <div class="center">
+        <h5>Comentários</h5>
+
+        <textarea id="comment" rows="4" cols="30" form="usrform">Insira aqui o seu comentário ...</textarea>
+
+        <input type="submit" onclick="getComment()" value="Submeter" class="btn btn-default btn-primary btn-sm">
     </div>
-    <input type="submit" value="Submeter" class="btn btn-default btn-primary btn-sm">
 </form>
 
 <form asp-controller="Home" asp-action="Index">

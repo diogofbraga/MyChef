@@ -162,9 +162,14 @@ namespace FeelItaly.Controllers{
             return View(res);
         }
 
-        public IActionResult RatingReceita()
+        public IActionResult RatingReceita(int idreceita)
         {
-            return View();
+            Receita recipe = receitaHandling.getReceita(idreceita);
+            return View(recipe);
+        }
+
+        public void ComentSaveReceita(int idreceita, string comment)
+        {
         }
 
     }
