@@ -26,43 +26,44 @@
                 @{ Model.numero++; }
 
                 @if (Model.numero <= Model.nrpassos)
-            {
-                <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
-                    <div class="form-group center">
-                        <input type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
-                    </div>
-                </form>
-        }
+                {
+                    <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-username="@User.Identity.Name">
+                        <a asp-route-tempo=id="e"></a>
+                        <div class="form-group center" id="next-page">
+                            <input type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
+                        </div>
+                    </form>
+                }
 
                 @if (Model.numero - 1 == Model.nrpassos)
-            {
-                <form asp-controller="ReceitaPassoView" asp-action="RatingReceita" asp-route-idreceita="@Model.idReceita">
-                    <div class="form-group center">
-                        <input type="submit" value="Finalizar" class="btn btn-default btn-success" />
-                    </div>
-                </form>
-        }
+                {
+                    <form asp-controller="ReceitaPassoView" asp-action="RatingReceita" asp-route-idreceita="@Model.idReceita">
+                        <div class="form-group center">
+                            <input type="submit" value="Finalizar" class="btn btn-default btn-success" />
+                        </div>
+                    </form>
+                }
 
 
                 @{ Model.numero = Model.numero - 2;/* Passa sempre no ++ de cima, mas pode nao clicar no botao, se passar para aqui é porque é para voltar para trás, mas tambem somou atras, logo retira dois aqui*/}
 
                 @if (Model.numero <= Model.nrpassos && Model.numero != 0)
-            {
-                <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
-                    <div class="form-group center">
-                        <input type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
-                    </div>
-                </form>
-        }
+                {
+                    <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
+                        <div class="form-group center">
+                            <input type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
+                        </div>
+                    </form>
+                }
 
                 @if (Model.numero <= Model.nrpassos && Model.numero == 0)
-            {
-                <form asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@Model.idReceita">
-                    <div class="form-group center">
-                        <input type="submit" value="Voltar à Receita" class="btn btn-default btn-success" />
-                    </div>
-                </form>
-        }
+                {
+                    <form asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@Model.idReceita">
+                        <div class="form-group center">
+                            <input type="submit" value="Voltar à Receita" class="btn btn-default btn-success" />
+                        </div>
+                    </form>
+                }
 
             </div>
 
@@ -71,28 +72,27 @@
         <aside class="team-left-column col-12 col-md-4 col-lg-3 hide-lg hide-md hide-sm border-left" aria-label="Info">
 
             @if (Model.ingrediente != null)
-        {
-            <h3>Ingrediente</h3>
-            <ul>
-                <li class="center">@Model.ingrediente.Nome</li>
-            </ul>
-    }
+            {
+                <h3>Ingrediente</h3>
+                <ul>
+                    <li class="center">@Model.ingrediente.Nome</li>
+                </ul>
+            }
 
             @if (Model.utensilios.Count() != 0)
-        {
-            <h3>Utensílio</h3>
-            <ul>
-                @for (int i = 0; i < Model.utensilios.Count(); i++)
             {
-                <li class="center">@Model.utensilios.ElementAt(i).Descricao</li>
-        }
-            </ul>
-    }
+                <h3>Utensílio</h3>
+                <ul>
+                    @for (int i = 0; i < Model.utensilios.Count(); i++)
+                    {
+                        <li class="center">@Model.utensilios.ElementAt(i).Descricao</li>
+                    }
+                </ul>
+            }
 
         </aside>
 
-        <div class="clock_in">             <p>                 Horas:                 <span id="h">Hours</span>             </p>         </div>         <div class="clock_in">             <p>                 Minutos:                 <span id="m">Minutes</span>             </p>         </div>         <div class="clock_in">             <p>                 Segundos:                 <span id="s">Sec</span>             </p>         </div>
-
+        <div class="clock_in">             <p>                 Horas:                 <span id="h">0</span>             </p>         </div>         <div class="clock_in">             <p>                 Minutos:                 <span id="m">0</span>             </p>         </div>         <div class="clock_in">             <p>                 Segundos:                 <span id="s">0</span>             </p>         </div>
     </div>
 
 </div>

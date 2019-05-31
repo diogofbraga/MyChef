@@ -47,7 +47,8 @@ CREATE TABLE Passo(
 );
 
 CREATE TABLE Historico(
-	IdReceita INT NOT NULL PRIMARY KEY,
+	IdHistorico INT PRIMARY KEY,
+	IdReceita INT NOT NULL,
 	Username NVARCHAR(32) NOT NULL,
 	IdPasso INT NOT NULL,
 	TempoPasso FLOAT NOT NULL,
@@ -368,7 +369,7 @@ INSERT INTO ReceitaPasso VALUES(26,2,26,13)
 -- Históricos
 
 INSERT INTO Historico
-VALUES(1,'diogofbraga',1,45.0,'2018-05-04 00:35:00',3)
+VALUES(1,1,'diogofbraga',1,45.0,'2018-05-04 00:35:00',3)
 
 
 -- Tutoriais
@@ -465,3 +466,7 @@ SELECT * FROM Utensilio;
 SELECT * FROM UtensilioPasso;
 
 SELECT * FROM Comentario;
+
+
+DELETE FROM Historico
+WHERE Username='joaopedro' ;

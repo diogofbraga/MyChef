@@ -13,6 +13,9 @@ namespace FeelItaly.Models{
 
         [Key]
         [Required]
+        public int idHistorico { set; get; }
+
+        [Required]
         public int idReceita { set; get; }
 
         [NotMapped]

@@ -23,12 +23,13 @@ namespace FeelItaly.Controllers{
         private UtensilioPassoHandling utensiliopassoHandling;
         private UtensilioHandling utensilioHandling;
         private TutorialHandling tutorialHandling;
+        private HistoricoHandling historicoHandling;
 
         public ReceitaPassoViewController(ReceitaContext receitacontext,ReceitaPassoContext receitapassocontext, 
                                           PassoContext passocontext, IngredienteContext ingredientecontext,
                                           AcaoContext acaocontext, ComentarioContext comentariocontext, 
                                           UtensilioPassoContext utensiliopassocontext, UtensilioContext utensiliocontext,
-                                          TutorialContext tutorialcontext)
+                                          TutorialContext tutorialcontext, HistoricoContext historicocontext)
         {
             receitaHandling = new ReceitaHandling(receitacontext);
             receitapassoHandling = new ReceitaPassoHandling(receitapassocontext);
@@ -39,6 +40,7 @@ namespace FeelItaly.Controllers{
             utensiliopassoHandling = new UtensilioPassoHandling(utensiliopassocontext);
             utensilioHandling = new UtensilioHandling(utensiliocontext);
             tutorialHandling = new TutorialHandling(tutorialcontext);
+            historicoHandling = new HistoricoHandling(historicocontext);
         }
 
         // GET: /<controller>/
@@ -107,7 +109,7 @@ namespace FeelItaly.Controllers{
         }
 
         [Authorize]
-        public IActionResult ExecuteReceita(int idreceita, int numero){
+        public IActionResult ExecuteReceita(int idreceita, int numero, string username, int tempo){
             PassoTotal res = new PassoTotal();
             int nrpassos = receitapassoHandling.getNrPassosdaReceita(idreceita);
             int idpasso = receitapassoHandling.getPassoNumDaReceita(idreceita,numero);
@@ -153,6 +155,26 @@ namespace FeelItaly.Controllers{
                 Utensilio u = utensilioHandling.selectUtensilio(up.IdUtensilio);
                 if (!utensilios.Contains(u)) utensilios.Add(u);
             }
+
+            // adicionar historico
+            if (numero > 1 && username != null){
+                Historico his = new Historico();
+                his.idHistorico = historicoHandling.countHistoricos()+1;
+                his.idReceita = idreceita;
+                his.idPasso = receitapassoHandling.getPassoNumDaReceita(idreceita, numero - 1);
+                his.username = username;
+                his.TempoPasso = tempo;
+                his.Dataa = DateTime.Now;
+                his.NrPasso = numero - 1;
+                if (ModelState.IsValid)
+                {
+                    this.historicoHandling.addHistorico(his);
+
+                }
+            }
+
+
+
 
             res.idReceita = idreceita;
             res.desc_passo = desc_passo;
