@@ -2,6 +2,8 @@
 
 <script src="~/js/Time.js"></script>
 
+<script src="~/js/Voice.js"></script>
+
 <link rel="stylesheet" href="~/css/ExecuteReceita.css" />
 
 <div class="application-main " data-commit-hovercards-enabled="" style="min-width:1200px">
@@ -30,7 +32,7 @@
                     <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-username="@User.Identity.Name">
                         <a asp-route-tempo=id="e"></a>
                         <div class="form-group center" id="next-page">
-                            <input type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
+                            <input id="prox" type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
                         </div>
                     </form>
                 }
@@ -51,7 +53,7 @@
                 {
                     <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
                         <div class="form-group center">
-                            <input type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
+                            <input id="ant" type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
                         </div>
                     </form>
                 }
