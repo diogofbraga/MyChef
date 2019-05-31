@@ -36,7 +36,7 @@
 
                 @if (Model.numero - 1 == Model.nrpassos)
             {
-                <form asp-controller="ReceitaPassoView" asp-action="RatingReceita">
+                <form asp-controller="ReceitaPassoView" asp-action="RatingReceita" asp-route-idreceita="@Model.idReceita">
                     <div class="form-group center">
                         <input type="submit" value="Finalizar" class="btn btn-default btn-success" />
                     </div>

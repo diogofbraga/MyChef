@@ -98,10 +98,13 @@
                 
 
                 <aside class="col-12 hide-lg hide-md hide-sm border-left border-right" aria-label="Comments">
+                    <br>
                     <h5>Comentários:</h5>
                     @if (Model.coments.Count != 0){
                         foreach (var coment in Model.coments){
                             @coment.Descricao <font style='font-style:italic; font-size:x-small'>@coment.Dataa</font>
+                            <br>
+                            <br>
                         }
                     }
                     else{

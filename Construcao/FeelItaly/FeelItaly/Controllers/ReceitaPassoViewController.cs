@@ -162,14 +162,28 @@ namespace FeelItaly.Controllers{
             return View(res);
         }
 
-        public IActionResult RatingReceita(int idreceita)
+        [HttpGet]
+        public IActionResult RatingReceita(int idReceita)
         {
-            Receita recipe = receitaHandling.getReceita(idreceita);
-            return View(recipe);
+            Comentario comentario = new Comentario();
+            comentario.IdReceita = idReceita;
+            return View(comentario);
         }
 
-        public void ComentSaveReceita(int idreceita, string comment)
+        [HttpPost]
+        public IActionResult RatingReceita([Bind] Comentario comentario)
         {
+            int count = comentarioHandling.countComentarios();
+            //comentario.IdReceita = ;
+            comentario.IdComentario = count + 1;
+            comentario.Dataa = DateTime.Now;
+
+            if (ModelState.IsValid)
+            {
+                this.comentarioHandling.registerComentario(comentario);
+
+            }
+            return View(comentario);
         }
 
     }

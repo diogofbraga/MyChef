@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace FeelItaly.Models{
 
-    public class Comentario{
+    public class Comentario
+    {
 
         [Key]
         [Required]

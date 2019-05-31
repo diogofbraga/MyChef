@@ -1,4 +1,4 @@
-﻿@model FeelItaly.Models.Receita
+﻿@model FeelItaly.Models.Comentario
 
 <link rel="stylesheet" href="~/css/RatingReceita.css" />
 
@@ -6,21 +6,19 @@
 
 <p class="center">(ESTRELAS)</p>
 
-<script>
-function getComment() {
-        var x = document.getElementById("comment").value;
-}
-</script>
 
-<form asp-controller="ReceitaPassoView" asp-action="ComentSaveReceita" asp-route-idreceita="@Model.idReceita" asp-route-comment=x >
-    <div class="center">
-        <h5>Comentários</h5>
+<form asp-controller="ReceitaPassoView" asp-action="RatingReceita" asp-route-idreceita="@Model.IdReceita">
 
-        <textarea id="comment" rows="4" cols="30" form="usrform">Insira aqui o seu comentário ...</textarea>
+    <div class="form-group">
+        <label asp-for="Descricao" class="control-label">Inserir Comentário:</label>
+        <input asp-for="Descricao" class="form-control" />
+    </div>
 
-        <input type="submit" onclick="getComment()" value="Submeter" class="btn btn-default btn-primary btn-sm">
+    <div class="form-group center">
+        <input type="submit" value="Submeter" class="btn btn-default btn-success" />
     </div>
 </form>
+
 
 <form asp-controller="Home" asp-action="Index">
     <div class="form-group center">
