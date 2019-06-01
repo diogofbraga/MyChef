@@ -239,6 +239,22 @@ INSERT INTO Passo VALUES(25,1.0,'','','',-1,13,14)
 
 INSERT INTO Passo VALUES(26,1.0,'','','',-1,'',15)
 
+
+INSERT INTO Passo VALUES(27,40,'','','',2,17,25)
+INSERT INTO Passo VALUES(28,1,'','2', 'em rodelas de 1/2 cm de espessura',-1,19,18)
+INSERT INTO Passo VALUES(29,1,'','','na parte grossa do ralador',-1,18,19)
+INSERT INTO Passo VALUES(30,1,'','','que será utilizado',-1,12,20)
+INSERT INTO Passo VALUES(31,1,'colheres de sopa','4', 'sobre a base da pizza',-1,17,21)
+INSERT INTO Passo VALUES(32,1,'','','ralada por cima do molho de tomate',-1,18,22)
+INSERT INTO Passo VALUES(33,1,'','','por cima',-1,18,22)
+INSERT INTO Passo VALUES(34,1,'','','por cima da mozzarela',-1,19,21)
+INSERT INTO Passo VALUES(35,1,'','','com um pouco de azeite, cerca de 3 colheres de sopa',-1,1,23)
+INSERT INTO Passo VALUES(36,30,'','','ao forno cerca de 30 minutos, até a mozzarela derreter',-1,'',24)
+INSERT INTO Passo VALUES(37,1,'','','a pizza do forno e salpicar com algumas folhas de manjericão por cima',-1,'',14)
+INSERT INTO Passo VALUES(38,11,'','','bem quente',-1,'',26)
+
+
+
 -- Ingredientes
 -- IdIngrediente INT, Nome NVARCHAR(100)
 
@@ -274,6 +290,12 @@ INSERT INTO Ingrediente VALUES(15,'concentrado de tomate')
 
 INSERT INTO Ingrediente VALUES(16,'tomate pelado')
 
+INSERT INTO Ingrediente VALUES(17, 'molho de tomate')
+
+INSERT INTO Ingrediente VALUES(18,'mozzarela')
+
+INSERT INTO Ingrediente VALUES(19,'tomate')
+
 -- Ações
 -- IdAcao INT, Descricao NVARCHAR(32)
 
@@ -308,6 +330,26 @@ INSERT INTO Acao VALUES(14,'Retirar')
 INSERT INTO Acao VALUES(15,'Passar')
 
 INSERT INTO Acao VALUES(16,'Picar')
+
+INSERT INTO Acao VALUES(17,'Pré-aquecer')
+
+INSERT INTO Acao VALUES(18,'Cortar')
+
+INSERT INTO Acao VALUES(19,'Ralar')
+
+INSERT INTO Acao VALUES(20,'Separar')
+
+INSERT INTO Acao VALUES(21,'Espalhar')
+
+INSERT INTO Acao VALUES(22,'Adicionar')
+
+INSERT INTO Acao VALUES(23,'Regar')
+
+INSERT INTO Acao VALUES(24,'Levar')
+
+INSERT INTO Acao VALUES(25,'Preparar')
+
+INSERT INTO Acao VALUES(26,'Servir')
 
 -- ReceitasPassos
 -- Id INT, IdReceita INT, IdPasso INT, Numero INT
@@ -364,6 +406,20 @@ INSERT INTO ReceitaPasso VALUES(25,2,25,12)
 
 INSERT INTO ReceitaPasso VALUES(26,2,26,13)
 
+INSERT INTO ReceitaPasso VALUES(27,3,27,1)
+INSERT INTO ReceitaPasso VALUES(28,3,28,2)
+INSERT INTO ReceitaPasso VALUES(29,3,29,3)
+INSERT INTO ReceitaPasso VALUES(30,3,30,4)
+INSERT INTO ReceitaPasso VALUES(31,3,31,5)
+INSERT INTO ReceitaPasso VALUES(32,3,32,6)
+INSERT INTO ReceitaPasso VALUES(33,3,33,7)
+INSERT INTO ReceitaPasso VALUES(34,3,34,8)
+INSERT INTO ReceitaPasso VALUES(35,3,35,9)
+INSERT INTO ReceitaPasso VALUES(36,3,36,10)
+INSERT INTO ReceitaPasso VALUES(37,3,37,11)
+INSERT INTO ReceitaPasso VALUES(38,3,38,12)
+
+
 
 
 -- Históricos
@@ -418,6 +474,9 @@ VALUES(6,'colher')
 INSERT INTO Utensilio
 VALUES(7,'varinha mágica')
 
+INSERT INTO Utensilio
+VALUES(8,'forno')
+
 
 
 -- UtensíliosPassos
@@ -431,6 +490,9 @@ VALUES(2,2,3)
 
 INSERT INTO UtensilioPasso
 VALUES(3,2,3)
+
+INSERT INTO UtensilioPasso
+VALUES(4,8,37)
 
 
 -- Comentarios
