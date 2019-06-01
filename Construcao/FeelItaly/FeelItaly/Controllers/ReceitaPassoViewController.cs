@@ -184,19 +184,19 @@ namespace FeelItaly.Controllers{
             return View(res);
         }
 
-        /*[HttpGet]
+        [HttpGet]
         public IActionResult RatingReceita(int idReceita)
         {
             Comentario comentario = new Comentario();
             comentario.IdReceita = idReceita;
             return View(comentario);
-        }*/
+        }
 
         [HttpPost]
         public IActionResult RatingReceita([Bind] Comentario comentario)
         {
             int count = comentarioHandling.countComentarios();
-            //comentario.IdReceita = idreceita;
+            //comentario.IdReceita = ;
             comentario.IdComentario = count + 1;
             comentario.Dataa = DateTime.Now;
 
