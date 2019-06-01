@@ -109,7 +109,7 @@ namespace FeelItaly.Controllers{
         }
 
         [Authorize]
-        public IActionResult ExecuteReceita(int idreceita, int numero, string username, int tempo){
+        public IActionResult ExecuteReceita(int idreceita, int numero, string username, long tempo){
             PassoTotal res = new PassoTotal();
             int nrpassos = receitapassoHandling.getNrPassosdaReceita(idreceita);
             int idpasso = receitapassoHandling.getPassoNumDaReceita(idreceita,numero);
@@ -163,7 +163,7 @@ namespace FeelItaly.Controllers{
                 his.idReceita = idreceita;
                 his.idPasso = receitapassoHandling.getPassoNumDaReceita(idreceita, numero - 1);
                 his.username = username;
-                his.TempoPasso = tempo;
+                his.TempoPasso = (long)((DateTime.Now - DateTime.MinValue).TotalSeconds - tempo);
                 his.Dataa = DateTime.Now;
                 his.NrPasso = numero - 1;
                 if (ModelState.IsValid)
@@ -181,6 +181,7 @@ namespace FeelItaly.Controllers{
             res.utensilios = utensilios;
             res.numero = numero;
             res.nrpassos = nrpassos;
+            res.tempo_atual = (long)(DateTime.Now - DateTime.MinValue).TotalSeconds; ;
             return View(res);
         }
 

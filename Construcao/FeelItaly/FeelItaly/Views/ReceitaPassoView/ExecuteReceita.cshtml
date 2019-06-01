@@ -29,7 +29,7 @@
 
                 @if (Model.numero <= Model.nrpassos)
                 {
-                    <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-username="@User.Identity.Name">
+                    <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-username="@User.Identity.Name" asp-route-tempo="@Model.tempo_atual">
                         <a asp-route-tempo=id="e"></a>
                         <div class="form-group center" id="next-page">
                             <input id="prox" type="submit" value="Próximo Passo" class="btn btn-default btn-success" />

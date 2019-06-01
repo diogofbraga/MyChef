@@ -19,5 +19,6 @@ namespace FeelItaly.Models
         public string tutorial;
         public int numero;
         public int nrpassos;
+        public long tempo_atual;
     }
 }
