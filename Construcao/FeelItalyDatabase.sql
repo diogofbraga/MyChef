@@ -144,13 +144,13 @@ VALUES(7,'Sobremesa')
 -- IdReceita INT, Nome NVARCHAR(100), Nutricional FLOAT, TempoTotal INT, Avaliacao FLOAT
 
 INSERT INTO Receita
-VALUES(1,'Carbonara',655.0,20,4.3)
+VALUES(1,'Carbonara',655.0,25,4.3)
 
 INSERT INTO Receita
-VALUES(2,'Molho de Tomate',80.0,5,4.0)
+VALUES(2,'Molho de Tomate',80.0,50,4.0)
 
 INSERT INTO Receita
-VALUES(3,'Pizza Marguerita',204.0,60,4.7)
+VALUES(3,'Pizza Marguerita',204.0,90,4.7)
 
 INSERT INTO Receita
 VALUES(4,'Lasanha de Legumes',500.0,45,4.2)
@@ -187,71 +187,70 @@ VALUES(2,'ricardofsc10')
 -- IdPasso INT, TempoParcial FLOAT, Unidade NVARCHAR(32), Quantidade NVARCHAR(32),
 -- Extra NVARCHAR(255), IdReceita(SubReceita) INT, IdIngrediente INT, IdAcao INT
 
-INSERT INTO Passo VALUES(1,4.0,'c. sopa','2','numa frigideira',-1,1,1)
+INSERT INTO Passo VALUES(1,30.0,'colheres de sopa','2','numa frigideira',-1,1,1)
 
-INSERT INTO Passo VALUES(2,4.0,'g','200','na frigideira',-1,2,2)
+INSERT INTO Passo VALUES(2,300.0,'gramas','200','na frigideira',-1,2,2)
 
-INSERT INTO Passo VALUES(3,4.0,'','2','',-1,3,3)
+INSERT INTO Passo VALUES(3,120.0,'','2','',-1,3,3)
 
-INSERT INTO Passo VALUES(4,4.0,'ml','80','',-1,4,4)
+INSERT INTO Passo VALUES(4,30.0,'mililitros','80','',-1,4,4)
 
-INSERT INTO Passo VALUES(5,4.0,'c. chá','1','',-1,5,5)
+INSERT INTO Passo VALUES(5,10.0,'colheres de chá','1','',-1,5,5)
 
-INSERT INTO Passo VALUES(6,4.0,'','','e as natas ao bacon', -1,3,6)
+INSERT INTO Passo VALUES(6,60.0,'','','e as natas ao bacon', -1,3,6)
 
-INSERT INTO Passo VALUES(7,4.0,'','','tudo durante 3 minutos em lume brando',-1,'',7)
+INSERT INTO Passo VALUES(7,180.0,'','','tudo durante 3 minutos em lume brando',-1,'',7)
 
-INSERT INTO Passo VALUES(8,4.0,'g','300','num tacho',-1,6,1)
+INSERT INTO Passo VALUES(8,30.0,'gramas','300','num tacho',-1,6,1)
 
-INSERT INTO Passo VALUES(9,4.0,'pitada','1','ao tacho',-1,5,4)
+INSERT INTO Passo VALUES(9,10.0,'pitada','1','ao tacho',-1,5,4)
 
-INSERT INTO Passo VALUES(10,4.0,'','','durante 8 minutos',-1,6,8)
+INSERT INTO Passo VALUES(10,480.0,'','','durante 8 minutos',-1,6,8)
 
-INSERT INTO Passo VALUES(11,4.0,'','','para a frigideira',-1,6,9)
+INSERT INTO Passo VALUES(11,30.0,'','','para a frigideira',-1,6,9)
 
-INSERT INTO Passo VALUES(12,4.0,'g','50','',-1,7,1)
+INSERT INTO Passo VALUES(12,30.0,'gramas','50','',-1,7,1)
 
-INSERT INTO Passo VALUES(13,4.0,'','','a gosto',-1,8,1)
+INSERT INTO Passo VALUES(13,10.0,'','','a gosto',-1,8,1)
 
-INSERT INTO Passo VALUES(14,1.0,'','1','',-1,9,10)
+INSERT INTO Passo VALUES(14,30.0,'','1','',-1,9,10)
 
-INSERT INTO Passo VALUES(15,1.0,'','1','',-1,10,10)
+INSERT INTO Passo VALUES(15,30.0,'','1','',-1,10,10)
 
-INSERT INTO Passo VALUES(16,1.0,'','1','',-1,10,16)
+INSERT INTO Passo VALUES(16,120.0,'','1','',-1,10,16)
 
-INSERT INTO Passo VALUES(17,1.0,'','1','',-1,9,16)
+INSERT INTO Passo VALUES(17,180.0,'','1','',-1,9,16)
 
-INSERT INTO Passo VALUES(18,1.0,'','','no azeite',-1,'',11)
+INSERT INTO Passo VALUES(18,180.0,'','','no azeite',-1,'',11)
 
-INSERT INTO Passo VALUES(19,1.0,'g','400','em pedaços pequenos',-1,16,6)
+INSERT INTO Passo VALUES(19,300.0,'gramas','400','em pedaços pequenos',-1,16,6)
 
-INSERT INTO Passo VALUES(20,15.0,'','','em lume brando durante 15 minutos, sem tapar',-1,'',12)
+INSERT INTO Passo VALUES(20,900.0,'','','em lume brando durante 15 minutos, sem tapar',-1,'',12)
 
-INSERT INTO Passo VALUES(21,10.0,'','','com açúcar, sal, louro e pimenta e deixar cozer durante mais 10 minutos',-1,'',5)
+INSERT INTO Passo VALUES(21,600.0,'','','com açúcar, sal, louro e pimenta e deixar cozer durante mais 10 minutos',-1,'',5)
 
-INSERT INTO Passo VALUES(22,1.0,'','','as ervas aromáticas',-1,'',6)
+INSERT INTO Passo VALUES(22,10.0,'','','as ervas aromáticas',-1,'',6)
 
-INSERT INTO Passo VALUES(23,10.0,'','','durante 10 minutos',-1,'',8)
+INSERT INTO Passo VALUES(23,600.0,'','','durante 10 minutos',-1,'',8)
 
-INSERT INTO Passo VALUES(24,1.0,'colheres de chá','2 a 3','',-1,15,13)
+INSERT INTO Passo VALUES(24,10.0,'colheres de chá','2 a 3','',-1,15,13)
 
-INSERT INTO Passo VALUES(25,1.0,'','','',-1,13,14)
+INSERT INTO Passo VALUES(25,10.0,'','','',-1,13,14)
 
-INSERT INTO Passo VALUES(26,1.0,'','','',-1,'',15)
+INSERT INTO Passo VALUES(26,120.0,'','','',-1,'',15)
 
 
-INSERT INTO Passo VALUES(27,40,'','','',2,17,25)
-INSERT INTO Passo VALUES(28,1,'','2', 'em rodelas de 1/2 cm de espessura',-1,19,18)
-INSERT INTO Passo VALUES(29,1,'','','na parte grossa do ralador',-1,18,19)
-INSERT INTO Passo VALUES(30,1,'','','que será utilizado',-1,12,20)
-INSERT INTO Passo VALUES(31,1,'colheres de sopa','4', 'sobre a base da pizza',-1,17,21)
-INSERT INTO Passo VALUES(32,1,'','','ralada por cima do molho de tomate',-1,18,22)
-INSERT INTO Passo VALUES(33,1,'','','por cima',-1,18,22)
-INSERT INTO Passo VALUES(34,1,'','','por cima da mozzarela',-1,19,21)
-INSERT INTO Passo VALUES(35,1,'','','com um pouco de azeite, cerca de 3 colheres de sopa',-1,1,23)
-INSERT INTO Passo VALUES(36,30,'','','ao forno cerca de 30 minutos, até a mozzarela derreter',-1,'',24)
-INSERT INTO Passo VALUES(37,1,'','','a pizza do forno e salpicar com algumas folhas de manjericão por cima',-1,'',14)
-INSERT INTO Passo VALUES(38,11,'','','bem quente',-1,'',26)
+INSERT INTO Passo VALUES(27,3000.0,'','','',2,17,25)
+INSERT INTO Passo VALUES(28,120.0,'','2', 'em rodelas de 1/2 cm de espessura',-1,19,18)
+INSERT INTO Passo VALUES(29,120.0,'','','na parte grossa do ralador',-1,18,19)
+INSERT INTO Passo VALUES(30,30.0,'','','que será utilizado',-1,12,20)
+INSERT INTO Passo VALUES(31,60.0,'colheres de sopa','4', 'sobre a base da pizza',-1,17,21)
+INSERT INTO Passo VALUES(32,30.0,'','','ralada por cima do molho de tomate',-1,18,22)
+INSERT INTO Passo VALUES(33,60.0,'','','por cima da mozzarela',-1,19,21)
+INSERT INTO Passo VALUES(34,60.0,'','','com um pouco de azeite, cerca de 3 colheres de sopa',-1,1,23)
+INSERT INTO Passo VALUES(35,1800.0,'','','ao forno cerca de 30 minutos, até a mozzarela derreter',-1,'',24)
+INSERT INTO Passo VALUES(36,60.0,'','','a pizza do forno e salpicar com algumas folhas de manjericão por cima',-1,'',14)
+INSERT INTO Passo VALUES(37,30.0,'','','bem quente',-1,'',26)
 
 
 
@@ -417,8 +416,6 @@ INSERT INTO ReceitaPasso VALUES(34,3,34,8)
 INSERT INTO ReceitaPasso VALUES(35,3,35,9)
 INSERT INTO ReceitaPasso VALUES(36,3,36,10)
 INSERT INTO ReceitaPasso VALUES(37,3,37,11)
-INSERT INTO ReceitaPasso VALUES(38,3,38,12)
-
 
 
 
