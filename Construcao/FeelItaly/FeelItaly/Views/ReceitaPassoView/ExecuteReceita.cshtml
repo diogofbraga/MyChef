@@ -34,26 +34,28 @@
 
             <div class="mx-auto d-flex flex-auto flex-column" style="min-width:600px">
 
-                @if (Model.modo_subreceita == true){
+                @if (Model.modo_subreceita == true) {
                     <h6 class="center">Subreceita <b>@Model.nomeReceita</b></h6>
                 }
 
                 <h1>Passo @Model.numero</h1>
 
-                @if (Model.subreceita == null){
+                @if (Model.subreceita == null) {
                     <p>@Model.desc_passo</p>
                 }
-                else{
+                else {
                 <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.subreceita.idReceita" asp-route-numero="1" asp-route-subreceita="true" asp-route-subreceita_num_anterior="@Model.numero" asp-route-subreceita_id_principal="@Model.idReceita">
                     <p><input type="submit" value="@Model.desc_passo" class="btn btn-default btn-success" /></p>
                 </form>
                 }
 
-                @{ string path = Model.tutorial; }
-
-                <!--<iframe src="Url.Content(path)" />-->
-
-                <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                @{ 
+                    string path = Model.tutorial;
+                    if (path != null)
+                    {
+                        <iframe src="@path"></iframe>
+                    }
+                }
 
                 @{ Model.numero = Model.numero; }
 
@@ -174,13 +176,5 @@
             }
 
         </aside>
-
-        <div class="clock_in">             <p>                 Horas:                 <span id="h">0</span>             </p>         </div>         <div class="clock_in">             <p>                 Minutos:                 <span id="m">0</span>             </p>         </div>         <div class="clock_in">             <p>                 Segundos:                 <span id="s">0</span>             </p>         </div>
     </div>
-</div>
-
-<div>
-    <p>
-        <span id="erro"></span>
-    </p>
 </div>

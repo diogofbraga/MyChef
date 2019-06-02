@@ -429,22 +429,22 @@ VALUES(1,1,'diogofbraga',1,45.0,'2018-05-04 00:35:00',3)
 -- IdPasso INT, Link NVARCHAR(255)
 
 INSERT INTO Tutorial
-VALUES(2,'https://www.youtube.com/watch?v=T8zjP6GgNPs')
+VALUES(2,'https://www.youtube.com/embed/T8zjP6GgNPs')
 
 INSERT INTO Tutorial
-VALUES(10,'https://www.youtube.com/watch?v=LrnbH17E308')
+VALUES(10,'https://www.youtube.com/embed/LrnbH17E308')
 
 INSERT INTO Tutorial
-VALUES(14,'https://www.youtube.com/watch?v=EO3hfPYqLaI')
+VALUES(14,'https://www.youtube.com/embed/EO3hfPYqLaI')
 
 INSERT INTO Tutorial
-VALUES(15,'https://www.youtube.com/watch?v=AN1L3yIHSos')
+VALUES(15,'https://www.youtube.com/embed/AN1L3yIHSos')
 
 INSERT INTO Tutorial
-VALUES(16,'https://www.youtube.com/watch?v=WaRd0YG6WPM')
+VALUES(16,'https://www.youtube.com/embed/WaRd0YG6WPM')
 
 INSERT INTO Tutorial
-VALUES(17,'https://www.youtube.com/watch?v=s49BMDPb-u4')
+VALUES(17,'https://www.youtube.com/embed/s49BMDPb-u4')
 
 
 -- Utensílios
@@ -525,7 +525,3 @@ SELECT * FROM Utensilio;
 SELECT * FROM UtensilioPasso;
 
 SELECT * FROM Comentario;
-
-
-DELETE FROM Historico
-WHERE Username='joaopedro' ;
