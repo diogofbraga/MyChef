@@ -55,6 +55,7 @@ namespace FeelItaly.Controllers{
             Receita recipe = receitaHandling.getReceita(id);
             int nrpassos = receitapassoHandling.getNrPassosdaReceita(id);
             Dictionary<int,string> desc_passos = new Dictionary<int,string>();
+            Dictionary<int, Receita> passo_subreceita = new Dictionary<int, Receita>();
             List<Comentario> coments = comentarioHandling.getComentariosReceita(id);
             List<int> idPassos = receitapassoHandling.getPassosDaReceita(id);
             List<Passo> passos = new List<Passo>();
@@ -89,6 +90,12 @@ namespace FeelItaly.Controllers{
                 }
                 desc_passos.Add(receitapassoHandling.getPassoDaReceita(id,i), desc_passo);
 
+                // Subreceita
+                if(p.idReceita != -1)
+                {
+                    passo_subreceita.Add(receitapassoHandling.getPassoDaReceita(id, i), receitaHandling.getReceita(p.idReceita));
+                }
+
                 // Utensílios
                 List<UtensilioPasso> ups = utensiliopassoHandling.selectUtensiliosPassos(i);
                 foreach (UtensilioPasso up in ups)
@@ -101,6 +108,7 @@ namespace FeelItaly.Controllers{
             res.rec = recipe;
             res.pass = passos;
             res.desc_passos = desc_passos;
+            res.passo_subreceita = passo_subreceita;
             res.coments = coments;
             res.nrpassos = nrpassos;
             res.ingredientes = ingredientes;
@@ -185,13 +193,13 @@ namespace FeelItaly.Controllers{
             return View(res);
         }
 
-        [HttpGet]
+        /*[HttpGet]
         public IActionResult RatingReceita(int idReceita)
         {
             Comentario comentario = new Comentario();
             comentario.IdReceita = idReceita;
             return View(comentario);
-        }
+        }*/
 
         [HttpPost]
         public IActionResult RatingReceita([Bind] Comentario comentario)

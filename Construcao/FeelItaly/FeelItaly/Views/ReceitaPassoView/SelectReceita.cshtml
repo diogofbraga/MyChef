@@ -40,6 +40,9 @@
                     <h3>Passos:</h3>
                     @foreach (var desc in Model.desc_passos){
                         <p><b>@desc.Key:</b> @desc.Value</p>
+                        if(Model.passo_subreceita.ContainsKey(desc.Key)){
+                            //@Model.passo_subreceita.;
+                        }
                     }
                     
                 </div>

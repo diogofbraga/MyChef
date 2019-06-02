@@ -15,7 +15,9 @@ namespace FeelItaly.Models{
         public List<Passo> pass;
         public List<Ingrediente> ingredientes;
         public List<Utensilio> utensilios;
+        public Receita subreceita;
         public Dictionary<int,string> desc_passos;
+        public Dictionary<int, Receita> passo_subreceita;
         public List<Comentario> coments;
         public int idpasso;
         public int nrpassos;
