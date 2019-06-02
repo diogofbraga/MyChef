@@ -30,7 +30,6 @@
     <Folder Include="Views\UtilizadorView\" />
     <Folder Include="shared\" />
     <Folder Include="Views\shared\" />
-    <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\lib\" />
     <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
     <Folder Include="Views\ReceitaPassoView\" />
