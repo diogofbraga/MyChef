@@ -1,3 +1,27 @@
-﻿@model FeelItaly.Models.Historico[]
+﻿@model FeelItaly.Models.HistoricoStat
 
-<h1>Stats</h1>
+<link rel="stylesheet" href="~/css/GetHistorico.css" />
+
+<dl>
+    <dt>
+        Receitas cozinhadas
+    </dt>
+
+
+    @{
+        foreach (var r in Model.num_receitas.Keys)
+        {
+            var percentage = Math.Floor((double)((@Model.num_receitas[r] * 100) / @Model.total_realizadas));
+            string classs = "percentage percentage-" + percentage;
+            <dd class="@classs">
+                <span class="text"> @r.nome : @Model.num_receitas[r]</span>
+            </dd>
+        }
+    }
+
+</dl>
+
+
+<div class="text-center">
+    <h1>Tempos Receitas</h1>
+</div>
