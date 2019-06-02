@@ -34,17 +34,19 @@
 
             <div class="mx-auto d-flex flex-auto flex-column" style="min-width:600px">
 
+                @if (Model.modo_subreceita == true){
+                    <h6 class="center">Subreceita <b>@Model.nomeReceita</b></h6>
+                }
+
                 <h1>Passo @Model.numero</h1>
 
-                @if (Model.subreceita == null)
-                {
+                @if (Model.subreceita == null){
                     <p>@Model.desc_passo</p>
                 }
-                else
-                {
-                    <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.subreceita.idReceita" asp-route-numero="1" asp-route-subreceita="true">
-                        <p><input type="submit" value="@Model.desc_passo" class="btn btn-default btn-success" /></p>
-                    </form>
+                else{
+                <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.subreceita.idReceita" asp-route-numero="1" asp-route-subreceita="true" asp-route-subreceita_num_anterior="@Model.numero" asp-route-subreceita_id_principal="@Model.idReceita">
+                    <p><input type="submit" value="@Model.desc_passo" class="btn btn-default btn-success" /></p>
+                </form>
                 }
 
                 @{ string path = Model.tutorial; }
@@ -55,17 +57,15 @@
 
                 @{ Model.numero = Model.numero; }
 
-                @if (Model.modo_subreceita == false)
-                {
+                @if (Model.modo_subreceita == false){
                     <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
                         <div class="form-group center">
                             <input id="repete" type="submit" value="Repetir Passo" class="btn btn-default btn-success" />
                         </div>
                     </form>
                 }
-                else
-                {
-                    <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-subreceita="true">
+                else{
+                    <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-subreceita="true" asp-route-subreceita_num_anterior="@Model.subreceita_num_anterior" asp-route-subreceita_id_principal="@Model.subreceita_id_principal">
                         <div class="form-group center">
                             <input id="repete" type="submit" value="Repetir Passo" class="btn btn-default btn-success" />
                         </div>
@@ -74,20 +74,17 @@
 
                 @{ Model.numero++; }
 
-                @if (Model.numero <= Model.nrpassos)
-                {
-                    @if (Model.modo_subreceita == false)
-                    {
+                @if (Model.numero <= Model.nrpassos){
+                    @if (Model.modo_subreceita == false){
                         <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-username="@User.Identity.Name" asp-route-tempo="@Model.tempo_atual">
                             <a asp-route-tempo= id="e"></a>
                             <div class="form-group center" id="next-page">
                                 <input id="prox" type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
                             </div>
-                        </form>
+                    </form>
                     }
-                    else
-                    {
-                        <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-username="@User.Identity.Name" asp-route-tempo="@Model.tempo_atual" asp-route-subreceita="true">
+                    else{
+                        <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-username="@User.Identity.Name" asp-route-tempo="@Model.tempo_atual" asp-route-subreceita="true" asp-route-subreceita_num_anterior="@Model.subreceita_num_anterior" asp-route-subreceita_id_principal="@Model.subreceita_id_principal">
                             <a asp-route-tempo= id="e"></a>
                             <div class="form-group center" id="next-page">
                                 <input id="prox" type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
@@ -96,19 +93,17 @@
                     }
                 }
 
-                @if (Model.numero - 1 == Model.nrpassos)
-                {
-                    @if (Model.modo_subreceita == false)
-                    {
+                @if (Model.numero - 1 == Model.nrpassos){
+                    @if (Model.modo_subreceita == false){
                         <form asp-controller="ReceitaPassoView" asp-action="RatingReceita" asp-route-idreceita="@Model.idReceita">
                             <div class="form-group center">
                                 <input id="finalizar" type="submit" value="Finalizar" class="btn btn-default btn-success" />
                             </div>
                         </form>
                     }
-                    else
-                    {
-                        <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="3" asp-route-numero="2">
+                    else{
+                        int proximo = Model.subreceita_num_anterior + 1;
+                        <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.subreceita_id_principal" asp-route-numero="@proximo">
                             <div class="form-group center">
                                 <input id="finalizar" type="submit" value="Finalizar" class="btn btn-default btn-success" />
                             </div>
@@ -119,22 +114,38 @@
 
                 @{ Model.numero = Model.numero - 2;/* Passa sempre no ++ de cima, mas pode nao clicar no botao, se passar para aqui é porque é para voltar para trás, mas tambem somou atras, logo retira dois aqui*/}
 
-                @if (Model.numero <= Model.nrpassos && Model.numero != 0)
-                {
-                    <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
-                        <div class="form-group center">
-                            <input id="ant" type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
-                        </div>
-                    </form>
+                @if (Model.numero <= Model.nrpassos && Model.numero != 0){
+                    @if (Model.modo_subreceita == false){
+                        <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
+                            <div class="form-group center">
+                                <input id="ant" type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
+                            </div>
+                        </form>
+                    }
+                    else{
+                        <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-subreceita="true" asp-route-subreceita_num_anterior="@Model.subreceita_num_anterior" asp-route-subreceita_id_principal="@Model.subreceita_id_principal">
+                            <div class="form-group center">
+                                <input id="ant" type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
+                            </div>
+                        </form>
+                    }
                 }
 
-                @if (Model.numero <= Model.nrpassos && Model.numero == 0)
-                {
-                    <form asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@Model.idReceita">
-                        <div class="form-group center">
-                            <input type="submit" value="Voltar à Receita" class="btn btn-default btn-success" />
-                        </div>
-                    </form>
+                @if (Model.numero <= Model.nrpassos && Model.numero == 0){
+                    @if (Model.modo_subreceita == false){
+                        <form asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@Model.idReceita">
+                            <div class="form-group center">
+                                <input type="submit" value="Voltar à Receita" class="btn btn-default btn-success" />
+                            </div>
+                        </form>
+                    }
+                    else{
+                        <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.subreceita_id_principal" asp-route-numero="@Model.subreceita_num_anterior">
+                            <div class="form-group center">
+                                <input type="submit" value="Voltar à Receita Principal" class="btn btn-default btn-success" />
+                            </div>
+                        </form>
+                    }
                 }
 
             </div>
