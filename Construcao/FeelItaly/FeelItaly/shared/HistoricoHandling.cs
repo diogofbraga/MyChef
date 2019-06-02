@@ -28,5 +28,24 @@ namespace FeelItaly.shared
             return true;
         }
 
+        public double getMelhorTempoReceita(string username, int idReceita, int nrPassos) {
+            double tempo = 0;
+            for(int i = 0; i < nrPassos; i++) 
+            {
+                Historico[] returnedHistorico = _context.historico.Where(b => (b.username == username) && (b.idReceita == idReceita) && (b.NrPasso == i)).ToArray();
+                double menor = 0;
+                foreach(Historico h in returnedHistorico)
+                {
+                    if (menor == 0)
+                        menor = h.TempoPasso;
+
+                    if (h.TempoPasso < menor)
+                        menor = h.TempoPasso;
+                }
+                tempo += menor;
+            }
+            return tempo;
+        }
+
     }
 }

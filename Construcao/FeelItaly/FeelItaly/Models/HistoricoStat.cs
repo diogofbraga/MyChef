@@ -7,6 +7,7 @@ namespace FeelItaly.Models
 
         public Dictionary<Receita, int> num_receitas;
         public int total_realizadas;
+        public Dictionary<Receita, (double,double)> tempos;
 
     }
 }

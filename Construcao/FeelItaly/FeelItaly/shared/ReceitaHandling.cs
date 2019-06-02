@@ -23,6 +23,5 @@ namespace FeelItaly.shared{
             Receita returnedReceita = _context.receita.Where(b => b.idReceita == id).FirstOrDefault();
             return returnedReceita;
         }
-
     }
 }

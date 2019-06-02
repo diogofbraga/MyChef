@@ -22,6 +22,50 @@
 </dl>
 
 
-<div class="text-center">
-    <h1>Tempos Receitas</h1>
+
+<dl>
+    <dt>
+        Tempos
+    </dt>
+</dl>
+<table id="q-graph">
+    <thead>
+        <tr>
+            <th></th>
+            <th class="sent">Estimado</th>
+            <th class="paid">Gasto</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{
+            var i = 0;
+            foreach(var r in Model.tempos.Keys)
+            {
+                string s = "q" + i;
+                var tam1 = Math.Floor((@Model.tempos[r].Item1 * 300) / 75);
+                var tam2 = Math.Floor((@Model.tempos[r].Item2 * 300) / 75);
+                string s1 = tam1 + "px;";
+                string s2 = tam2 + "px;";
+
+                <tr class="qtr" id="@s">
+                    <th scope="row">@r.nome</th>
+                    <td class="sent bar" style="height: @s1"><p>@Model.tempos[r].Item1</p></td>
+                    <td class="paid bar" style="height: @s2"><p>@Model.tempos[r].Item2</p></td>
+                </tr>
+
+                i++;
+            }
+        }
+
+    </tbody>
+</table>
+
+<div id="ticks">
+    <div class="tick" style="height: 59px;"><p>75 min</p></div>
+    <div class="tick" style="height: 59px;"><p>60 min</p></div>
+    <div class="tick" style="height: 59px;"><p>45 min</p></div>
+    <div class="tick" style="height: 59px;"><p>30 min</p></div>
+    <div class="tick" style="height: 59px;"><p>15 min</p></div>
 </div>
+
