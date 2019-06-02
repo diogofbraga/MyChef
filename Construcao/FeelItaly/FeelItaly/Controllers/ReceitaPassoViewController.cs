@@ -117,7 +117,7 @@ namespace FeelItaly.Controllers{
         }
 
         [Authorize]
-        public IActionResult ExecuteReceita(int idreceita, int numero, string username, long tempo){
+        public IActionResult ExecuteReceita(int idreceita, int numero, string username, long tempo, bool subreceita){
             PassoTotal res = new PassoTotal();
             int nrpassos = receitapassoHandling.getNrPassosdaReceita(idreceita);
             int idpasso = receitapassoHandling.getPassoNumDaReceita(idreceita,numero);
@@ -155,6 +155,17 @@ namespace FeelItaly.Controllers{
                 res.ingrediente = null;
             }
 
+            // SubReceita
+            if (p.idReceita == -1) res.subreceita = null;
+            else
+            {
+                res.subreceita = receitaHandling.getReceita(p.idReceita);
+            }
+
+            if (subreceita == true) res.modo_subreceita = true;
+            else res.modo_subreceita = false;
+
+
             // Utensílios
             List<Utensilio> utensilios = new List<Utensilio>();
             List<UtensilioPasso> ups = utensiliopassoHandling.selectUtensiliosPassos(idpasso);
@@ -183,7 +194,7 @@ namespace FeelItaly.Controllers{
 
 
 
-
+            res.passo = p;
             res.idReceita = idreceita;
             res.desc_passo = desc_passo;
             res.utensilios = utensilios;
