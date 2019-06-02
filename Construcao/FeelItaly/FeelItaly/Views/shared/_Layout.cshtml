@@ -25,20 +25,23 @@
                                     Bem-vindo @User.Identity.Name (LogOut)
                                 </a>
                             </li>
-                            <li>
+                            <a>
                                 <a href="#" class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-item">Autenticado como <b>@User.Identity.Name</b></li>
                                     <li class="dropdown-divider"></li>
-                                    <li class="dropdown-item">Seu Perfil</li>
                                     <a class="dropdown-item" asp-controller="HistoricoView" asp-action="GetHistorico" asp-route-username="@User.Identity.Name" >
                                         Suas Estatísticas
                                     </a>
-                                    <li class="dropdown-item">Sua Despensa</li>
+                                    <a class="dropdown-item" asp-controller="Home" asp-action="GestaoDespensa">
+                                        Sua Despensa
+                                    </a>
                                     <li class="dropdown-divider"></li>
-                                    <li class="dropdown-item">Definições</li>
+                                    <a class="dropdown-item" asp-controller="UtilizadorView" asp-action="AreaPessoal">
+                                        Definições de Conta
+                                    </a>
                                     <a class="dropdown-item" asp-controller="UtilizadorView" asp-action="Logout">
                                         LogOut
                                     </a>

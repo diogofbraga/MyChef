@@ -23,31 +23,37 @@ namespace FeelItaly.Controllers
             historicoHandling = new HistoricoHandling(hcontext);
             receitaHandling = new ReceitaHandling(rcontext);
             receitapassoHandling = new ReceitaPassoHandling(rpcontext);
-            passoHandling = new PassoHandling(pcontext); 
+            passoHandling = new PassoHandling(pcontext);
         }
 
         [HttpGet]
-        public IActionResult GetHistorico(string username)
+        public IActionResult GetHistorico(string username, string remove)
         {
+            if (remove == "true")
+            {
+                historicoHandling.removeHistorico(username);
+            }
+
             Historico[] his = historicoHandling.getHistorico(username);
 
             var map = new Dictionary<int, int>();
 
-            foreach (Historico h in his) {
-                if (!map.ContainsKey(h.idReceita)) 
-                { 
-                    if(h.NrPasso == 1)
-                        map.Add(h.idReceita, 1); 
+            foreach (Historico h in his)
+            {
+                if (!map.ContainsKey(h.idReceita))
+                {
+                    if (h.NrPasso == 1 || h.NrPasso == 2)
+                        map.Add(h.idReceita, 1);
                 }
                 else
                 {
-                    if (h.NrPasso == 1)
+                    if (h.NrPasso == 1 || h.NrPasso == 2)
                         map[h.idReceita]++;
                 }
             }
 
             Dictionary<Receita, int> mapreceita = new Dictionary<Receita, int>();
-            Dictionary<Receita, (double,double)> mapreceitatempo = new Dictionary<Receita, (double,double)>();
+            Dictionary<Receita, (double, double)> mapreceitatempo = new Dictionary<Receita, (double, double)>();
 
             Dictionary<int, int>.KeyCollection keyColl = map.Keys;
             int count = 0;
@@ -61,10 +67,10 @@ namespace FeelItaly.Controllers
                 // melhor tempo
                 int nr_passos = receitapassoHandling.getNrPassosdaReceita(i);
                 List<int> rpassos = receitapassoHandling.getPassosDaReceita(i);
-                double estimado = getTempoReceita(rpassos); 
-                double melhor_tempo = historicoHandling.getMelhorTempoReceita(username,i,nr_passos);
+                double estimado = getTempoReceita(rpassos);
+                double melhor_tempo = historicoHandling.getMelhorTempoReceita(username, i, nr_passos);
                 var t = (estimado, melhor_tempo);
-                mapreceitatempo.Add(r,t);
+                mapreceitatempo.Add(r, t);
             }
 
             HistoricoStat hs = new HistoricoStat();

@@ -47,5 +47,14 @@ namespace FeelItaly.shared
             return tempo;
         }
 
+        public void removeHistorico(string username) {
+            Historico[] his = _context.historico.Where(b => b.username == username).ToArray();
+            foreach(Historico h in his) 
+            {
+                _context.historico.Remove(h);
+                _context.SaveChanges();
+            }
+        }
+
     }
 }

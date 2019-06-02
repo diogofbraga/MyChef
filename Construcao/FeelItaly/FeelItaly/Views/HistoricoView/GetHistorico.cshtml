@@ -40,18 +40,22 @@
 
         @{
             var i = 1;
-            foreach(var r in Model.tempos.Keys)
+            foreach (var r in Model.tempos.Keys)
             {
                 string s = "q" + i;
-                var tam1 = Math.Floor((@Model.tempos[r].Item1 * 300) / 75);
-                var tam2 = Math.Floor((@Model.tempos[r].Item2 * 300) / 75);
+                var sec1 = (@Model.tempos[r].Item1 / 60);
+                var sec2 = (@Model.tempos[r].Item2 / 60);
+                var sec1r = Math.Round(sec1);
+                var sec2r = Math.Round(sec2);
+                var tam1 = Math.Floor((sec1 * 300) / 75);
+                var tam2 = Math.Floor((sec2 * 300) / 75);
                 string s1 = tam1 + "px;";
                 string s2 = tam2 + "px;";
 
                 <tr class="qtr" id="@s">
                     <th scope="row">@r.nome</th>
-                    <td class="sent bar" style="height: @s1"><p>@Model.tempos[r].Item1</p></td>
-                    <td class="paid bar" style="height: @s2"><p>@Model.tempos[r].Item2</p></td>
+                    <td class="sent bar" style="height: @s1"><p>@sec1r</p></td>
+                    <td class="paid bar" style="height: @s2"><p>@sec2r</p></td>
                 </tr>
 
                 i++;
@@ -62,10 +66,18 @@
 </table>
 
 <div id="ticks">
+    <div class="tick" style="height: 59px;"><p>90 min</p></div>
     <div class="tick" style="height: 59px;"><p>75 min</p></div>
     <div class="tick" style="height: 59px;"><p>60 min</p></div>
     <div class="tick" style="height: 59px;"><p>45 min</p></div>
     <div class="tick" style="height: 59px;"><p>30 min</p></div>
-    <div class="tick" style="height: 59px;"><p>15 min</p></div>
 </div>
+
+<p>
+    <a asp-controller="HistoricoView" asp-action="GetHistorico" asp-route-username="@User.Identity.Name" asp-route-remove="true">
+        <div class="form-group center">
+            <input type="submit" value="Apagar Histórico" class="btn btn-default btn-success" />
+        </div>
+    </a>
+</p>
 
