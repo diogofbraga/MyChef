@@ -17,10 +17,12 @@ namespace FeelItaly.Controllers{
     public class UtilizadorViewController : Controller{
 
         private UtilizadorHandling utilizadorHandling;
+        private HistoricoHandling historicoHandling;
 
-        public UtilizadorViewController(UtilizadorContext context){
+        public UtilizadorViewController(UtilizadorContext context, HistoricoContext hcontext){
             //_context = context;
             utilizadorHandling = new UtilizadorHandling(context);
+            historicoHandling = new HistoricoHandling(hcontext);
         }
 
         // GET: /<controller>/
@@ -83,6 +85,21 @@ namespace FeelItaly.Controllers{
 
         [HttpGet]
         public async Task<IActionResult> Logout(){
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult AreaPessoal()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> RemoveConta(string username)
+        {
+            historicoHandling.removeHistorico(username);
+            utilizadorHandling.removeUtilizador(username);
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }

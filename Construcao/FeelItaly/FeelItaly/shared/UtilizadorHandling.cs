@@ -30,6 +30,7 @@ namespace FeelItaly.shared{
             return true;
         }
 
+
         public bool registerUtilizador(Utilizador user){
             //user.passwd = MyHelpers.HashPassword(user.passwd);
             var returnedUser = _context.utilizador.Where(b => b.username == user.username && b.passwd == user.passwd).FirstOrDefault();
@@ -40,5 +41,13 @@ namespace FeelItaly.shared{
             }
             return false;
         }
+
+        public void removeUtilizador(string username) 
+        {
+            Utilizador u = _context.utilizador.Where(b => b.username == username).FirstOrDefault();
+            _context.utilizador.Remove(u);
+            _context.SaveChanges();
+        }
+
     }
 }

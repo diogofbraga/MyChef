@@ -1,0 +1,14 @@
+﻿
+<h1>Área Pessoal</h1>
+
+<a asp-controller="UtilizadorView" asp-action="RemoveConta" asp-route-username="@User.Identity.Name">
+    <div class="form-group center">
+        <input type="submit" value="Remover Conta" class="btn btn-default btn-success btn-lg" />
+    </div>
+</a>
+
+<form asp-controller="Home" asp-action="Index">
+    <div class="form-group center">
+        <input type="submit" value="Menu" class="btn btn-default btn-success btn-lg" />
+    </div>
+</form>
