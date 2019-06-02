@@ -39,7 +39,7 @@ namespace FeelItaly.Models{
         public Passo Passo { set; get; }
 
         [Required]
-        public long TempoPasso { set; get; }
+        public double TempoPasso { set; get; }
 
         [Required]
         public DateTime Dataa { set; get; }
