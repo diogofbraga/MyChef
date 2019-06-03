@@ -50,7 +50,7 @@ namespace FeelItaly.Controllers{
         }
 
         // GET: /<controller>/
-        public IActionResult GetReceitas()
+        public IActionResult GetReceitas(string categoria, int tempo, List<string> ingredientes)
         {
             Receita[] recipes = receitaHandling.getReceitas();
             foreach (Receita r in recipes)
@@ -74,7 +74,39 @@ namespace FeelItaly.Controllers{
                     r.ReceitaPassos.ElementAt(i).Passo = p;
                 }
             }
-            return View(recipes);
+
+            if ((categoria == null) && (tempo == 0) && (ingredientes.Count == 0))
+                return View(recipes);
+
+            // receitas totais
+            Receita[] res = new Receita[recipes.Length];
+            int contador = 0;
+            foreach (Receita r in recipes)
+            {
+                for (int i = 0; i < r.CategoriasReceitas.Count; i++)
+                {
+                    if (r.CategoriasReceitas.ElementAt(i).Equals(categoria))
+                    {
+                        if (r.tempoTotal <= tempo)
+                        {
+                            foreach (ReceitaPasso rp in r.ReceitaPassos)
+                            {
+                                foreach (string s in ingredientes)
+                                {
+                                    if (rp.Passo.Ingrediente.Nome.Equals(s))
+                                        res[contador++] = r;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            Receita[] resultado = new Receita[contador];
+            for (int i = 0; i < contador; i++)
+                resultado[i] = res[i];
+
+            return View(resultado);
         }
 
         public IActionResult SelectReceita(int id){
