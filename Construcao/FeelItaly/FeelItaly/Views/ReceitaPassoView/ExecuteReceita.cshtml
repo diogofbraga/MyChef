@@ -84,7 +84,7 @@
                                 <input id="prox" type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
                                 <i class="right"></i>
                             </div>
-                    </form>
+                        </form>
                     }
                     else{
                         <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-username="@User.Identity.Name" asp-route-tempo="@Model.tempo_atual" asp-route-subreceita="true" asp-route-subreceita_num_anterior="@Model.subreceita_num_anterior" asp-route-subreceita_id_principal="@Model.subreceita_id_principal">
