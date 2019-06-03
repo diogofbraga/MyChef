@@ -147,7 +147,7 @@ INSERT INTO Receita
 VALUES(1,'Carbonara',655.0,25,4.3)
 
 INSERT INTO Receita
-VALUES(2,'Molho de Tomate',80.0,50,4.0)
+VALUES(2,'Molho de Tomate',80.0,50,3.5)
 
 INSERT INTO Receita
 VALUES(3,'Pizza Marguerita',204.0,90,4.7)
@@ -156,10 +156,10 @@ INSERT INTO Receita
 VALUES(4,'Lasanha de Legumes',500.0,45,4.2)
 
 INSERT INTO Receita
-VALUES(5,'Tagliatelle Com Cogumelos',700.0,50,4.0)
+VALUES(5,'Tagliatelle Com Cogumelos',700.0,50,3.7)
 
 INSERT INTO Receita
-VALUES(6,'Raviolis de Espargos',600.0,50,4.0)
+VALUES(6,'Raviolis de Espargos',600.0,50,2.6)
 
 -- CategoriasReceitas
 -- Id INT, IdCategoria INT, IdReceita INT
