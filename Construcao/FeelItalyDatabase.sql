@@ -139,6 +139,9 @@ VALUES(6,'Entradas')
 INSERT INTO Categoria
 VALUES(7,'Sobremesa')
 
+INSERT INTO Categoria
+VALUES(8,'Vegetariano')
+
 
 -- Receitas
 -- IdReceita INT, Nome NVARCHAR(100), Nutricional FLOAT, TempoTotal INT, Avaliacao FLOAT
@@ -172,6 +175,15 @@ VALUES(2,2,2)
 
 INSERT INTO CategoriaReceita
 VALUES(3,2,3)
+
+INSERT INTO CategoriaReceita
+VALUES(4,8,4)
+
+INSERT INTO CategoriaReceita
+VALUES(5,1,5)
+
+INSERT INTO CategoriaReceita
+VALUES(6,1,6)
 
 -- ConfiguraçõesIniciais
 -- IdReceita INT, Username NVARCHAR(32)
