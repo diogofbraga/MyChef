@@ -4,60 +4,98 @@
 <link rel="stylesheet" href="~/css/GetReceitas_Filter.css" />
 <script src="~/js/Filter.js"></script>
 
+<
 <body>
     <h1 class="display-4">Receitas</h1>
 
-    <div class="sidenav" id="filtros" style="display:none">
-        <button onclick="_closeFilter()" class="-bar -item -large">Close &times;</button>
 
-        <div class="sidenav">
-            <h3>Filtros</h3>
-            <div class="card-body">
-                <form>
-                    <label class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <span class="form-check-label">
-                            Massa
-                        </span>
-                    </label> <!-- form-check.// -->
-                    <label class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <span class="form-check-label">
-                            Pizza
-                        </span>
-                    </label>  <!-- form-check.// -->
-                    <label class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <span class="form-check-label">
-                            Molhos
-                        </span>
-                    </label>  <!-- form-check.// -->
-                </form>
-                <button class="btn-save btn btn-primary btn-sm" onclick="_executeFilter()">Save</button>
+    <input id="clicker" type="checkbox" onclick="_openFilter()"/>
+    <label for="clicker">Filtros</label>
+    
+    <div class="panel-wrap">
+        <div class="panel">
+            <div class="sidenav" id="filtros" style="display:none">
+
+                <div class="sidenav">
+                    <h3>Filtros</h3>
+                    <div class="card-body">
+                        <form>
+                            <label class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="Massa" onclick="_showMassas()">
+                                <span class="form-check-label">
+                                    Massa
+                                </span>
+                            </label> <!-- form-check.// -->
+                            <label class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="Pizza" onclick="_showPizza()">
+                                <span class="form-check-label">
+                                    Pizza
+                                </span>
+                            </label>  <!-- form-check.// -->
+                            <label class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="Tarte" onclick="_showTartes()">
+                                <span class="form-check-label">
+                                    Tartes
+                                </span>
+                            </label>  <!-- form-check.// -->
+                            <label class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="Carne" onclick="_showCarnes()">
+                                <span class="form-check-label">
+                                    Carne
+                                </span>
+                            </label> <!-- form-check.// -->
+                            <label class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="Peixe" onclick="_showPeixe()">
+                                <span class="form-check-label">
+                                    Peixe
+                                </span>
+                            </label>  <!-- form-check.// -->
+                            <label class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="Entradas" onclick="_showEntradas()">
+                                <span class="form-check-label">
+                                    Entradas
+                                </span>
+                            </label>  <!-- form-check.// -->
+                            <label class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="Sobremesa" onclick="_showSobremesas()">
+                                <span class="form-check-label">
+                                    Sobremesa
+                                </span>
+                            </label> <!-- form-check.// -->
+                            <label class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="Vegetariano" onclick="_showVegetariano()">
+                                <span class="form-check-label">
+                                    Vegetariano
+                                </span>
+                            </label>  <!-- form-check.// -->
+                        </form>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <select id="selectBox" onchange="changeFunc();">
+                        <option onclick="_noFilter()">Tempo</option>
+                        <option value="15">&lt;15min</option>
+                        <option value="30">&lt;30min</option>
+                        <option value="45">&lt;45min</option>
+                        <option value="60">&lt;60min</option>
+                    </select>
+
+
+                </div>
+
             </div>
-            <br>
-            <br>
-
-            <select>
-                <option>Tempo</option>
-                <option value="<15">&lt;15min</option>
-                <option value="<30">&lt;30min</option>
-                <option value="<45">&lt;45min</option>
-                <option value="<60">&lt;60min</option>
-            </select>
-
 
         </div>
-
     </div>
-
-    <div class="-teal">
-        <button class="-button -teal -xlarge" onclick="_openFilter()">&#9776</button>
-        <div class="-container">
+    <!--    <div class="-teal">
+            <button class="-button -teal -xlarge" id="clicker" onclick="_openFilter()">&#9776</button>
+            <div class="-container">
+            </div>
         </div>
-    </div>
 
-
+    -->
 
     <div class="receitas" id="listaReceitas">
         @{for (var i = 0; i < (Model.Length / 3); i++)
@@ -81,7 +119,7 @@
         }
     </div>
 
-    <div class="receitasFiltros" id="receitasFiltros" style="display:none">
+    <div class="receitasFiltros" id="receitasMassas" style="display:none">
 
         @{for (var i = 0; i < (Model.Length / 3); i++)
             {
@@ -111,6 +149,345 @@
             }
         }
     </div>
+
+    <div class="receitasFiltros" id="receitasPizza" style="display:none">
+
+        @{for (var i = 0; i < (Model.Length / 3); i++)
+            {
+                <div class="hover01 column">
+                    @{ for (var j = 0; j < 3; j++)
+                        {
+                            var rec = Model[(3 * i) + j];
+                            string path = "~/images/" + rec.nome + ".jpg";
+
+                            @foreach (var cat in rec.CategoriasReceitas)
+                            {
+                                @if (cat.categoria.descricao == "Pizzas")
+                                {
+
+                                    <div>
+                                        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                                            <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                                            <span>@rec.nome</span>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+
+
+    <div class="receitasFiltros" id="receitasTartes" style="display:none">
+
+        @{for (var i = 0; i < (Model.Length / 3); i++)
+            {
+                <div class="hover01 column">
+                    @{ for (var j = 0; j < 3; j++)
+                        {
+                            var rec = Model[(3 * i) + j];
+                            string path = "~/images/" + rec.nome + ".jpg";
+
+                            @foreach (var cat in rec.CategoriasReceitas)
+                            {
+                                @if (cat.categoria.descricao == "Tartes")
+                                {
+
+                                    <div>
+                                        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                                            <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                                            <span>@rec.nome</span>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <div class="receitasFiltros" id="receitasPeixe" style="display:none">
+
+        @{for (var i = 0; i < (Model.Length / 3); i++)
+            {
+                <div class="hover01 column">
+                    @{ for (var j = 0; j < 3; j++)
+                        {
+                            var rec = Model[(3 * i) + j];
+                            string path = "~/images/" + rec.nome + ".jpg";
+
+                            @foreach (var cat in rec.CategoriasReceitas)
+                            {
+                                @if (cat.categoria.descricao == "Peixe")
+                                {
+
+                                    <div>
+                                        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                                            <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                                            <span>@rec.nome</span>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <div class="receitasFiltros" id="receitasCarne" style="display:none">
+
+        @{for (var i = 0; i < (Model.Length / 3); i++)
+            {
+                <div class="hover01 column">
+                    @{ for (var j = 0; j < 3; j++)
+                        {
+                            var rec = Model[(3 * i) + j];
+                            string path = "~/images/" + rec.nome + ".jpg";
+
+                            @foreach (var cat in rec.CategoriasReceitas)
+                            {
+                                @if (cat.categoria.descricao == "Carne")
+                                {
+
+                                    <div>
+                                        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                                            <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                                            <span>@rec.nome</span>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <div class="receitasFiltros" id="receitasEntradas" style="display:none">
+
+        @{for (var i = 0; i < (Model.Length / 3); i++)
+            {
+                <div class="hover01 column">
+                    @{ for (var j = 0; j < 3; j++)
+                        {
+                            var rec = Model[(3 * i) + j];
+                            string path = "~/images/" + rec.nome + ".jpg";
+
+                            @foreach (var cat in rec.CategoriasReceitas)
+                            {
+                                @if (cat.categoria.descricao == "Entradas")
+                                {
+
+                                    <div>
+                                        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                                            <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                                            <span>@rec.nome</span>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <div class="receitasFiltros" id="receitasSobremesa" style="display:none">
+
+        @{for (var i = 0; i < (Model.Length / 3); i++)
+            {
+                <div class="hover01 column">
+                    @{ for (var j = 0; j < 3; j++)
+                        {
+                            var rec = Model[(3 * i) + j];
+                            string path = "~/images/" + rec.nome + ".jpg";
+
+                            @foreach (var cat in rec.CategoriasReceitas)
+                            {
+                                @if (cat.categoria.descricao == "Sobremesa")
+                                {
+
+                                    <div>
+                                        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                                            <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                                            <span>@rec.nome</span>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <div class="receitasFiltros" id="receitasVegatariano" style="display:none">
+
+        @{for (var i = 0; i < (Model.Length / 3); i++)
+            {
+                <div class="hover01 column">
+                    @{ for (var j = 0; j < 3; j++)
+                        {
+                            var rec = Model[(3 * i) + j];
+                            string path = "~/images/" + rec.nome + ".jpg";
+
+                            @foreach (var cat in rec.CategoriasReceitas)
+                            {
+                                @if (cat.categoria.descricao == "Vegetariano")
+                                {
+
+                                    <div>
+                                        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                                            <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                                            <span>@rec.nome</span>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <div class="receitasFiltros" id="tempo15" style="display:none">
+
+        @{for (var i = 0; i < (Model.Length / 3); i++)
+            {
+                <div class="hover01 column">
+                    @{ for (var j = 0; j < 3; j++)
+                        {
+                            var rec = Model[(3 * i) + j];
+                            string path = "~/images/" + rec.nome + ".jpg";
+
+
+                            @if (rec.tempoTotal <= 15)
+                            {
+
+                                <div>
+                                    <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                                        <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                                        <span>@rec.nome</span>
+                                    </a>
+                                </div>
+                            }
+
+
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <div class="receitasFiltros" id="tempo30" style="display:none">
+
+        @{for (var i = 0; i < (Model.Length / 3); i++)
+            {
+                <div class="hover01 column">
+                    @{ for (var j = 0; j < 3; j++)
+                        {
+                            var rec = Model[(3 * i) + j];
+                            string path = "~/images/" + rec.nome + ".jpg";
+
+
+                            @if (rec.tempoTotal <= 30)
+                            {
+
+                                <div>
+                                    <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                                        <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                                        <span>@rec.nome</span>
+                                    </a>
+                                </div>
+                            }
+
+
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <div class="receitasFiltros" id="tempo45" style="display:none">
+
+        @{for (var i = 0; i < (Model.Length / 3); i++)
+            {
+                <div class="hover01 column">
+                    @{ for (var j = 0; j < 3; j++)
+                        {
+                            var rec = Model[(3 * i) + j];
+                            string path = "~/images/" + rec.nome + ".jpg";
+
+
+                            @if (rec.tempoTotal <= 45)
+                            {
+
+                                <div>
+                                    <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                                        <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                                        <span>@rec.nome</span>
+                                    </a>
+                                </div>
+                            }
+
+
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <div class="receitasFiltros" id="tempo60" style="display:none">
+
+        @{for (var i = 0; i < (Model.Length / 3); i++)
+            {
+                <div class="hover01 column">
+                    @{ for (var j = 0; j < 3; j++)
+                        {
+                            var rec = Model[(3 * i) + j];
+                            string path = "~/images/" + rec.nome + ".jpg";
+
+
+                            @if (rec.tempoTotal <= 60)
+                            {
+
+                                <div>
+                                    <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                                        <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                                        <span>@rec.nome</span>
+                                    </a>
+                                </div>
+                            }
+
+
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+
 
 
 </body>
