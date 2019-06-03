@@ -1,10 +1,9 @@
 ﻿@model FeelItaly.Models.Utilizador
 
-
-<h4>Novo Utilizador</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<link rel="stylesheet" href="~/css/log_reg.css" />
+<h1>Novo Utilizador</h1>
+<div class="row center">
+    <div class="col-md-4 center">
         @if (TempData["Success"] != null){
             <p class="alert alert-success">@TempData["Success"]  
             <a asp-action="LoginUtilizador">Clique aqui para realizar LogIn</a>
@@ -16,26 +15,26 @@
         <form asp-action="RegisterUtilizador">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="nome" class="control-label">Nome</label>
+                <label asp-for="nome" class="control-label center">Nome</label>
                 <input asp-for="nome" class="form-control" />
                 <span asp-validation-for="nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="email" class="control-label">Email</label>
+                <label asp-for="email" class="control-label center">Email</label>
                 <input asp-for="email" class="form-control" />
                 <span asp-validation-for="email" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="username" class="control-label">Username</label>
+            <div class="form-group"> 
+                <label asp-for="username" class="control-label center">Username</label>
                 <input asp-for="username" class="form-control" />
                 <span asp-validation-for="username" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="passwd" class="control-label">Password</label>
+                <label asp-for="passwd" class="control-label center">Password</label>
                 <input asp-for="passwd" class="form-control" type="password"/>
                 <span asp-validation-for="passwd" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group center">
                 <input type="submit" value="Registo" class="btn btn-default btn-primary" />
             </div>
         </form>
