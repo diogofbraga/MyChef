@@ -61,15 +61,15 @@
 
                 @if (Model.modo_subreceita == false){
                     <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
-                        <div class="form-group center">
-                            <input id="repete" type="submit" value="Repetir Passo" class="btn btn-default btn-success" />
+                        <div class="form-group play_button3">
+                            <input id="repete" type="submit" value="            &#x21BB;            " class="btn btn-default btn-success" />
                         </div>
                     </form>
                 }
                 else{
                     <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-subreceita="true" asp-route-subreceita_num_anterior="@Model.subreceita_num_anterior" asp-route-subreceita_id_principal="@Model.subreceita_id_principal">
-                        <div class="form-group center">
-                            <input id="repete" type="submit" value="Repetir Passo" class="btn btn-default btn-success" />
+                        <div class="form-group play_button3">
+                            <input id="repete" type="submit" value="            &#x21BB;            " class="btn btn-default btn-success" />
                         </div>
                     </form>
                 }
@@ -80,16 +80,18 @@
                     @if (Model.modo_subreceita == false){
                         <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-username="@User.Identity.Name" asp-route-tempo="@Model.tempo_atual">
                             <a asp-route-tempo= id="e"></a>
-                            <div class="form-group center" id="next-page">
+                            <div class="form-group play_button2" id="next-page">
                                 <input id="prox" type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
+                                <i class="right"></i>
                             </div>
                     </form>
                     }
                     else{
                         <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-username="@User.Identity.Name" asp-route-tempo="@Model.tempo_atual" asp-route-subreceita="true" asp-route-subreceita_num_anterior="@Model.subreceita_num_anterior" asp-route-subreceita_id_principal="@Model.subreceita_id_principal">
                             <a asp-route-tempo= id="e"></a>
-                            <div class="form-group center" id="next-page">
+                            <div class="form-group play_button2" id="next-page">
                                 <input id="prox" type="submit" value="Próximo Passo" class="btn btn-default btn-success" />
+                                <i class="right"></i>
                             </div>
                         </form>
                     }
@@ -98,16 +100,18 @@
                 @if (Model.numero - 1 == Model.nrpassos){
                     @if (Model.modo_subreceita == false){
                         <form asp-controller="ReceitaPassoView" asp-action="RatingReceita" asp-route-idreceita="@Model.idReceita">
-                            <div class="form-group center">
+                            <div class="form-group play_button2">
                                 <input id="finalizar" type="submit" value="Finalizar" class="btn btn-default btn-success" />
+                                <i class="right"></i>
                             </div>
                         </form>
                     }
                     else{
                         int proximo = Model.subreceita_num_anterior + 1;
                         <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.subreceita_id_principal" asp-route-numero="@proximo">
-                            <div class="form-group center">
+                            <div class="form-group play_button2">
                                 <input id="finalizar" type="submit" value="Finalizar" class="btn btn-default btn-success" />
+                                <i class="right"></i>
                             </div>
                         </form>
                     }
@@ -119,14 +123,16 @@
                 @if (Model.numero <= Model.nrpassos && Model.numero != 0){
                     @if (Model.modo_subreceita == false){
                         <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero">
-                            <div class="form-group center">
+                            <div class="form-group play_button1">
+                                <i class="left"></i>
                                 <input id="ant" type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
                             </div>
                         </form>
                     }
                     else{
                         <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.idReceita" asp-route-numero="@Model.numero" asp-route-subreceita="true" asp-route-subreceita_num_anterior="@Model.subreceita_num_anterior" asp-route-subreceita_id_principal="@Model.subreceita_id_principal">
-                            <div class="form-group center">
+                            <div class="form-group play_button1">
+                                <i class="left"></i>
                                 <input id="ant" type="submit" value="Voltar ao Anterior" class="btn btn-default btn-success" />
                             </div>
                         </form>
@@ -136,14 +142,16 @@
                 @if (Model.numero <= Model.nrpassos && Model.numero == 0){
                     @if (Model.modo_subreceita == false){
                         <form asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@Model.idReceita">
-                            <div class="form-group center">
+                            <div class="form-group play_button1">
+                                <i class="left"></i>
                                 <input type="submit" value="Voltar à Receita" class="btn btn-default btn-success" />
                             </div>
                         </form>
                     }
                     else{
                         <form asp-controller="ReceitaPassoView" asp-action="ExecuteReceita" asp-route-idreceita="@Model.subreceita_id_principal" asp-route-numero="@Model.subreceita_num_anterior">
-                            <div class="form-group center">
+                            <div class="form-group play_button1">
+                                <i class="left"></i>
                                 <input type="submit" value="Voltar à Receita Principal" class="btn btn-default btn-success" />
                             </div>
                         </form>
@@ -160,7 +168,7 @@
             {
                 <h3>Ingrediente</h3>
                 <ul>
-                    <li class="center">@Model.ingrediente.Nome</li>
+                    <li>@Model.ingrediente.Nome</li>
                 </ul>
             }
 
@@ -170,9 +178,18 @@
                 <ul>
                     @for (int i = 0; i < Model.utensilios.Count(); i++)
                     {
-                        <li class="center">@Model.utensilios.ElementAt(i).Descricao</li>
+                        <li>@Model.utensilios.ElementAt(i).Descricao</li>
                     }
                 </ul>
+            }
+
+            @{
+                var min = Math.Ceiling(Model.passo.TempoParcial / 60);
+
+                <div class="center">
+                    <img src="~/images/clock.png" height="200" width="200" />
+                    <b>@min min.</b>
+                </div>
             }
 
         </aside>
