@@ -1,6 +1,6 @@
 ﻿@model FeelItaly.Models.HistoricoStat
 
-<link rel="stylesheet" href="~/css/GetHistorico.css" />
+<link rel="stylesheet" href="~/css/Historico.css" />
 
 <dl>
     <dt>
@@ -47,8 +47,8 @@
                 var sec2 = (@Model.tempos[r].Item2 / 60);
                 var sec1r = Math.Round(sec1);
                 var sec2r = Math.Round(sec2);
-                var tam1 = Math.Floor((sec1 * 300) / 75);
-                var tam2 = Math.Floor((sec2 * 300) / 75);
+                var tam1 = Math.Floor((sec1 * 375) / 90);
+                var tam2 = Math.Floor((sec2 * 375) / 90);
                 string s1 = tam1 + "px;";
                 string s2 = tam2 + "px;";
 
@@ -66,11 +66,11 @@
 </table>
 
 <div id="ticks">
-    <div class="tick" style="height: 59px;"><p>90 min</p></div>
     <div class="tick" style="height: 59px;"><p>75 min</p></div>
     <div class="tick" style="height: 59px;"><p>60 min</p></div>
     <div class="tick" style="height: 59px;"><p>45 min</p></div>
     <div class="tick" style="height: 59px;"><p>30 min</p></div>
+    <div class="tick" style="height: 59px;"><p>15 min</p></div>
 </div>
 
 <p>

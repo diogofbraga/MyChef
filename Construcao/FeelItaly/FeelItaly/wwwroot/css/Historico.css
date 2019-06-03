@@ -1,6 +1,5 @@
 ﻿dl {
     display: flex;
-    background-color: white;
     flex-direction: column;
     width: 100%;
     max-width: 700px;
@@ -26,7 +25,6 @@ dt {
     align-items: center;
     height: 40px;
     width: 130px;
-    background-color: white;
     position: absolute;
     left: 0;
     justify-content: flex-end;
@@ -472,7 +470,7 @@ html, body {
     /* fixes layout wonkiness in FF1.5 */
     position: relative;
     width: 600px;
-    height: 300px;
+    height: 375px;
     margin: 1.1em 0 0;
     padding: 0;
     background: transparent;
