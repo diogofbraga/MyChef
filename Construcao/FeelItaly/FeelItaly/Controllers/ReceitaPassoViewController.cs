@@ -237,10 +237,7 @@ namespace FeelItaly.Controllers{
             receita.tempoTotal = rec.tempoTotal;
             receita.avaliacao = (avaliacao + rec.avaliacao) / 2;
 
-            if (ModelState.IsValid)
-            {
-                this.receitaHandling.registerReceita(receita);
-            }
+            this.receitaHandling.registerReceita(receita);
                 
             return View(receita);
         }
