@@ -58,16 +58,5 @@ namespace FeelItaly.Models{
 
         public DbSet<Models.Historico> historico { get; set; }
 
-        /*
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-
-            // define nome do esquema
-            modelBuilder.HasDefaultSchema("FeelItaly");
-
-            // transforma classes em tabelas SQL
-            modelBuilder.Entity<Utilizador>().ToTable("Utilizador");
-        }*/
-
     }
 }

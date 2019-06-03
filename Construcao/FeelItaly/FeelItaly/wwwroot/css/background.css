@@ -1,0 +1,10 @@
+﻿.back-ground {
+    background-image: url("../images/background2.jpg");
+    background-color: #FFFFFF;
+    height: 1200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
