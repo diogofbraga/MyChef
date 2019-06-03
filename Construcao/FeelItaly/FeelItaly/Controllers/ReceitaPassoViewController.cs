@@ -24,12 +24,16 @@ namespace FeelItaly.Controllers{
         private UtensilioHandling utensilioHandling;
         private TutorialHandling tutorialHandling;
         private HistoricoHandling historicoHandling;
+        private CategoriaReceitaHandling categoriareceitaHandling;
+        private CategoriaHandling categoriaHandling;
+
 
         public ReceitaPassoViewController(ReceitaContext receitacontext,ReceitaPassoContext receitapassocontext, 
                                           PassoContext passocontext, IngredienteContext ingredientecontext,
                                           AcaoContext acaocontext, ComentarioContext comentariocontext, 
                                           UtensilioPassoContext utensiliopassocontext, UtensilioContext utensiliocontext,
-                                          TutorialContext tutorialcontext, HistoricoContext historicocontext)
+                                          TutorialContext tutorialcontext, HistoricoContext historicocontext,
+                                          CategoriaReceitaContext crcontext, CategoriaContext ccontext)
         {
             receitaHandling = new ReceitaHandling(receitacontext);
             receitapassoHandling = new ReceitaPassoHandling(receitapassocontext);
@@ -41,12 +45,35 @@ namespace FeelItaly.Controllers{
             utensilioHandling = new UtensilioHandling(utensiliocontext);
             tutorialHandling = new TutorialHandling(tutorialcontext);
             historicoHandling = new HistoricoHandling(historicocontext);
+            categoriareceitaHandling = new CategoriaReceitaHandling(crcontext);
+            categoriaHandling = new CategoriaHandling(ccontext);
         }
 
         // GET: /<controller>/
         public IActionResult GetReceitas()
         {
             Receita[] recipes = receitaHandling.getReceitas();
+            foreach (Receita r in recipes)
+            {
+                // vai buscar categorias
+                CategoriaReceita[] crs = categoriareceitaHandling.getCategoriaReceita(r.idReceita);
+                r.CategoriasReceitas = crs;
+                for (int i = 0; i < crs.Length; i++)
+                {
+                    r.CategoriasReceitas.ElementAt(i).categoria = categoriaHandling.getCategoria(r.CategoriasReceitas.ElementAt(i).idCategoria);
+                }
+
+                // vai buscar ingrediente
+                ReceitaPasso[] rps = receitapassoHandling.getPassosdaReceita(r.idReceita);
+                r.ReceitaPassos = rps;
+                for (int i = 0; i < rps.Length; i++)
+                {
+                    Passo p = passoHandling.selectPasso(r.ReceitaPassos.ElementAt(i).IdPasso);
+                    Ingrediente ing = ingredienteHandling.selectIngrediente(p.idIngrediente);
+                    p.Ingrediente = ing;
+                    r.ReceitaPassos.ElementAt(i).Passo = p;
+                }
+            }
             return View(recipes);
         }
 
