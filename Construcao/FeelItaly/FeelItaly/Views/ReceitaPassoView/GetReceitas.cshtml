@@ -1,62 +1,116 @@
 ﻿@model FeelItaly.Models.Receita[]
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="~/css/GetReceitas.css" />
-<link rel="stylesheet" href="~/css/GetReceitas_Filtro.css" />
+<link rel="stylesheet" href="~/css/GetReceitas_Filter.css" />
+<script src="~/js/Filter.js"></script>
+
+<body>
+    <h1 class="display-4">Receitas</h1>
+
+    <div class="sidenav" id="filtros" style="display:none">
+        <button onclick="_closeFilter()" class="-bar -item -large">Close &times;</button>
+
+        <div class="sidenav">
+            <h3>Filtros</h3>
+            <div class="card-body">
+                <form>
+                    <label class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <span class="form-check-label">
+                            Massa
+                        </span>
+                    </label> <!-- form-check.// -->
+                    <label class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <span class="form-check-label">
+                            Pizza
+                        </span>
+                    </label>  <!-- form-check.// -->
+                    <label class="form-check">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <span class="form-check-label">
+                            Molhos
+                        </span>
+                    </label>  <!-- form-check.// -->
+                </form>
+                <button class="btn-save btn btn-primary btn-sm" onclick="_executeFilter()">Save</button>
+            </div>
+            <br>
+            <br>
+
+            <select>
+                <option>Tempo</option>
+                <option value="<15">&lt;15min</option>
+                <option value="<30">&lt;30min</option>
+                <option value="<45">&lt;45min</option>
+                <option value="<60">&lt;60min</option>
+            </select>
 
 
-<h1 class="display-4">Receitas</h1>
-
-<input id="clicker" type="checkbox" />
-<label for="clicker">Olha os filtrinhos!</label>
-
-@{for (var i = 0; i < (Model.Length/3); i++)
-    {
-        <div class="hover01 column">
-            @{ for (var j=0; j < 3; j++)
-                {
-                    var rec = Model[(3*i)+j];
-                    string path = "~/images/" + rec.nome + ".jpg";
-
-                    <div>
-                        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
-                            <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
-                            <span>@rec.nome</span>
-                        </a>
-                    </div>
-                }
-            }
         </div>
-    }
-}
-
-<div class="panel-wrap">
-    <div class="panel">
-        <h3>Filtros</h3>
-
-        <select class="mdb-select md-form" multiple>
-            <option value="" disabled selected>Choose your country</option>
-            <option value="1">USA</option>
-            <option value="2">Germany</option>
-            <option value="3">France</option>
-            <option value="4">Poland</option>
-            <option value="5">Japan</option>
-        </select>
-        <button class="btn-save btn btn-primary btn-sm">Save</button>
-
-        <br>
-        <br>
-
-        <select>
-            <option>Tempo</option>
-            <option value="<15">&lt;15min</option>
-            <option value="<30">&lt;30min</option>
-            <option value="<45">&lt;45min</option>
-            <option value="<60">&lt;60min</option>
-        </select>
-
 
     </div>
-</div>
+
+    <div class="-teal">
+        <button class="-button -teal -xlarge" onclick="_openFilter()">&#9776</button>
+        <div class="-container">
+        </div>
+    </div>
 
 
 
+    <div class="receitas" id="listaReceitas">
+        @{for (var i = 0; i < (Model.Length / 3); i++)
+            {
+                <div class="hover01 column">
+                    @{ for (var j = 0; j < 3; j++)
+                        {
+                            var rec = Model[(3 * i) + j];
+                            string path = "~/images/" + rec.nome + ".jpg";
+
+                            <div>
+                                <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                                    <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                                    <span>@rec.nome</span>
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <div class="receitasFiltros" id="receitasFiltros" style="display:none">
+
+        @{for (var i = 0; i < (Model.Length / 3); i++)
+            {
+                <div class="hover01 column">
+                    @{ for (var j = 0; j < 3; j++)
+                        {
+                            var rec = Model[(3 * i) + j];
+                            string path = "~/images/" + rec.nome + ".jpg";
+
+                            @foreach (var cat in rec.CategoriasReceitas)
+                            {
+                                @if (cat.categoria.descricao == "Massas")
+                                {
+
+                                    <div>
+                                        <a class="nav-link text-dark" asp-controller="ReceitaPassoView" asp-action="SelectReceita" asp-route-id="@rec.idReceita">
+                                            <figure><img src="@Url.Content(path)" height="200" width="300" /></figure>
+                                            <span>@rec.nome</span>
+                                        </a>
+                                    </div>
+                                }
+
+                            }
+                        }
+                    }
+                </div>
+            }
+        }
+    </div>
+
+
+</body>
