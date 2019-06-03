@@ -256,15 +256,19 @@ namespace FeelItaly.Controllers{
         {
             Receita rec = receitaHandling.getReceita(idreceita);
 
+            if (avaliacao > 0.0 && avaliacao < 5.0)
+            {
+            
             this.receitaHandling.removeReceita(idreceita);
 
             receita.idReceita = idreceita;
             receita.nome = rec.nome;
             receita.nutricional = rec.nutricional;
             receita.tempoTotal = rec.tempoTotal;
+            
             receita.avaliacao = (avaliacao + rec.avaliacao) / 2;
-
             this.receitaHandling.registerReceita(receita);
+            }
                 
             return View(receita);
         }
