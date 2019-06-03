@@ -249,7 +249,7 @@ INSERT INTO Passo VALUES(24,10.0,'colheres de chá','2 a 3','',-1,15,13)
 
 INSERT INTO Passo VALUES(25,10.0,'','','',-1,13,14)
 
-INSERT INTO Passo VALUES(26,120.0,'','','',-1,'',15)
+INSERT INTO Passo VALUES(26,120.0,'','','varinha mágica',-1,'',15)
 
 
 INSERT INTO Passo VALUES(27,3000.0,'','','',2,17,25)
@@ -259,7 +259,7 @@ INSERT INTO Passo VALUES(30,30.0,'','','que será utilizado',-1,12,20)
 INSERT INTO Passo VALUES(31,60.0,'colheres de sopa','4', 'sobre a base da pizza',-1,17,21)
 INSERT INTO Passo VALUES(32,30.0,'','','ralada por cima do molho de tomate',-1,18,22)
 INSERT INTO Passo VALUES(33,60.0,'','','por cima da mozzarela',-1,19,21)
-INSERT INTO Passo VALUES(34,60.0,'','','com um pouco de azeite, cerca de 3 colheres de sopa',-1,1,23)
+INSERT INTO Passo VALUES(34,60.0,'colheres de sopa','2 a 3','',-1,1,23)
 INSERT INTO Passo VALUES(35,1800.0,'','','ao forno cerca de 30 minutos, até a mozzarela derreter',-1,'',24)
 INSERT INTO Passo VALUES(36,60.0,'','','a pizza do forno e salpicar com algumas folhas de manjericão por cima',-1,'',14)
 INSERT INTO Passo VALUES(37,30.0,'','','bem quente',-1,'',26)
@@ -486,6 +486,12 @@ VALUES(7,'varinha mágica')
 INSERT INTO Utensilio
 VALUES(8,'forno')
 
+INSERT INTO Utensilio
+VALUES(9,'tacho')
+
+INSERT INTO Utensilio
+VALUES(10,'ralador')
+
 
 
 -- UtensíliosPassos
@@ -495,14 +501,31 @@ INSERT INTO UtensilioPasso
 VALUES(1,1,1)
 
 INSERT INTO UtensilioPasso
-VALUES(2,2,3)
+VALUES(2,1,2)
 
 INSERT INTO UtensilioPasso
 VALUES(3,2,3)
 
 INSERT INTO UtensilioPasso
-VALUES(4,8,37)
+VALUES(4,8,35)
 
+INSERT INTO UtensilioPasso
+VALUES(5,9,8)
+
+INSERT INTO UtensilioPasso
+VALUES(6,9,9)
+
+INSERT INTO UtensilioPasso
+VALUES(7,1,11)
+
+INSERT INTO UtensilioPasso
+VALUES(8,9,20)
+
+INSERT INTO UtensilioPasso
+VALUES(9,7,26)
+
+INSERT INTO UtensilioPasso
+VALUES(10,10,29)
 
 -- Comentarios
 -- IdComentario INT, Descricao NVARCHAR(100), Dataa DATETIME, IdReceita INT
