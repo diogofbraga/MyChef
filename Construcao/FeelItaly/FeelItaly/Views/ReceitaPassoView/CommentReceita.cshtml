@@ -1,0 +1,27 @@
+﻿@model FeelItaly.Models.Comentario
+
+<link rel="stylesheet" href="~/css/RatingReceita.css" />
+
+<h1>Avaliação</h1>
+
+<p class="center">(ESTRELAS)</p>
+
+
+<form asp-controller="ReceitaPassoView" asp-action="CommentReceita" asp-route-idreceita="@Model.IdReceita">
+
+    <div class="form-group">
+        <label asp-for="Descricao" class="control-label">Inserir Comentário:</label>
+        <input asp-for="Descricao" class="form-control" />
+    </div>
+
+    <div class="form-group center">
+        <input type="submit" value="Submeter" class="btn btn-default btn-success" />
+    </div>
+</form>
+
+
+<form asp-controller="Home" asp-action="Index">
+    <div class="form-group center">
+        <input type="submit" value="Menu" class="btn btn-default btn-success btn-lg" />
+    </div>
+</form>

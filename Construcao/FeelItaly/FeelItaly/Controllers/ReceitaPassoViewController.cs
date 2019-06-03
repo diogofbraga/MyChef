@@ -225,7 +225,28 @@ namespace FeelItaly.Controllers{
         }*/
 
         [HttpPost]
-        public IActionResult RatingReceita([Bind] Comentario comentario)
+        public IActionResult RatingReceita([Bind] Receita receita, int idreceita, int avaliacao)
+        {
+            Receita rec = receitaHandling.getReceita(idreceita);
+
+            this.receitaHandling.removeReceita(idreceita);
+
+            receita.idReceita = idreceita;
+            receita.nome = rec.nome;
+            receita.nutricional = rec.nutricional;
+            receita.tempoTotal = rec.tempoTotal;
+            receita.avaliacao = (avaliacao + rec.avaliacao) / 2;
+
+            if (ModelState.IsValid)
+            {
+                this.receitaHandling.registerReceita(receita);
+            }
+                
+            return View(receita);
+        }
+
+        [HttpPost]
+        public IActionResult CommentReceita([Bind] Comentario comentario)
         {
             int count = comentarioHandling.countComentarios();
             //comentario.IdReceita = ;
