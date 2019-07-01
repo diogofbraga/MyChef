@@ -1,14 +1,15 @@
 # MyChef
-Project for Software Engineering class
+Project for Software Engineering class.
 
-Repositórios de referência:
-- https://github.com/hugocarvalho9/li4-1617
-- https://github.com/jcp19/mnham-mnham
-- https://github.com/vitorindeep/babysitting-system
+This project was carried out in the second semester of the third year of informatics engineering course at University of Minho. [2018-2019]
 
-Links de possível interesse:
-- http://comidas-tipicas.info/comidas-do-mundo/comida-italiana.html
-- https://www.pingodoce.pt/coleccoes/receitas-italianas/
+The main purpose of the project was to develop a software product, going through the various stages, more precisely the fundamentals, the specification and finally the construction.
 
-Link do repo do stor de ASP:
-- https://github.com/brunobmo/ASP.NET-Training
+The end result is a site that gently guides its users when it comes to cooking, describing each step individually and giving useful information about each situation.
+
+This project was developed by me and my colleagues, respectively:
+
+- https://github.com/diogofbraga
+- https://github.com/ricardofsc10
+- https://github.com/ricardomilhazes
+- https://github.com/RicardoJSFerreira
